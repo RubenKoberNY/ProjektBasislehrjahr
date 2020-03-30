@@ -103,8 +103,6 @@ $app->post("/api/register", function(Request $request, Response $response, array
 
 });
 
-$app->get("/debug/{password}", function(Request $request, Response $response, array $args){
-    echo password_hash($args["password"], PASSWORD_DEFAULT);
-});
+
 $app->run();
 
