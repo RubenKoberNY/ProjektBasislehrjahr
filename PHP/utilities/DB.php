@@ -1,9 +1,5 @@
 <?php
-
-define("db_host", "45.81.233.119");
-define("db_user", "testing");
-define("db_pwd", "Ha you thought you would see the password here?");
-define("db_dbname", "corona_prototype");
+include 'db_config.php';
 
 class DB
 {
