@@ -1,5 +1,4 @@
 <?php
-
     class UserController {
         private $userRepository = null;
         public function __construct() {
@@ -8,13 +7,18 @@
 
         //Author: Ruben & Jan
         public function login($username, $password){
-            $hash = password_hash($password, PASSWORD_DEFAULT);
             $uidAndPassword = $this->userRepository->getUserIdAndPasswordFromUserName($username);
-            if($hash==$uidAndPassword[1]){
+
+            if($uidAndPassword != null && password_verify($password, $uidAndPassword[1])){
+
                 if(session_status() == PHP_SESSION_NONE)
                     session_start();
                 session_unset();
                 $_SESSION["uid"] = $uidAndPassword[0];
+                Utils::redirect("/dashboard");
+            }else{
+                Utils::redirect("/login", 401);
+
             }
         }
 }

@@ -58,7 +58,6 @@ $uri = $_SERVER["REQUEST_URI"]; //get the request uri
 
 $allowed = array("/login", "/api/login", "/api/register", "/register", "/"); //all pages that can be visited without login
 if (!in_array($uri, $allowed) && !isset($_SESSION["uid"])) { //redirect to login if requested page requires a user
-    //TODO: uncomment next line(line is only a comment because login isn't working yet)
     //Utils::redirect("/login", 401);
 }
 $c = new \Slim\Container();
@@ -84,6 +83,9 @@ $app->get("/quiz/{quiz}", function (Request $request, Response $response, array 
     Render::render($args["quiz"] . "/quiz.html", $args["quiz"] . "/style.css", $args["quiz"] . "/script.js");
 });
 
+$app->get("/dashboard", function(Request $request, Response $response, array $args){
+   echo "Login successful";
+});
 // Login Frontend
 $app->get("/login", function(Request $request, Response $response, array $args ){
     Render::render("general/login.html");
@@ -103,6 +105,9 @@ $app->post("/api/register", function(Request $request, Response $response, array
 
 });
 
+$app->get("/debug/hash/{text}", function(Request $request, Response $response, array $args){
+   echo password_hash($args['text'], PASSWORD_DEFAULT);
+});
 
 $app->run();
 
