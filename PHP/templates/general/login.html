@@ -1,18 +1,27 @@
-<form action="/api/login" method="post">
+<div class="row">
+    <div class="col s1">
+        <form action="/api/login" method="post">
+            <label><b>Username</b></label>
+            <input name="username" type="text" placeholder="Enter Username" required>
 
-    <label><b>Username</b></label>
-    <input name="username" type="text" placeholder="Enter Username" required>
+            <label><b>Password</b></label>
+            <input name="password" type="password" placeholder="Enter Password" required>
+            <input type="submit" value="Login"/>
 
-    <label><b>Password</b></label>
-    <input name="password" type="password" placeholder="Enter Password" required>
-    <input  type="submit" value="Login" />
-
-<!--<span class="psw">Forgot <a href="#">password?</a></span>
-
-
-you dont need this if we dont even got an email!
+            <!--<span class="psw">Forgot <a href="#">password?</a></span>
 
 
--->
+            you dont need this if we dont even got an email!
 
-</form>
+
+            -->
+
+        </form>
+    </div>
+    <div class="col s1">
+        <form action="/api/idlogin" method="post">
+            <input name="id" type="text" placeholder="Enter your GameID" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</div>

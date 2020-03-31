@@ -56,7 +56,7 @@ if (isset($_SESSION["login"])) {
         $userController = new UserController();
         $userController->logout();
     }
-} else {
+}else{
     $userController = new UserController();
     $userController->logout();
 }
@@ -93,38 +93,37 @@ $app->get("/quiz/{quiz}", function (Request $request, Response $response, array 
 $app->get("/dashboard", function (Request $request, Response $response, array $args) {
     echo "Login successful";
 });
-
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
-    if (isset($_SESSION["uid"]))
+    if(isset($_SESSION["uid"]))
         Utils::redirect("/");
     Render::render("general/login.html");
 });
-
 //Register Frontend
 $app->get("/register", function (Request $request, Response $response, array $args) {
     Render::render("general/register.html");
 });
-
-$app->get("/logout", function (Request $request, REsponse $response, array $args) {
-    $userController = new UserController();
-    $userController->logout();
+$app->get("/logout", function(Request $request, REsponse $response, array $args){
+   $userController = new UserController();
+   $userController->logout();
 });
-
 //API
 $app->post("/api/login", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
     $userController->login($_POST["username"], $_POST["password"]);
 });
 
-$app->post("/api/logout", function (Request $request, Response $response, array $args) {
+$app->post("/api/logout", function(Request $request, Response $response, array $args){
     $userController = new UserController();
     $userController->logout();
 });
 
+$app->post("/api/idlogin", function(Request $request, Response $response, array $args){
+
+});
 $app->post("/api/register", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
-    $userController->register($_POST["first_name"], $_POST["last_name"], $_POST["username"], $_POST["password"]);
+    $userController->register($_POST["first_name"],$_POST["last_name"],$_POST["username"],$_POST["password"]);
 });
 
 $app->get("/debug/hash/{text}", function (Request $request, Response $response, array $args) {
