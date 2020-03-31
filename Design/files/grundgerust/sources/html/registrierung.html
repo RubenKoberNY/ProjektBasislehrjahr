@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0">
+
+    <!--import custom css-->
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/registrierung.css">
+
+    <!--import materialize.css-->
+    <link rel="stylesheet" href="../css/materialize.css">
+
+    <!--import normalize.css-->
+    <link rel="stylesheet" href="../css/normalize.css">
+    <!--import icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Registrierung</title>
+</head>
+<body>
+<div id="content">
+
+    <div class="registrierungsContainer">
+        <div class="row">
+            <div class="col s12">
+                <div class="row" style="padding: 20px">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">Nickname</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" id=passwort type="text" class="validate">
+                        <label for="passwort">Passwort</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" id="passwort_wiederholen" type="text" class="validate">
+                        <label for="passwort_wiederholen">Passwort wiederholen</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input placeholder="Placeholder" id="email" type="text" class="validate">
+                        <label for="email">E-Mail</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="buttonRegister waves-effect waves-light btn-large circle" type="button" style="margin-top: -20px">
+            Registrieren
+        </button>
+        <p>
+            <label>
+                <input type="checkbox" class="filled-in" checked="checked"/>
+                <span>AGB</span>
+            </label>
+        </p>
+    </div>
+</div>
+</body>
+
+<!--import materialize.js-->
+<script src="../js/materialize.js"></script>
+
+</html>

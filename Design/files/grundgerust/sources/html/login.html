@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0">
+
+    <!--import icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--import custom css-->
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <!--import materialize.css-->
+    <link rel="stylesheet" href="../css/materialize.css">
+    <!--import normalize.css-->
+    <link rel="stylesheet" href="../css/normalize.css">
+    <title>Login</title>
+</head>
+<body>
+<div class="container ">
+    <!--Login Form-->
+    <div id="loginForm" class="section row">
+        <form class="col offset-l3 l6 offset-s1 s10 offset-m2 m8  grey darken-2">
+            <!--Username-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="loginUsername" type="text">
+                    <label for="loginUsername">Username</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="loginPassword" type="password">
+                    <label for="loginPassword">Passwort</label>
+                </div>
+            </div>
+
+            <!-- Log-In Button-->
+            <div class="center-align">
+                <a id="loginButton" class="col offset-s4 s4 waves-effect waves-light btn modal-trigger " href="#indexForm">Log In</a>
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <!-- "Noch keinen Account" -->
+            <div class="center-align">
+                <div class="container center">
+                    <p class="white-text">Noch keinen Account?</p>
+                </div>
+
+                <!--Register Button-->
+                <!-- Modal Button. Used for showing registration form-->
+                <a id="registerButton" class="col offset-s4 s4 waves-effect waves-light btn modal-trigger " href="#registrationForm">Registrieren</a>
+            </div>
+            <br>
+
+            <!--GameID Button-->
+            <div class="center-align">
+                <!-- Modal Button. Used for showing GameID-Dialog -->
+                <a id="gameIDButton" class="col offset-s4 s4 waves-effect waves-light btn modal-trigger " href="#gameidForm">GameID</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+<!-- Modal Body aka registration form -->
+<div id="registrationForm" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align">Registrieren</h4>
+        <div class="col s6">
+            <form>
+                <div class="row">
+                    <div class="input-field col m6 s12">
+                        <input id="firstname" type="text" class="validate">
+                        <label for="firstname">Vorname</label>
+                    </div>
+                    <div class="input-field col m6 s12">
+                        <input id="lastname" type="text" class="validate">
+                        <label for="lastname">Nachname</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="username" type="text" class="validate">
+                        <label for="username">Benutzername</label>
+                    </div>
+                    <div class="input-field col m6 s12">
+                        <input id="registerPassword" type="password" data-length="8">
+                        <label for="registerPassword">Passwort</label>
+                    </div>
+                    <div class="input-field col m6 s12">
+                        <input id="confirmPassword" type="password" class="validate">
+                        <label for="confirmPassword">Passwort wiederholen</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">E-Mail</label>
+                    </div>
+
+                    <!--Select Gender-->
+                    <div id="genderSelection" class="input-field col s12">
+                        <p>
+                            Geschlecht
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="male" type="radio"/>
+                                <span>Männlich</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" name="female" type="radio"/>
+                                <span>Weiblich</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" name="other" type="radio"/>
+                                <span>Andere</span>
+                            </label>
+                        </p>
+                        <div class="input-field col s12">
+                            <button type="submit" class="waves-effect waves-light btn">Registrieren</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Abbrechen</a>
+    </div>
+</div>
+
+
+<!-- Modal Body aka GameID form -->
+<div id="gameidForm" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align">GameID</h4>
+        <div class="col s6">
+            <form class="center-align">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="gameid" type="text" class="validate">
+                        <label for="gameid">GameID</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <button type="submit" class="waves-effect waves-light btn">Quiz beitreten</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--TODO: change Link -->
+    <div class="modal-footer">
+        <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Abbrechen</a>
+    </div>
+</div>
+
+<!--import jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+<!--import materialize.js-->
+<script src="../js/materialize.js"></script>
+
+<!--custom JS-->
+<script src="../js/login.js"></script>
+</body>
+</html>

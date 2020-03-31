@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee45287f-a047-49f2-98ec-92eba4157132" name="Default Changelist" comment="" />
+    <list default="true" id="778481b4-334c-4ebf-a7d7-b2050f19f51d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,10 +12,10 @@
       <executable />
     </execution>
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="files" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1ZLh7yxZfrOdyn5I1Fb0NGq8ohm" />
+  <component name="ProjectId" id="1ZRIWi5UsqtFqcszqptD5b3ommQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -24,20 +24,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/Coding/ChatApplication/files" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ee45287f-a047-49f2-98ec-92eba4157132" name="Default Changelist" comment="" />
-      <created>1584624117907</created>
+      <changelist id="778481b4-334c-4ebf-a7d7-b2050f19f51d" name="Default Changelist" comment="" />
+      <created>1584795512084</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1584624117907</updated>
-      <workItem from="1584624119060" duration="695000" />
-      <workItem from="1584624817814" duration="102000" />
+      <updated>1584795512084</updated>
+      <workItem from="1584795513202" duration="762000" />
     </task>
     <servers />
   </component>
@@ -45,9 +44,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1060" y="441" key="FileChooserDialogImpl" timestamp="1584624912873">
+    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1584796779128">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1060" y="441" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1584624912873" />
+    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1584796779128" />
   </component>
 </project>
