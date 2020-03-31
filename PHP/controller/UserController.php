@@ -5,6 +5,7 @@
             $this->userRepository = new UserRepository();
         }
 
+
         //Author: Ruben & Jan
         public function login($username, $password){
             $uidAndPassword = $this->userRepository->getUserIdAndPasswordFromUserName($username);
