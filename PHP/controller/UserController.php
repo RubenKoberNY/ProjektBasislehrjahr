@@ -13,12 +13,21 @@
 
                 if(session_status() == PHP_SESSION_NONE)
                     session_start();
-                session_unset();
+                $_SESSION=array();
                 $_SESSION["uid"] = $uidAndPassword[0];
+                $_SESSION["login"] = time();
                 Utils::redirect("/dashboard");
             }else{
                 Utils::redirect("/login", 401);
-
             }
+        }
+
+        //Author: Jan
+        public function logout(){
+            if(session_status() == PHP_SESSION_NONE)
+                session_start();
+            $_SESSION=array();
+            $_SESSION["login"] = time();
+            Utils::redirect("/login");
         }
 }

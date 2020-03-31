@@ -3,6 +3,7 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Slim\Http\UploadedFile;
+
 //UTILITIES
 require "utilities/Render.php";
 require "utilities/Utils.php";
@@ -50,15 +51,21 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $timeout = 1800; //set session timeout in seconds
 
-if (isset($_SESSION["login"]) && $_SESSION["login"] - time() < (-1 * $timeout)) { //set the session timeout
-    $_SESSION = array(); //reset session array
+if (isset($_SESSION["login"])) {
+    if ($_SESSION["login"] - time() < (-1 * $timeout)) { //set the session timeout
+        $userController = new UserController();
+        $userController->logout();
+    }
+}else{
+    $userController = new UserController();
+    $userController->logout();
 }
 
 $uri = $_SERVER["REQUEST_URI"]; //get the request uri
 
 $allowed = array("/login", "/api/login", "/api/register", "/register", "/"); //all pages that can be visited without login
 if (!in_array($uri, $allowed) && !isset($_SESSION["uid"])) { //redirect to login if requested page requires a user
-    //Utils::redirect("/login", 401);
+    Utils::redirect("/login", 401);
 }
 $c = new \Slim\Container();
 
@@ -67,7 +74,7 @@ $c['notFoundHandler'] = function ($c) {
     return function ($request, $response) use ($c) {
         return $response->withStatus(404)
             ->withHeader('Content-Type', 'text/html')
-            ->write('<script>window.location="/quiz/notfound"</script>');//i bi ä  boum
+            ->write('<script>window.location="/quiz/notfound"</script>');
     };
 };
 
@@ -83,30 +90,40 @@ $app->get("/quiz/{quiz}", function (Request $request, Response $response, array 
     Render::render($args["quiz"] . "/quiz.html", $args["quiz"] . "/style.css", $args["quiz"] . "/script.js");
 });
 
-$app->get("/dashboard", function(Request $request, Response $response, array $args){
-   echo "Login successful";
+$app->get("/dashboard", function (Request $request, Response $response, array $args) {
+    echo "Login successful";
 });
 // Login Frontend
-$app->get("/login", function(Request $request, Response $response, array $args ){
+$app->get("/login", function (Request $request, Response $response, array $args) {
+    if(isset($_SESSION["uid"]))
+        Utils::redirect("/");
     Render::render("general/login.html");
 });
 //Register Frontend
-$app->get("/register", function(Request $request, Response $response, array $args){
+$app->get("/register", function (Request $request, Response $response, array $args) {
     Render::render("general/register.html");
 });
-
+$app->get("/logout", function(Request $request, REsponse $response, array $args){
+   $userController = new UserController();
+   $userController->logout();
+});
 //API
-$app->post("/api/login", function (Request $request, Response $response, array $args){
+$app->post("/api/login", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
     $userController->login($_POST["username"], $_POST["password"]);
 });
 
-$app->post("/api/register", function(Request $request, Response $response, array $args){
+$app->post("/api/logout", function(Request $request, Response $response, array $args){
+    $userController = new UserController();
+    $userController->logout();
+});
+
+$app->post("/api/register", function (Request $request, Response $response, array $args) {
 
 });
 
-$app->get("/debug/hash/{text}", function(Request $request, Response $response, array $args){
-   echo password_hash($args['text'], PASSWORD_DEFAULT);
+$app->get("/debug/hash/{text}", function (Request $request, Response $response, array $args) {
+    echo password_hash($args['text'], PASSWORD_DEFAULT);
 });
 
 $app->run();
