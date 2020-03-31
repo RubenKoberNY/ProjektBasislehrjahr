@@ -7,19 +7,27 @@ class UserRepository
 
     }
 
+    //Author: Ruben, Jan
     public function getUserIdAndPasswordFromUserName($username)
     {
         $sql = "SELECT id_benutzer, passwort FROM benutzer WHERE benutzername = ?;";
         $stmt = DB::getInstance()->prepare($sql);
         $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            return $result->fetch_row();
-        } else {
-            return null;
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                return $result->fetch_row();
+            }
         }
+        return null;
     }
 
-
+    //Author: Michelle
+    public function insertUser($firstname, $lastname, $username, $password)
+    {
+        $sql = "INSERT INTO user (firstname, lastname username, pwd) VALUES (?, ?, ?, ?);";
+        $stmt = DB::getInstance()->prepare($sql);
+        $stmt->bind_param("ssss", $firstname, $lastname, $username, $password);
+        return $stmt->execute();
+    }
 }
