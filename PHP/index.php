@@ -118,6 +118,9 @@ $app->post("/api/logout", function(Request $request, Response $response, array $
     $userController->logout();
 });
 
+$app->post("/api/idlogin", function(Request $request, Response $response, array $args){
+
+});
 $app->post("/api/register", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
     $userController->register($_POST["first_name"],$_POST["last_name"],$_POST["username"],$_POST["password"]);
