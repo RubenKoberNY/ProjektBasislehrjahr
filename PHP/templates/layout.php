@@ -50,12 +50,22 @@
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Big-Five</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Cooper</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Einbürgerung</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Grosszügigkeit</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Händigkeit</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Job</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Lateralisation</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Lerntyp</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Liegestütze</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Lineal</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Maximisierung</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Risiko</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Selbstbewusstsein</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Self-Leadership</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Social Media süchtig?</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Sit and reach</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Social-Media-Sucht</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Storch</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Temperament</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Vertical Jump</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Wer wird Millionär?</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Work-Life</a>
             <img class="logoImage" src="/templates/static/img/logo.gif">
