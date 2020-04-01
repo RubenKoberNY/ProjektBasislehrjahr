@@ -81,7 +81,7 @@
 </body>
 
 <!--import jQuery-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="/templates/static/js/jquery.min.js"></script>
 
 <!--custom JS-->
 <script src="/templates/static/js/script.js"></script>
