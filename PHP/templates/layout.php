@@ -2,31 +2,20 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>HomeOffice</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/templates/static/css/materialize.min.css">
-    <!--style-->
-</head>
-<body>
-
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;">
     <meta name="author" content="TeamDesign"/>
 
     <!--custom css-->
-    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/main.css"/>
 
     <!--import materialize.css-->
-    <link rel="stylesheet" type="text/css" href="../css/materialize.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/materialize.min.css"/>
 
     <!--import normalize.css-->
-    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/normalize.css">
 
     <!--import hover.css-->
-    <link rel="stylesheet" type="text/css" href="../css/hover-min.css">
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/hover-min.css">
 
     <!--import google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -34,7 +23,9 @@
     <!--import icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Project:HomeOffice - Auswertung</title>
+    <!--style-->
+
+    <title>Project:HomeOffice</title>
 </head>
 <body>
 
@@ -50,7 +41,6 @@
             </div>
         </div>
     </div>
-
     <!--sidebar-->
     <div id="sidebar" class="sidebar grey darken-4">
         <div class="sidebar_content">
@@ -68,7 +58,7 @@
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Social Media süchtig?</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Wer wird Millionär?</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Work-Life</a>
-            <img class="logoImage" src="../img/logo.gif">
+            <img class="logoImage" src="/templates/static/img/logo.gif">
             <a onclick="toggleSidebar()" href="#"></a>
         </div>
     </div>
@@ -84,10 +74,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
 <!--custom JS-->
-<script src="../js/script.js"></script>
+<script src="/templates/static/js/script.js"></script>
 
 <!--import materialize.js-->
-<script src="../js/materialize.js"></script>
+<script src="/templates/static/js/materialize.js"></script>
 
 <!--dropdown menu-->
 <script>
