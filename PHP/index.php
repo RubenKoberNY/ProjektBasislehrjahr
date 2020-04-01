@@ -136,4 +136,3 @@ $app->get("/debug/hash/{text}", function (Request $request, Response $response, 
 });
 
 $app->run();
-
