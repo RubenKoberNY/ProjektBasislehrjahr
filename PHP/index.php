@@ -82,7 +82,7 @@ $c['notFoundHandler'] = function ($c) {
 $app = new \Slim\App($c);
 
 $app->get('/', function (Request $request, Response $response, array $args) {
-    if (isset($_POST["uid"])) {
+    if (isset($_SESSION["uid"])) {
         Utils::redirect("/dashboard");
     } else {
         Utils::redirect("/login");
@@ -95,7 +95,7 @@ $app->get("/quiz/{quiz}", function (Request $request, Response $response, array 
 });
 
 $app->get("/dashboard", function (Request $request, Response $response, array $args) {
-    echo "Login successful";
+    Render::render("general/index.html");
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
@@ -136,4 +136,3 @@ $app->get("/debug/hash/{text}", function (Request $request, Response $response, 
 });
 
 $app->run();
-
