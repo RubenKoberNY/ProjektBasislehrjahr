@@ -95,7 +95,7 @@ $app->get("/quiz/{quiz}", function (Request $request, Response $response, array 
 });
 
 $app->get("/dashboard", function (Request $request, Response $response, array $args) {
-    echo "Login successful";
+    Render::render("general/index.html");
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
