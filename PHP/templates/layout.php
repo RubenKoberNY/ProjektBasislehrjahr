@@ -44,7 +44,7 @@
         <div class="sidebar_content">
             <!--insert links to quiz -->
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/ayurveda">Ayurveda</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/bekanntheitstest">Bekanntheitstest</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/bekanntheit">Bekanntheitstest</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/thebigfive">Big-Five</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/cooper">Cooper</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/einbuergerung">Einbürgerung</a>
