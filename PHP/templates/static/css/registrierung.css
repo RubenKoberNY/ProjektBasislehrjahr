@@ -1,0 +1,58 @@
+html * {
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+    background-color: rgba(233, 233, 233, 0.5);
+    height: 100%;
+}
+
+/*
+=====================================
+classes
+=====================================
+*/
+.registrierungsContainer {
+    background-color: #d3d3d3;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    height: 450px;
+    width: 350px;
+    text-align: center;
+}
+
+.modal {
+    max-height: 90% !important;
+}
+/*
+=====================================
+IDs
+=====================================
+*/
+#content {
+    display: flex;
+}
+
+/*
+=====================================
+buttons
+=====================================
+*/
+.buttonRegister {
+    padding: 0 !important;
+    width: 140px;
+    border-radius: 27px !important;
+}
+
+.btn, .btn-large, .btn-small {
+    background-color: #5b90d9 !important;
+}
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #26a69a !important;
+}

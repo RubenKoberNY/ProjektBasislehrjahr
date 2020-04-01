@@ -1,0 +1,382 @@
+html * {
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+/*
+=====================================
+classes
+=====================================
+*/
+.active {
+    color: #F6F8F8;
+    text-decoration: none;
+    font-size: 16px;
+}
+.welcome {
+    color: #000000;
+    text-shadow: 1px 1px #a9a9a9;
+    text-decoration: none;
+    margin-top: 5%;
+    margin-left: 25%;
+}
+/*make it responsive*/
+@media only screen and (max-width: 600px) {
+    .welcome {
+        margin-top: 10% !important;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .welcome {
+        margin-top: 7.5%;
+    }
+}
+.flex-container {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+
+}
+
+
+/*
+=====================================
+topnav
+=====================================
+*/
+#topnav {
+    height: 64px !important;
+    line-height: 0px;
+    width: 100%;
+    vertical-align: middle !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+/*burgerIconSection*/
+#burgerIconSection {
+    align-self: center;
+    position: sticky;
+    margin-left: 15px;
+    z-index: 1000000;
+    display: block;
+}
+#burger-icon {
+    width: 50px;
+    padding: 7px;
+    cursor: pointer;
+}
+.change .bar1 {
+    /*ensure compatibility with older versions of chrome, safari and opera*/
+    -webkit-transform: rotate(45deg) translate(5px, 8px);
+    /*ensure compatibility with older versions of edge and IE*/
+    -ms-transform: rotate(45deg) translate(5px, 8px);
+    /*ensure compatibility with older versions of firefox*/
+    -moz-transform: rotate(45deg) translate(5px, 8px);
+    transform: rotate(45deg) translate(5px, 8px);
+}
+.change .bar2 {
+    opacity: 0;
+}
+.change .bar3 {
+    /*ensure compatibility with older versions of chrome, safari and opera*/
+    -webkit-transform: rotate(-45deg) translate(3px, -7px);
+    /*ensure compatibility with older versions of edge and IE*/
+    -ms-transform: rotate(-45deg) translate(3px, -7px);
+    /*ensure compatibility with older versions of firefox*/
+    -moz-transform: rotate(-45deg) translate(3px, -7px);
+    transform: rotate(-45deg) translate(3px, -7px);
+}
+.bar1,
+.bar2,
+.bar3 {
+    background-color: #FFFFFF;
+    height: 3px;
+    width: 27px;
+    margin: 5px;
+    transition: 0.4s;
+    /*padding: 0 5px 0 5px;*/
+}
+/*searchSection*/
+#searchbox.container {
+    position: absolute;
+    left: 60%;
+    top: 30%;
+    transform: translate(-50%);
+}
+.search-box {
+    max-width: 250px;
+}
+.search-box input[type="text"] {
+    border: none;
+    background: none;
+    z-index: 1;
+    width: 25px;
+    height: 25px;
+    transition: all 0.25s ease-in 0.25s;
+    color: transparent;
+}
+.search-box input[type="text"]:hover {
+    cursor: pointer;
+}
+.search-box input[type="text"]:hover:focus {
+    cursor: text;
+}
+.search-box input[type="text"]:hover + span {
+    background: #292b2c;
+}
+.search-box input[type="text"]:focus {
+    width: 200px;
+    padding: 0 10px;
+    outline: none;
+    color: #ffffff;
+}
+.search-box input[type="text"]:focus + span {
+    width: 225px;
+}
+.search-box input[type="text"]:focus + span::before {
+    width: 2px;
+    opacity: 0;
+    transition: all 0.25s ease-in;
+}
+.search-box input[type="text"] + span {
+    z-index: -1;
+    position: absolute;
+    border: 1.5px solid #ffffff;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    transition: all 0.25s ease-in 0.25s;
+    border-radius: 25px;
+    left: 0;
+}
+.search-box input[type="text"] + span::before {
+    transition: all 0.25s ease-in 0.5s;
+    transform-origin: left top;
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    border-radius: 5px;
+    background: #d8d8d9;
+    transform: rotate(45deg) translate(26px, -2px);
+}
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+@media screen and (min-width: 800px) {
+    input:not([type]),
+    input[type=text]:not(.browser-default),
+    input[type=password]:not(.browser-default),
+    input[type=email]:not(.browser-default),
+    input[type=url]:not(.browser-default),
+    input[type=time]:not(.browser-default),
+    input[type=date]:not(.browser-default),
+    input[type=datetime]:not(.browser-default),
+    input[type=datetime-local]:not(.browser-default),
+    input[type=tel]:not(.browser-default),
+    input[type=number]:not(.browser-default),
+    input[type=search]:not(.browser-default),
+    textarea.materialize-textarea {
+        border: none !important;
+        height: 1.75rem !important;
+    }
+}
+@media screen and (max-width: 800px) {  /* hide search-box if screen-width < 800px */
+    .search-box {
+        display: none !important;
+    }
+}
+/*userSection*/
+#userSection{
+    justify-content: center;
+}
+/*user avatar*/
+#avatar {
+    position: absolute;
+    right: 20px;
+    max-width: 100%;
+    width: auto;
+    height: 80%;
+    align-self: center;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: thin;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    top: 10%;
+}
+/*username styles*/
+.username {
+    position: absolute;
+    top: 2.25em;
+    right: 85px;
+}
+/*make it responsive*/
+@media only screen and (max-width: 600px) {
+    .username {
+        margin-left: 25%;
+    }
+}
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+    .username {
+        margin-left: 40%;
+    }
+}
+@media only screen and (min-width: 800px) and (max-width: 1024px) {
+    .username {
+        margin-left: 66% !important;
+    }
+}
+@media only screen and (min-width: 1025px) {
+    .username {
+        margin-left: 75%;
+    }
+}
+
+/*
+=================================
+sidebar
+=================================
+*/
+.sidebar {
+    background-color: rgba(41, 43, 44, .9375);
+    height: 100%;
+    position: fixed;
+    top: 64px;
+    right: 0;
+    width: 100%;
+    color: #FFFFFF;
+    transform: translateX(-100%) !important;
+    transition: 400ms;
+    text-align: right;
+    font-size: 16px;
+    z-index: 999999;
+}
+/*create a class that can be added to the sidebar via JavaScript*/
+.sidebar_visible {
+    transform: translateX(-75%) !important;
+    transition: 400ms;
+}
+.sidebar_content {
+    overflow-x: hidden;
+}
+/*make it responsive*/
+@media screen and (max-width: 800px) {
+    .sidebar_visible {
+        transform: translateX(-50%) !important;
+    }
+}
+/*style menu items*/
+.menu-item {
+    color: #bdbdbd;
+    text-decoration: none;
+    display: block;
+    border-bottom: 0.05em solid #ffffff;
+    padding-right:  16px;
+    min-height: 50px;
+    width: 100%;
+}
+.menu-item:first-child {
+    border-bottom: 0.05em solid #ffffff;
+}
+
+/*
+=================================
+sidebar hover
+=================================
+*/
+.menu-item:hover {
+    color: #ffffff;
+    background-color: #2b2b2b;
+    border: none;
+}
+.hvr-underline-from-left:before {
+    background: #5b90d9 !important;
+}
+
+/*
+=================================
+animation <img> scale-up-center
+=================================
+*/
+.scale-up-center {
+    -webkit-animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    border-radius: 0.5em;
+}
+@-webkit-keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+/*
+=================================
+animation <p> text-focus-in
+=================================
+*/
+.text-focus-in {
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+#example {
+    padding-left: 25%;
+}
+@-webkit-keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+@keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
