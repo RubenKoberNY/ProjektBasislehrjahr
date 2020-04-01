@@ -82,7 +82,7 @@ $c['notFoundHandler'] = function ($c) {
 $app = new \Slim\App($c);
 
 $app->get('/', function (Request $request, Response $response, array $args) {
-    if (isset($_POST["uid"])) {
+    if (isset($_SESSION["uid"])) {
         Utils::redirect("/dashboard");
     } else {
         Utils::redirect("/login");
