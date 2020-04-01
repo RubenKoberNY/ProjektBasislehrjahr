@@ -1,24 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0">
 
+    <!--import icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--import custom css-->
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/login.css">
+    <!--import materialize.css-->
+    <link rel="stylesheet" href="/templates/static/css/materialize.css">
+    <!--import normalize.css-->
+    <link rel="stylesheet" href="/templates/static/css/normalize.css">
+    <title>Login</title>
+</head>
+<body>
+<div class="container ">
     <!--Login Form-->
     <div id="loginForm" class="section row">
-        <form class="col offset-l3 l6 offset-s1 s10 offset-m2 m8  grey darken-2">
+        <form action="/api/login" method="POST" class="col offset-l3 l6 offset-s1 s10 offset-m2 m8  grey darken-2">
             <!--Username-->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="loginUsername" type="text">
+                    <input name="username" id="loginUsername" type="text" maxlength="45" required="" aria-required="true">
                     <label for="loginUsername">Username</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="loginPassword" type="password">
+                    <input name="password" id="loginPassword" type="password" required="" aria-required="true">
                     <label for="loginPassword">Passwort</label>
                 </div>
             </div>
 
             <!-- Log-In Button-->
             <div class="center-align">
-                <a id="loginButton" class="col offset-s4 s4 waves-effect waves-light btn modal-trigger " href="#indexForm">Log In</a>
+                <button id="loginButton" class="col offset-s4 s4 waves-effect waves-light btn modal-trigger ">Log In</button>
             </div>
             <br>
             <br>
@@ -50,31 +67,27 @@
     <div class="modal-content">
         <h4 class="center-align">Registrieren</h4>
         <div class="col s6">
-            <form>
+            <form action="/api/register" method="POST">
                 <div class="row">
                     <div class="input-field col m6 s12">
-                        <input id="firstname" type="text" class="validate">
+                        <input name="first_name" id="firstname" type="text" class="validate" maxlength="45" required="" aria-required="true">
                         <label for="firstname">Vorname</label>
                     </div>
                     <div class="input-field col m6 s12">
-                        <input id="lastname" type="text" class="validate">
+                        <input name="last_name" id="lastname" type="text" class="validate" maxlength="45" required="" aria-required="true">
                         <label for="lastname">Nachname</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="username" type="text" class="validate">
+                        <input name="username" id="username" type="text" class="validate" maxlength="45" required="" aria-required="true">
                         <label for="username">Benutzername</label>
                     </div>
                     <div class="input-field col m6 s12">
-                        <input id="registerPassword" type="password" data-length="8">
+                        <input name="password" id="registerPassword" type="password" data-length="8" required="" aria-required="true">
                         <label for="registerPassword">Passwort</label>
                     </div>
                     <div class="input-field col m6 s12">
-                        <input id="confirmPassword" type="password" class="validate">
+                        <input id="confirmPassword" type="password" class="validate" required="" aria-required="true">
                         <label for="confirmPassword">Passwort wiederholen</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">E-Mail</label>
                     </div>
 
                     <!--Select Gender-->
@@ -84,7 +97,7 @@
                         </p>
                         <p>
                             <label>
-                                <input class="with-gap" name="male" type="radio"/>
+                                <input class="with-gap" name="male" type="radio" checked="checked"/>
                                 <span>Männlich</span>
                             </label>
                             <label>
@@ -118,7 +131,7 @@
             <form class="center-align">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="gameid" type="text" class="validate">
+                        <input id="gameid" type="text" class="validate" maxlength="8" required="" aria-required="true">
                         <label for="gameid">GameID</label>
                     </div>
                     <div class="input-field col s12">
@@ -134,3 +147,14 @@
         <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Abbrechen</a>
     </div>
 </div>
+
+<!--import jQuery-->
+<script src="/templates/static/js/jquery.min.js"></script>
+
+<!--import materialize.js-->
+<script src="/templates/static/js/materialize.js"></script>
+
+<!--custom JS-->
+<script src="/templates/static/js/login.js"></script>
+</body>
+</html>

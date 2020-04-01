@@ -45,7 +45,7 @@ class UserController
         if ($inserted) {
             Utils::redirect("/login");
         } else {
-            Utils::redirect("/register");
+            Utils::redirect("/login");
         }
     }
 }
