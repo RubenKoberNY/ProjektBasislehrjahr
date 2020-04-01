@@ -101,7 +101,7 @@ $app->get("/dashboard", function (Request $request, Response $response, array $a
 $app->get("/login", function (Request $request, Response $response, array $args) {
     if (isset($_SESSION["uid"]))
         Utils::redirect("/");
-    Render::render("general/login.html", "static/css/login.css", "static/js/login.js");
+    Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
 });
 /*//Register Frontend
 $app->get("/register", function (Request $request, Response $response, array $args) {
