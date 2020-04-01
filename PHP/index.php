@@ -82,8 +82,11 @@ $c['notFoundHandler'] = function ($c) {
 $app = new \Slim\App($c);
 
 $app->get('/', function (Request $request, Response $response, array $args) {
-    $response->getBody()->write("Hello world");
-    return $response;
+    if(isset($_POST["uid"])){
+        Utils::redirect("/dashboard");
+    }else{
+        Utils::redirect("/login");
+    }
 });
 
 //Router
