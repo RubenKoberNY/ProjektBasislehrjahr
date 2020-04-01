@@ -24,6 +24,7 @@ require "repositories/SocialmediaRepository.php";
 require "repositories/TheBigFiveRepository.php";
 require "repositories/WerWirdMillionaerRepository.php";
 require "repositories/WorklifeRepository.php";
+require "repositories/IdRepository.php";
 
 //CONTROLLER
 require "controller/UserController.php";
@@ -40,7 +41,7 @@ require "controller/SocialmediaController.php";
 require "controller/TheBigFiveController.php";
 require "controller/WerWirdMillionaerController.php";
 require "controller/WorklifeController.php";
-
+require "controller/IdController.php";
 
 require './vendor/autoload.php';
 
@@ -63,7 +64,7 @@ if (isset($_SESSION["login"])) {
 
 $uri = $_SERVER["REQUEST_URI"]; //get the request uri
 
-$allowed = array("/login", "/api/login", "/api/register", "/register", "/"); //all pages that can be visited without login
+$allowed = array("/login", "/api/login", "/api/register", "/register", "/", "/api/idlogin"); //all pages that can be visited without login
 if (!in_array($uri, $allowed) && !isset($_SESSION["uid"])) { //redirect to login if requested page requires a user
     Utils::redirect("/login", 401);
 }
@@ -119,7 +120,8 @@ $app->post("/api/logout", function(Request $request, Response $response, array $
 });
 
 $app->post("/api/idlogin", function(Request $request, Response $response, array $args){
-
+    $idController = new IdController();
+    $idController->login($_POST["game_id"]);
 });
 $app->post("/api/register", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
