@@ -1,13 +1,31 @@
 var questions;
-var result;
+var result = [];
 
+var currentIndex = 0;
+
+$("#answer1").click(function () {
+    result.push(0);
+    sendIfEnded();
+});
+$("#answer2").click(function () {
+    result.push(1);
+    sendIfEnded();
+});
+$("#answer3").click(function () {
+    result.push(2);
+    sendIfEnded();
+});
+$("#answer4").click(function () {
+    result.push(3);
+    sendIfEnded();
+});
 //region Prototypes
 HTMLElement.prototype.replaceHTML = function (search, replacement) {
     this.innerHTML = this.innerHTML.replace(search, replacement);
 }
 //endregion
 
-questions = getAllQuestions();
+//getAllQuestions();
 questions = [{
     question: "Angenommen, Sie können 20000 € anlegen: Welche Stragetie wählen Sie?",
     answers: [{
@@ -26,7 +44,7 @@ function getAllQuestions() {
         url: "/api/quiz/risiko/get",
         method: "GET"
     }).done(function (result) {
-        return JSON.parse(result);
+        questions = JSON.parse(result);
     });
 }
 
@@ -38,13 +56,10 @@ function sendQuestions() {
     }).done(function (result) {
         console.log(result);
     });
+    //ToDo: redirect to result
 }
 
 //endregion
-
-
-//region Rendering
-var currentIndex = 0;
 
 function renderCurrentQuestion() {
     let answers = questions[currentIndex].answers;
@@ -54,4 +69,10 @@ function renderCurrentQuestion() {
         document.getElementById(answers[i].id).replaceHTML("%%" + answers[i].id + "%%", answers[i].value);
     }
 }
-//endregion
+
+
+function sendIfEnded() {
+    if (result.length = questions.length) {
+        sendQuestions();
+    }
+}
