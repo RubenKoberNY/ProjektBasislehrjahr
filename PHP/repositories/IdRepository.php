@@ -3,11 +3,14 @@
 
 class IdRepository
 {
-    public function getQuizFromGameId($gameId){
-        $sql = "";
+    public function getQuizFromGameId($gameId)
+    {
+        $sql = "CALL getQuizFromGameId(?);";
         $stmt = DB::getInstance()->prepare($sql);
-        if(!$stmt->execute()){
+        $stmt->bind_param("s", $gameId);
+        if (!$stmt->execute()) {
             return false;
         }
+        return $stmt->get_result()->fetch_row();
     }
 }
