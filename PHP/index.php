@@ -50,7 +50,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start(); //start session if not started
 }
 
-$timeout = 1800; //set session timeout in seconds
+$timeout = (24*60*60); //set session timeout in seconds
 
 if (isset($_SESSION["login"])) {
     if ($_SESSION["login"] - time() < (-1 * $timeout)) { //set the session timeout
@@ -127,9 +127,16 @@ $app->post("/api/idlogin", function (Request $request, Response $response, array
     $idController = new IdController();
     $idController->login($_POST["game_id"]);
 });
+
 $app->post("/api/register", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
     $userController->register(trim($_POST["first_name"]), trim($_POST["last_name"]), trim($_POST["username"]), $_POST["password"]);
+});
+
+$app->get("/api/werwirdmillionaer/get", function (Request $request, REsponse $response, array $args) {
+    $werWirdMillionaerController = new WerWirdMillionaerController();
+    $qna = $werWirdMillionaerController->getQuestionsAndAnswers();
+    $response->getBody()->write($qna);
 });
 
 $app->get("/debug/hash/{text}", function (Request $request, Response $response, array $args) {
