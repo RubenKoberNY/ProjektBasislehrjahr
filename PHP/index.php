@@ -57,7 +57,7 @@ if (isset($_SESSION["login"])) {
         $userController = new UserController();
         $userController->logout();
     }
-}else{
+} else {
     $userController = new UserController();
     $userController->logout();
 }
@@ -65,7 +65,7 @@ if (isset($_SESSION["login"])) {
 $uri = $_SERVER["REQUEST_URI"]; //get the request uri
 
 $allowed = array("/login", "/api/login", "/api/register", "/register", "/", "/api/idlogin"); //all pages that can be visited without login
-if (!in_array($uri, $allowed) && !isset($_SESSION["uid"])) { //redirect to login if requested page requires a user
+if ((!in_array($uri, $allowed)) && !isset($_SESSION["uid"])) { //redirect to login if requested page requires a user
     Utils::redirect("/login", 401);
 }
 $c = new \Slim\Container();
@@ -82,9 +82,9 @@ $c['notFoundHandler'] = function ($c) {
 $app = new \Slim\App($c);
 
 $app->get('/', function (Request $request, Response $response, array $args) {
-    if(isset($_POST["uid"])){
+    if (isset($_POST["uid"])) {
         Utils::redirect("/dashboard");
-    }else{
+    } else {
         Utils::redirect("/login");
     }
 });
@@ -99,17 +99,17 @@ $app->get("/dashboard", function (Request $request, Response $response, array $a
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
-    if(isset($_SESSION["uid"]))
+    if (isset($_SESSION["uid"]))
         Utils::redirect("/");
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js");
 });
-//Register Frontend
+/*//Register Frontend
 $app->get("/register", function (Request $request, Response $response, array $args) {
     Render::render("general/register.html", "static/css/registrierung.css");
-});
-$app->get("/logout", function(Request $request, REsponse $response, array $args){
-   $userController = new UserController();
-   $userController->logout();
+});*/
+$app->get("/logout", function (Request $request, REsponse $response, array $args) {
+    $userController = new UserController();
+    $userController->logout();
 });
 //API
 $app->post("/api/login", function (Request $request, Response $response, array $args) {
@@ -117,18 +117,18 @@ $app->post("/api/login", function (Request $request, Response $response, array $
     $userController->login($_POST["username"], $_POST["password"]);
 });
 
-$app->post("/api/logout", function(Request $request, Response $response, array $args){
+$app->post("/api/logout", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
     $userController->logout();
 });
 
-$app->post("/api/idlogin", function(Request $request, Response $response, array $args){
+$app->post("/api/idlogin", function (Request $request, Response $response, array $args) {
     $idController = new IdController();
     $idController->login($_POST["game_id"]);
 });
 $app->post("/api/register", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
-    $userController->register($_POST["first_name"],$_POST["last_name"],$_POST["username"],$_POST["password"]);
+    $userController->register($_POST["first_name"], $_POST["last_name"], $_POST["username"], $_POST["password"]);
 });
 
 $app->get("/debug/hash/{text}", function (Request $request, Response $response, array $args) {

@@ -25,9 +25,9 @@ class UserRepository
     //Author: Michelle
     public function insertUser($firstname, $lastname, $username, $password)
     {
-        $sql = "INSERT INTO user (firstname, lastname username, pwd) VALUES (?, ?, ?, ?);";
+        $sql = "INSERT INTO benutzer (vorname, nachname, benutzername, passwort) VALUES (?, ?, ?, ?);";
         $stmt = DB::getInstance()->prepare($sql);
-        $stmt->bind_param("ssss", $firstname, $lastname, $username, $password);
+        $stmt->bind_param("ssss", $firstname, $lastname, $username, password_hash($password, PASSWORD_DEFAULT));
         return $stmt->execute();
     }
 }
