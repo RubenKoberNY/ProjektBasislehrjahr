@@ -21,5 +21,10 @@ class RisikoController
         echo json_encode($questions);
     }
 
+    public function save($arr)
+    {
+
+    }
+
 
 }
