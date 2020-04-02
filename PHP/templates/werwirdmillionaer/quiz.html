@@ -3,32 +3,35 @@
             <div class="row">
                 <div class="col s12 m6 offset-m3">
                     <div class="progress">
-                        <div class="determinate" style="width: %progress%"></div>
+                        <div id="progress" class="determinate" style="width: 0%"></div>
                     </div>
                 </div>
                 <div class="col s12 m6 offset-m3 center">
-                    <h1>Frage %questionnr%</h1>
+                    <h1 id="questionnr">Frage Lädt...</h1>
                 </div>
                 <div class="col s12 m6 offset-m3 center">
-                    <p>%question%</p>
+                    <p id="question">Lädt...</p>
                 </div>
 
             </div>
-            <div class="row">
-                <div class="col s3 offset-m3">
-                    <button class="btn-large">%pos1%</button>
+            <div class="row pos">
+                <div class="col s6">
+                    <button class="btn-large" id="pos1" onclick="choose(this)">Lädt...</button>
                 </div>
-                <div class="col s3">
-                    <button class="btn-large">%pos2%</button>
-                </div>
-
             </div>
-            <div class="row">
-                <div class="col s3 offset-m3">
-                    <button class="btn-large">%pos3%</button>
+            <div class="row pos">
+                <div class="col s6">
+                    <button class="btn-large" id="pos2" onclick="choose(this)">Lädt...</button>
                 </div>
-                <div class="col s3">
-                    <button class="btn-large">%pos4%</button>
+            </div>
+            <div class="row pos">
+                <div class="col s6">
+                    <button class="btn-large" id="pos3" onclick="choose(this)">Lädt...</button>
+                </div>
+            </div>
+            <div class="row pos">
+                <div class="col s6">
+                    <button class="btn-large" id="pos4" onclick="choose(this)">Lädt...</button>
                 </div>
             </div>
         </div>
