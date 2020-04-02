@@ -6,11 +6,8 @@
 button {
     width: 100%;
 }
-
-@media screen and (max-width: 600px) {
-    .row .col.s3{
-        width: 50%;
-    }
+.pos{
+    width: 200%;
 }
 
 h1{
@@ -20,3 +17,4 @@ h1{
 .valign-wrapper{
     height: calc(100vh - 64px);
 }
+

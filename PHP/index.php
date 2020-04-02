@@ -139,6 +139,10 @@ $app->get("/api/werwirdmillionaer/get", function (Request $request, REsponse $re
     $response->getBody()->write($qna);
 });
 
+$app->get("/api/risiko/get", function (Request $request, Response $response, array $args) {
+    $risikoController = new RisikoController();
+    $risikoController->get();
+});
 $app->get("/debug/hash/{text}", function (Request $request, Response $response, array $args) {
     echo password_hash($args['text'], PASSWORD_DEFAULT);
 });
