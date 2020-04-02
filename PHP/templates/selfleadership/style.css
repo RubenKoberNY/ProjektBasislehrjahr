@@ -36,3 +36,8 @@
   background: #4CAF50; /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
+
+p{
+text-align: center !important;
+margin-left: 100px;  
+}
