@@ -57,9 +57,11 @@ function sendQuestions() {
     $.ajax({
         url: "/api/risiko/post",
         method: "POST",
-        data: result
-    }).done(function (result) {
-        console.log(result);
+        contentType: "application/json",
+        dataType: 'json',
+        data: JSON.stringify(result)
+    }).done(function (res) {
+        console.log(res);
     });
     //ToDo: redirect to result
 }
