@@ -45,19 +45,19 @@
     <div id="sidebar" class="sidebar grey darken-4">
         <div class="sidebar_content">
             <!--insert links to quiz -->
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Ayurveda</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Bekanntheitstest</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Big-Five</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Cooper</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Einbürgerung</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Lerntyp</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Liegestütze</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Maximisierung</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Risiko</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Self-Leadership</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Social Media süchtig?</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Wer wird Millionär?</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Work-Life</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/ayurveda">Ayurveda</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/bekanntheit">Bekanntheitstest</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/thebigfive">Big-Five</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/cooper">Cooper</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/einbuergerung">Einbürgerung</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/lerntyp">Lerntyp</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/liegestuetze">Liegestütze</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/maximisierung">Maximisierung</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/risiko">Risiko</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/selfleadership">Self-Leadership</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/socialmedia">Social Media süchtig?</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/werwirdmillionaer">Wer wird Millionär?</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/worklife">Work-Life</a>
             <img class="logoImage" src="/templates/static/img/logo.gif">
             <a onclick="toggleSidebar()" href="#"></a>
         </div>
@@ -71,7 +71,7 @@
 </body>
 
 <!--import jQuery-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="/templates/static/js/jquery.min.js"></script>
 
 <!--custom JS-->
 <script src="/templates/static/js/script.js"></script>
@@ -85,7 +85,3 @@
 </script>
 <!--scripts-->
 </html>
-
-
-
-

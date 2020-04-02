@@ -1,37 +1,38 @@
-<div class="valign-wrapper" style="width:100%;height:100%;position: absolute;">
-    <div class="valign" style="width:100%;">
+<div class="valign-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col s12 m6 offset-m3">
                     <div class="progress">
-                        <div class="determinate" style="width: 70%"></div>
+                        <div id="progress" class="determinate" style="width: 0%"></div>
                     </div>
                 </div>
                 <div class="col s12 m6 offset-m3 center">
-                    <h1>Frage X</h1>
+                    <h1 id="questionnr">Frage Lädt...</h1>
                 </div>
                 <div class="col s12 m6 offset-m3 center">
-                    <p>Spieglein, Spieglein an der Wand wer ist der Schönste im ganzen Land?</p>
+                    <p id="question">Lädt...</p>
                 </div>
 
             </div>
-            <div class="row">
-                <div class="col s3 offset-m3">
-                    <button class="btn-large">Jon Amacher</button>
+            <div class="row pos">
+                <div class="col s6">
+                    <button class="btn-large" id="pos1" onclick="choose(this)">Lädt...</button>
                 </div>
-                <div class="col s3">
-                    <button class="btn-large">Amacher Jon</button>
-                </div>
-
             </div>
-            <div class="row">
-                <div class="col s3 offset-m3">
-                    <button class="btn-large">Amacher Jon</button>
+            <div class="row pos">
+                <div class="col s6">
+                    <button class="btn-large" id="pos2" onclick="choose(this)">Lädt...</button>
                 </div>
-                <div class="col s3">
-                    <button class="btn-large">Jon Amacher</button>
+            </div>
+            <div class="row pos">
+                <div class="col s6">
+                    <button class="btn-large" id="pos3" onclick="choose(this)">Lädt...</button>
+                </div>
+            </div>
+            <div class="row pos">
+                <div class="col s6">
+                    <button class="btn-large" id="pos4" onclick="choose(this)">Lädt...</button>
                 </div>
             </div>
         </div>
-    </div>
 </div>
