@@ -25,4 +25,12 @@ class RisikoRepository
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function insertResult($uid, $user_answer_id, $quiz_id, $gamecode_id, $score_answer_id)
+    {
+        $sql = "INSERT INTO resultat(benutzer_id, benutzerantwort_id, quiz_id, gameid_id, punktzahlantwort_id) VALUES(?, ?, ?, ?, ?);";
+        $stmt = DB::getInstance()->prepare($sql);
+        $stmt->bindParam("iiiii", $uid, $user_answer_id, $quiz_id, $gamecode_id, $score_answer_id);
+        return $stmt->execute();
+    }
 }
