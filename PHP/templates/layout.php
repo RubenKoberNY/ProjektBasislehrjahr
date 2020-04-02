@@ -68,7 +68,7 @@
 </div>
 
 
-</body>
+
 
 <!--import jQuery-->
 <script src="/templates/static/js/jquery.min.js"></script>
@@ -84,4 +84,5 @@
     $('.dropdown-trigger').dropdown();
 </script>
 <!--scripts-->
+</body>
 </html>
