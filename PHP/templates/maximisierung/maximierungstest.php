@@ -6,14 +6,14 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Maximierungstest</title
+        <title>Maximierungstest</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
 
         <h1 class="ueberschrift_h1_maximierungstest" id="1">Maximierungstest</h1>
-        <p class="white-text">1. Egal, wie ich im Job bin, ich halte die Augenstets offen für bessere Möglichkeiten.</p>
+        <p class="frage-white-text">1. Egal, wie ich im Job bin, ich halte die Augenstets offen für bessere Möglichkeiten.</p>
         <form>
+            <div class="div_radio">
             <input class="radio" type="radio" name="Zahl" value="1">
             <label>1</label>
             <input class="radio" type="radio" name="Zahl" value="2">
@@ -29,10 +29,12 @@
             <input class="radio" type="radio" name="Zahl" value="7">
             <label>7</label>
         </form>
-        <br>
+    </div>
+    <br>
 
-        <p class="white-text">2. Wenn ich im Auto Radio höre, wechsle ich oft den Sender. Ich will wissen, ob irgendwo etwas Besseres läuft - auch wenn ich mit dem, was ich gerade höre, zufrieden bin.</p>
+        <p class="frage-white-text">2. Wenn ich im Auto Radio höre, wechsle ich oft den Sender.<br> Ich will wissen, ob irgendwo etwas Besseres läuft - auch wenn ich mit dem, was ich gerade höre, zufrieden bin.</p>
         <form>
+            <div class="div_radio">
             <input class="radio" type="radio" name="Zahl" value="1">
             <label>1</label>
             <input class="radio" type="radio" name="Zahl" value="2">
@@ -48,10 +50,12 @@
             <input class="radio" type="radio" name="Zahl" value="7">
             <label>7</label>
         </form>
-        <br>
+        </div>
+    <br>
 
-        <p class="white-text">3. Es fällt mir schwer, Geschenke für Freunde zu finden.</p>
+        <p class="frage-white-text">3. Es fällt mir schwer, Geschenke für Freunde zu finden.</p>
         <form>
+            <div class="div_radio">
             <input class="radio" type="radio" name="Zahl" value="1">
             <label>1</label>
             <input class="radio" type="radio" name="Zahl" value="2">
@@ -67,10 +71,12 @@
             <input class="radio" type="radio" name="Zahl" value="7">
             <label>7</label>
         </form>
-        <br>
+    </div>
+    <br>
 
-        <p class="white-text">4. In der Videothek (oder bei Netflix etc.) habe ich Schwierigkeiten, mich für den richtigen Film zu entscheiden.</p>
+        <p class="frage-white-text">4. In der Videothek (oder bei Netflix etc.) habe ich Schwierigkeiten, mich für den richtigen Film zu entscheiden.</p>
         <form>
+            <div class="div_radio">
             <input class="radio" type="radio" name="Zahl" value="1">
             <label>1</label>
             <input class="radio" type="radio" name="Zahl" value="2">
@@ -86,10 +92,12 @@
             <input class="radio" type="radio" name="Zahl" value="7">
             <label>7</label>
         </form>
-        <br>
+        </div>
+    <br>
 
-        <p class="white-text">5. Ich begnüge mich nie mit dem Zweitbesten.</p>
+        <p class="frage-white-text">5. Ich begnüge mich nie mit dem Zweitbesten.</p>
         <form>
+            <div class="div_radio">
             <input class="radio" type="radio" name="Zahl" value="1">
             <label>1</label>
             <input class="radio" type="radio" name="Zahl" value="2">
@@ -105,10 +113,12 @@
             <input class="radio" type="radio" name="Zahl" value="7">
             <label>7</label>
         </form>
-        <br>
+    </div>
+    <br>
 
-        <p class="white-"text"> 6. Bei allem, was ich mache, habe ich die höchsten Ansprüche</p>
+        <p class="frage-white-text"> 6. Bei allem, was ich mache, habe ich die höchsten Ansprüche</p>
         <form>
+            <div class="div_radio">
             <input class="radio" type="radio" name="Zahl" value="1">
             <label>1</label>
             <input class="radio" type="radio" name="Zahl" value="2">
@@ -124,9 +134,11 @@
             <input class="radio" type="radio" name="Zahl" value="7">
             <label>7</label>
         </form>
-        <br><br>
+        </div>
+    <br><br>
 
-        <div id="btn_submit">
+
+    <div id="btn_submit">
         <input type="submit" name="submit" value="Auswertung">
         </div>
 
