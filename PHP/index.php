@@ -50,7 +50,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start(); //start session if not started
 }
 
-$timeout = (24*60*60); //set session timeout in seconds
+$timeout = (24 * 60 * 60); //set session timeout in seconds
 
 if (isset($_SESSION["login"])) {
     if ($_SESSION["login"] - time() < (-1 * $timeout)) { //set the session timeout
@@ -96,7 +96,7 @@ $app->get("/quiz/{quiz}", function (Request $request, Response $response, array 
 });
 
 $app->get("/dashboard", function (Request $request, Response $response, array $args) {
-    Render::render("general/index.html");
+    Render::render("general/quiz.html");
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
@@ -142,6 +142,12 @@ $app->get("/api/werwirdmillionaer/get", function (Request $request, REsponse $re
 $app->get("/api/risiko/get", function (Request $request, Response $response, array $args) {
     $risikoController = new RisikoController();
     $risikoController->get();
+});
+
+$app->post("/api/risiko/post", function (Request $request, Response $response, array $args) {
+    $risikoController = new RisikoController();
+    $data = json_decode(file_get_contents('php://input'));
+    $risikoController->save($data);
 });
 $app->get("/debug/hash/{text}", function (Request $request, Response $response, array $args) {
     echo password_hash($args['text'], PASSWORD_DEFAULT);

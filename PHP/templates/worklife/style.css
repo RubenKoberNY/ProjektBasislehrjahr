@@ -1,0 +1,21 @@
+.radio-buttons input[type="radio"]{
+    visibility:hidden;
+}
+.radio-buttons label {
+  border: 1px solid #333;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+ 
+.radio-buttons input:checked + label {
+  background: green;
+  color: black;
+  box-shadow: none;
+}
+.Quiz{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: beige;
+}
