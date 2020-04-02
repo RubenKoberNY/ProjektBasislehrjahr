@@ -9,12 +9,13 @@
 }
 
 .answerButton {
-    height:100%;
-    box-sizing:border-box;
-    display:block;
-    margin:0;
-    font-size:30px;
-    text-transform:none;
+    height: 100%;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    font-size: 30px;
+    text-transform: none;
+    width: 100%;
 }
 .answers div div{
     height:100%;
