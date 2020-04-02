@@ -6,33 +6,30 @@ h2.ueberschrift_h2_maximierungstest { /*Überschrift h2 für alle anderen Übers
    text-align: center;
 }
 
-p.white-text {                         /**/
-    position: center;
+p.white-text {                         /*CSS für den Text auf der Ersten Seite*/
     text-align: justify!important;
     margin-left: 15%;
     max-width: 70%;
 
 }
 
-.frage-white-text {
-    position: center;
+.frage-white-text {                     /*CSS für den Text bei den Fragen*/
     text-align: justify!important;
     margin-left: 35%;
     max-width: 60%;
 }
 
-.div_radio {
-    position: center;
+.div_radio {                            /*CSS für die Radio Buttons*/
     text-align: justify!important;
     margin-left: 35%;
     max-width: 60%;
 }
 
-#btn_submit {
+#btn_submit {                           /*CSS für den Submit Button*/
     text-align: center;
 }
 
-#start_btn {
+#btn_start {                            /*CSS für den Startbutton*/
     text-align: center;
 }
 
