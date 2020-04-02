@@ -23,7 +23,15 @@ class RisikoController
 
     public function save($arr)
     {
+        if (!isset($_SESSION["uid"]))
+            return false;
 
+        $res_id = $this->risikoRepository->insertResult($_SESSION["uid"], 4, null);
+        foreach ($arr as $v) {
+            $this->risikoRepository->insertUserAnswer($v->id, $_SESSION["uid"], $res_id);
+        }
+        //$this->risikoRepository->insertResult($_SESSION["uid"]);
+        return true;
     }
 
 
