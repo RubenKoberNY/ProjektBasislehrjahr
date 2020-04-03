@@ -290,17 +290,7 @@ animation <p> text-focus-in
         opacity: 1;
     }
 }
-.buttonRegister {
-    padding: 0 !important;
-    width: 140px;
-    border-radius: 27px !important;
-}
 
-.buttonLogin {
-    margin-top: 70%;
-    width: 140px;
-    border-radius: 27px !important;
-}
 
 .btn, .btn-large, .btn-small {
     background-color: #5b90d9 !important;
