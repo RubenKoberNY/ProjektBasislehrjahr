@@ -1,12 +1,13 @@
 .slidecontainer {
   width: 100%; /* Width of the outside container */
+  text-align: center;
 }
 
 /* The slider itself */
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
-  width: 100%; /* Full-width */
+  width: 150px; /* Full-width */
   height: 25px; /* Specified height */
   background: #d3d3d3; /* Grey background */
   outline: none; /* Remove outline */
@@ -38,6 +39,14 @@
 }
 
 p{
-text-align: center !important;
-margin-left: 100px;  
+text-align: center;
+font-family: Roboto sans-serif;
+color: #f6f8f8;
+font-size: 14px;
+Margin: 14px 0px 14px 0px;
+}
+
+button{
+  margin-left: 45%;
+  width: 10%;
 }
