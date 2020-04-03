@@ -2,7 +2,6 @@ h1.ueberschrift_h1_maximierungstest { /* Überschrift für die erste Seite*/
     text-align: center;
     color: white;
     font-size: 40px;
-
 }
 
 h2.ueberschrift_h2_maximierungstest { /*Überschrift h2 für alle anderen Überschriften*/
@@ -11,30 +10,26 @@ h2.ueberschrift_h2_maximierungstest { /*Überschrift h2 für alle anderen Übers
     font-size: 30px;
 }
 
-p.white-text {                         /*CSS für den Text auf der Ersten Seite*/
-    text-align: justify!important;
-    margin-left: 15%;
-    max-width: 70%;
-
-}
-
-.frage-white-text {                     /*CSS für den Text bei den Fragen*/
-    text-align: justify!important;
-    margin-left: 35%;
-    max-width: 60%;
-}
-
-.div_radio {                            /*CSS für die Radio Buttons*/
-    text-align: justify!important;
-    margin-left: 35%;
-    max-width: 60%;
-}
-
-#btn_submit {                           /*CSS für den Submit Button*/
-    text-align: center;
-}
-
 #btn_start {                            /*CSS für den Startbutton*/
     text-align: center;
 }
 
+p.white-text {                         /*CSS für den Text auf der Ersten Seite*/
+    text-align: justify!important;
+    margin-left: 15%;
+    max-width: 70%;
+}
+
+.radio {
+    margin-left: 15%;
+    max-width: 70%;
+}
+
+.frage-white-text {
+    margin-left: 15%;
+    max-width: 70%;
+}
+
+.btn_submit {
+    text-align: center;
+}
