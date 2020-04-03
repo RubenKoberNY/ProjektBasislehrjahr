@@ -96,7 +96,7 @@ $app->get("/quiz/{quiz}", function (Request $request, Response $response, array 
 });
 
 $app->get("/dashboard", function (Request $request, Response $response, array $args) {
-    Render::render("general/quiz.html");
+    Render::render("general/index.html");
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
@@ -147,7 +147,7 @@ $app->get("/api/risiko/get", function (Request $request, Response $response, arr
 $app->post("/api/risiko/post", function (Request $request, Response $response, array $args) {
     $risikoController = new RisikoController();
     $data = json_decode(file_get_contents('php://input'));
-    $risikoController->save($data);
+    echo $risikoController->save($data);
 });
 $app->get("/debug/hash/{text}", function (Request $request, Response $response, array $args) {
     echo password_hash($args['text'], PASSWORD_DEFAULT);
