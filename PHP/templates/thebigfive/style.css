@@ -1,0 +1,4 @@
+.custom-card-corners {
+    border-radius: 25px !important;
+    border: px solid rgba(255, 255, 255, 0); /* makes sure the corners are really really smooth */
+}
