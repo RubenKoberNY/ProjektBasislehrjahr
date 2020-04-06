@@ -7,5 +7,6 @@ slider.oninput = function() {
   output.innerHTML = this.value;
 }
 
-rangeObject.value = number;
-return(Number);
+var x = document.getElementById("slide1").value;
+
+return 3*3;
