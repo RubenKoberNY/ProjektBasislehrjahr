@@ -20,4 +20,18 @@ class WerWirdMillionaerController
         return json_encode($result);
     }
 
+    public function save($arr)
+    {
+        if (!isset($_SESSION["uid"])) {
+            return false;
+        }
+
+        $res_id = $this->werWirdMillionaerRepository->insertResult($_SESSION["uid"], 23, null);
+        foreach ($arr as $qid => $rid) {
+            $this->werWirdMillionaerRepository->insertUserAnswer($rid, $_SESSION["uid"], $res_id);
+        }
+        //$this->risikoRepository->insertResult($_SESSION["uid"]);
+        return true;
+    }
+
 }

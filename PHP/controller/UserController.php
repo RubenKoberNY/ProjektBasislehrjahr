@@ -14,7 +14,6 @@ class UserController
     public function login($username, $password)
     {
         $uidAndPassword = $this->userRepository->getUserIdAndPasswordFromUserName($username);
-
         if ($uidAndPassword != null && password_verify($password, $uidAndPassword[1])) {
 
             if (session_status() == PHP_SESSION_NONE)
@@ -34,7 +33,6 @@ class UserController
         if (session_status() == PHP_SESSION_NONE)
             session_start();
         $_SESSION = array();
-        $_SESSION["login"] = time();
         Utils::redirect("/login");
     }
 
