@@ -53,7 +53,6 @@ function renderQuestion() {
             pos4.onclick = () => {
                 choose(questions[3]["id_antwort"])
             };
-            $("#wholequiz").fadeIn();
         }
     }
 }
@@ -80,14 +79,24 @@ function getQuestionsByQuestionId(id) {
 }
 
 function choose(aid) {
-    $("#wholequiz").fadeOut();
     answers[currentQuestionId] = aid;
     if (soq < noq) {
         renderQuestion();
     } else {
-        alert("Completed");
+        sendQuestions();
     }
 }
 
+function sendQuestions() {
+    $.ajax({
+        url: "/api/werwirdmillionaer/post",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(answers)
+    }).done(function (res) {
+        console.log(res);
+    });
+    //ToDo: redirect to result
+}
 
 loadQnA();
