@@ -2,3 +2,6 @@
     border-radius: 25px !important;
     border: 1px solid rgba(255, 255, 255, 0); /* makes sure the corners are really really smooth */
 }
+.fix-z-index {
+    z-index: 0 !important;
+}

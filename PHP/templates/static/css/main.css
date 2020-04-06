@@ -32,7 +32,7 @@ classes
 topnav
 =====================================
 */
-nav{
+nav {
     z-index: 10000;
 }
 
@@ -44,6 +44,7 @@ nav{
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10000;
 }
 
 /*burgerIconSection*/

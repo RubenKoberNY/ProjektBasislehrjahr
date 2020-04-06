@@ -1,7 +1,7 @@
 <!--- <div class="valign-wrapper" style="height: 75%;">-->
 </div>
 <div class="row" style="width: 100% !important;">
-    <div class="col l6 s12 m8 xl4 offset-l3 offset-m2 offset-xl4">
+    <div class="col l6 s12 m8 xl4 offset-l3 offset-m2 offset-xl4 fix-z-index">
         <div class="card grey lighten-5 custom-card-corners">
             <div class="card-content black-text left-align">
                 <span>Frage <span id="questionCount"></span></span>
@@ -11,6 +11,10 @@
                 <form action="#">
                     <p class="range-field">
                         <input type="range" id="test5" min="1" max="7" />
+                    <div class="col s6">
+                        <span class="left-align">First Span</span>
+                </div>
+                        <span class="right-align">Second Span</span>
                     </p>
                     <div class="right-align">
                         <button onclick="requestQuestion();" class="btn waves-effect waves-light" type="button" name="action">Weiter</i>
@@ -23,7 +27,7 @@
 </div>
 </div>
 <div class="row" style="width: 100% !important;">
-    <div class="col l6 s12 m8 xl4 offset-l3 offset-m2 offset-xl4">
+    <div class="col l6 s12 m8 xl4 offset-l3 offset-m2 offset-xl4 fix-z-index">
         <div class="card grey lighten-5 custom-card-corners">
             <div class="card-content black-text left-align">
                 <span>Begriffserklärung</span>
@@ -37,8 +41,4 @@
         </div>
     </div>
 </div>
-<script>
-    var array_of_dom_elements = document.querySelectorAll("input[type=range]");
-    M.Range.init(array_of_dom_elements);
-</script>
 <div>
