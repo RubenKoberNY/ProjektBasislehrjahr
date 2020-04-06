@@ -1,11 +1,6 @@
-var slider = document.getElementById("slide");
-var output = document.getElementById("output");
-output.innerHTML = slider.value; // Display the default slider value
+document.getElementById("button").onclick = function() {plswork()};
 
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-
-rangeObject.value = number;
-return(Number);
+function plswork(){
+var x = document.getElementById("slide1").value;
+return x;
+} 
