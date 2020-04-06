@@ -1,7 +1,6 @@
-
-
 <!--- <div class="valign-wrapper" style="height: 75%;">-->
-<div class="row" style="width: 100%;">
+</div>
+<div class="row" style="width: 100% !important;">
     <div class="col l6 s12 m8 xl4 offset-l3 offset-m2 offset-xl4">
         <div class="card grey lighten-5 custom-card-corners">
             <div class="card-content black-text left-align">
@@ -11,10 +10,10 @@
             <div class="card-action hoverable z-depth-2 custom-card-corners">
                 <form action="#">
                     <p class="range-field">
-                        <span>test</span> <input type="range" id="test5" min="1" max="7" />
+                        <input type="range" id="test5" min="1" max="7" />
                     </p>
                     <div class="right-align">
-                        <button onclick="requestQuestion();" class="btn waves-effect waves-light" type="submit" name="action">Weiter</i>
+                        <button onclick="requestQuestion();" class="btn waves-effect waves-light" type="button" name="action">Weiter</i>
                         </button>
                     </div>
                 </form>
@@ -23,7 +22,7 @@
     </div>
 </div>
 </div>
-<div class="row" style="width: 100%;">
+<div class="row" style="width: 100% !important;">
     <div class="col l6 s12 m8 xl4 offset-l3 offset-m2 offset-xl4">
         <div class="card grey lighten-5 custom-card-corners">
             <div class="card-content black-text left-align">
@@ -31,11 +30,15 @@
                 <span class="card-title">Was bedeutet <b></b></span>
             </div>
             <div class="card-content hoverable z-depth-1 custom-card-corners">
-                <p class="flow-text left-align">
+                <p class="flow-text left-align black-text">
                     Der Begriff stammt aus dem lateinischen und........Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
                 </p>
             </div>
         </div>
     </div>
 </div>
-
+<script>
+    var array_of_dom_elements = document.querySelectorAll("input[type=range]");
+    M.Range.init(array_of_dom_elements);
+</script>
+<div>
