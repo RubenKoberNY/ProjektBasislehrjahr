@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;">
     <meta name="author" content="TeamDesign"/>
 
-    <!--custom css-->
-    <link rel="stylesheet" type="text/css" href="/templates/static/css/main.css"/>
+    <!--import normalize.css-->
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/normalize.css">
 
     <!--import materialize.css-->
     <link rel="stylesheet" type="text/css" href="/templates/static/css/materialize.min.css"/>
 
-    <!--import normalize.css-->
-    <link rel="stylesheet" type="text/css" href="/templates/static/css/normalize.css">
+    <!--custom css-->
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/main.css"/>
 
     <!--import hover.css-->
     <link rel="stylesheet" type="text/css" href="/templates/static/css/hover-min.css">

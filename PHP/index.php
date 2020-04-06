@@ -57,9 +57,6 @@ if (isset($_SESSION["login"])) {
         $userController = new UserController();
         $userController->logout();
     }
-} else {
-    $userController = new UserController();
-    $userController->logout();
 }
 
 $uri = $_SERVER["REQUEST_URI"]; //get the request uri
@@ -100,6 +97,7 @@ $app->get("/dashboard", function (Request $request, Response $response, array $a
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
+    print_r($_SESSION);
     if (isset($_SESSION["uid"]))
         Utils::redirect("/");
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
@@ -111,6 +109,10 @@ $app->get("/register", function (Request $request, Response $response, array $ar
 $app->get("/logout", function (Request $request, REsponse $response, array $args) {
     $userController = new UserController();
     $userController->logout();
+});
+
+$app->get("/evaluation", function (Request $request, REsponse $response, array $args) {
+    Render::render("general/auswertung.html", null, null, array(), true);
 });
 //API
 $app->post("/api/login", function (Request $request, Response $response, array $args) {
@@ -133,10 +135,16 @@ $app->post("/api/register", function (Request $request, Response $response, arra
     $userController->register(trim($_POST["first_name"]), trim($_POST["last_name"]), trim($_POST["username"]), $_POST["password"]);
 });
 
-$app->get("/api/werwirdmillionaer/get", function (Request $request, REsponse $response, array $args) {
+$app->get("/api/werwirdmillionaer/get", function (Request $request, Response $response, array $args) {
     $werWirdMillionaerController = new WerWirdMillionaerController();
     $qna = $werWirdMillionaerController->getQuestionsAndAnswers();
     $response->getBody()->write($qna);
+});
+
+$app->post("/api/werwirdmillionaer/post", function (Request $request, Response $response, array $args) {
+    $werWirdMillionaerController = new WerWirdMillionaerController();
+    $data = (array)json_decode(file_get_contents('php://input'));
+    $werWirdMillionaerController->save($data);
 });
 
 $app->get("/api/risiko/get", function (Request $request, Response $response, array $args) {
@@ -149,6 +157,7 @@ $app->post("/api/risiko/post", function (Request $request, Response $response, a
     $data = json_decode(file_get_contents('php://input'));
     echo $risikoController->save($data);
 });
+
 $app->get("/debug/hash/{text}", function (Request $request, Response $response, array $args) {
     echo password_hash($args['text'], PASSWORD_DEFAULT);
 });

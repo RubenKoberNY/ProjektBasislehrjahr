@@ -3,12 +3,14 @@ html * {
 }
 
 html {
-    background-image: url("../img/question-marks.jpg");
+    background-image: url("/templates/static/img/question-marks.jpg");
+    background-attachment: fixed;
 }
 
 html, body {
     height: 100%;
 }
+
 p {
     color: #F6F8F8;
 }
@@ -30,6 +32,10 @@ classes
 topnav
 =====================================
 */
+nav {
+    z-index: 10000;
+}
+
 #topnav {
     height: 64px !important;
     line-height: 0px;
@@ -38,7 +44,9 @@ topnav
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10000;
 }
+
 /*burgerIconSection*/
 #burgerIconSection {
     align-self: center;
@@ -47,11 +55,13 @@ topnav
     z-index: 1000000;
     display: block;
 }
+
 #burger-icon {
     width: 50px;
     padding: 7px;
     cursor: pointer;
 }
+
 .change .bar1 {
     /*ensure compatibility with older versions of chrome, safari and opera*/
     -webkit-transform: rotate(45deg) translate(5px, 8px);
@@ -61,9 +71,11 @@ topnav
     -moz-transform: rotate(45deg) translate(5px, 8px);
     transform: rotate(45deg) translate(5px, 8px);
 }
+
 .change .bar2 {
     opacity: 0;
 }
+
 .change .bar3 {
     /*ensure compatibility with older versions of chrome, safari and opera*/
     -webkit-transform: rotate(-45deg) translate(3px, -7px);
@@ -73,6 +85,7 @@ topnav
     -moz-transform: rotate(-45deg) translate(3px, -7px);
     transform: rotate(-45deg) translate(3px, -7px);
 }
+
 .bar1,
 .bar2,
 .bar3 {
@@ -83,6 +96,7 @@ topnav
     transition: 0.4s;
     /*padding: 0 5px 0 5px;*/
 }
+
 /* logo*/
 #logo {
     position: absolute;
@@ -98,41 +112,46 @@ topnav
     transform: translateZ(0);
     top: 10%;
 }
+
 /*username styles*/
 .username {
     position: absolute;
     top: 2.25em;
     right: 85px;
 }
+
 /*make it responsive*/
 @media only screen and (max-width: 600px) {
     .username {
         margin-left: 25%;
     }
 }
+
 @media only screen and (min-width: 601px) and (max-width: 800px) {
     .username {
         margin-left: 40%;
     }
 }
+
 @media only screen and (min-width: 800px) and (max-width: 1024px) {
     .username {
         margin-left: 66% !important;
     }
 }
+
 @media only screen and (min-width: 1025px) {
     .username {
         margin-left: 75%;
     }
 }
+
 .logoImage {
     padding-top: 10px;
     padding-right: 5px;
     padding-bottom: 40px;
-    width:200px;
-    height:auto;
+    width: 200px;
+    height: auto;
 }
-
 
 
 /*
@@ -155,14 +174,17 @@ sidebar
     z-index: 999999;
 
 }
+
 /*create a class that can be added to the sidebar via JavaScript*/
 .sidebar_visible {
     transform: translateX(-75%) !important;
     transition: 400ms;
     overflow: auto;
 }
+
 .sidebar_content {
 }
+
 /*make it responsive*/
 @media screen and (max-width: 800px) {
     .sidebar_visible {
@@ -170,16 +192,18 @@ sidebar
 
     }
 }
+
 /*style menu items*/
 .menu-item {
     color: #bdbdbd;
     text-decoration: none;
     display: block;
     border-bottom: 0.05em solid #ffffff;
-    padding-right:  16px;
+    padding-right: 16px;
     min-height: 50px;
     width: 100%;
 }
+
 .menu-item:first-child {
     border-bottom: 0.05em solid #ffffff;
 }
@@ -196,8 +220,8 @@ sidebar hover
 }
 
 hvr-underline-from-left {
-transform: none !important;
--webkit-transform: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
 }
 
 .hvr-underline-from-left:before {
@@ -214,6 +238,7 @@ animation <img> scale-up-center
     animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     border-radius: 0.5em;
 }
+
 @-webkit-keyframes scale-up-center {
     0% {
         -webkit-transform: scale(0.5);
@@ -224,6 +249,7 @@ animation <img> scale-up-center
         transform: scale(1);
     }
 }
+
 @keyframes scale-up-center {
     0% {
         -webkit-transform: scale(0.5);
@@ -233,4 +259,12 @@ animation <img> scale-up-center
         -webkit-transform: scale(1);
         transform: scale(1);
     }
+}
+
+.btn, .btn-large, .btn-small {
+    background-color: #5b90d9 !important;
+}
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #26a69a !important;
 }
