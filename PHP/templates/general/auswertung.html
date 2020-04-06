@@ -61,7 +61,7 @@
     </div>
 </nav>
 <div class="container">
-<div class="row">
+<div class="row white-text">
     <div class="col s12">
         <h1 class="center white-text">Auswertung</h1>
         <!--===================================
@@ -69,8 +69,10 @@
         PLACEHOLDER. NEEDS TO BE REPLACED BY
         AN INTERACTIVE CHART LATER!!!
         =======================================-->
-        <img src="/templates/static/img/chartPlaceholder.png" id="chartPlaceholder"
-             class="scale-up-center col offset-s3 s6"/>
+        <div id="canvas-holder">
+            <canvas id="chart-area"></canvas>
+        </div>
+        <h5 class="center white-text" id="msg">test</h5>
     </div>
 </div>
 </div>
@@ -86,43 +88,7 @@
 
 <!--import materialize.js-->
 <script src="/templates/static/js/materialize.min.js"></script>
-
+<script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
 <!--dropdown menu-->
-<script>
-    $('.dropdown-trigger').dropdown();
-    var config = {
-        type: 'pie',
-        data: {
-            datasets: [{
-                data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                ],
-                backgroundColor: [
-                    window.chartColors.red,
-                    window.chartColors.green
-                ],
-                label: 'Dataset 1'
-            }],
-            labels: [
-                'Red',
-                'Orange',
-                'Yellow',
-                'Green',
-                'Blue'
-            ]
-        },
-        options: {
-            responsive: true
-        }
-    };
-
-    window.onload = function() {
-        var ctx = document.getElementById('chart-area').getContext('2d');
-        window.myPie = new Chart(ctx, config);
-    };
-</script>
+<script src="/templates/static/js/evaluation.js"></script>
 </html>
