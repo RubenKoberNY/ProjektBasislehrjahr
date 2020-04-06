@@ -110,6 +110,10 @@ $app->get("/logout", function (Request $request, REsponse $response, array $args
     $userController = new UserController();
     $userController->logout();
 });
+
+$app->get("/evaluation", function (Request $request, REsponse $response, array $args) {
+    Render::render("general/auswertung.html", null, null, array(), true);
+});
 //API
 $app->post("/api/login", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
@@ -140,8 +144,7 @@ $app->get("/api/werwirdmillionaer/get", function (Request $request, Response $re
 $app->post("/api/werwirdmillionaer/post", function (Request $request, Response $response, array $args) {
     $werWirdMillionaerController = new WerWirdMillionaerController();
     $data = (array)json_decode(file_get_contents('php://input'));
-    print_r($data);
-    die();
+    $werWirdMillionaerController->save($data);
 });
 
 $app->get("/api/risiko/get", function (Request $request, Response $response, array $args) {

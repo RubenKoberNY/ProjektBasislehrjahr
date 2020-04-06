@@ -4,6 +4,7 @@ html * {
 
 html {
     background-image: url("/templates/static/img/question-marks.jpg");
+    background-attachment: fixed;
 }
 
 html, body {
@@ -31,6 +32,10 @@ classes
 topnav
 =====================================
 */
+nav{
+    z-index: 10000;
+}
+
 #topnav {
     height: 64px !important;
     line-height: 0px;
