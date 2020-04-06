@@ -28,7 +28,7 @@ function requestQuestion(){
         });
     } else {
         //redirect to page
-        location.reload();
+        console.log("quiz has ended"); //placeholder code, for debugging
     }
 
 }
