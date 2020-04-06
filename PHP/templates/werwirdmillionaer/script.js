@@ -53,6 +53,7 @@ function renderQuestion() {
             pos4.onclick = () => {
                 choose(questions[3]["id_antwort"])
             };
+            $("#wholequiz").fadeIn();
         }
     }
 }
@@ -79,6 +80,7 @@ function getQuestionsByQuestionId(id) {
 }
 
 function choose(aid) {
+    $("#wholequiz").fadeOut();
     answers[currentQuestionId] = aid;
     if (soq < noq) {
         renderQuestion();
