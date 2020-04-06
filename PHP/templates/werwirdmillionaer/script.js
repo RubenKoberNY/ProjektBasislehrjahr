@@ -83,9 +83,20 @@ function choose(aid) {
     if (soq < noq) {
         renderQuestion();
     } else {
-        alert("Completed");
+        sendQuestions();
     }
 }
 
+function sendQuestions() {
+    $.ajax({
+        url: "/api/werwirdmillionaer/post",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(answers)
+    }).done(function (res) {
+        console.log(res);
+    });
+    //ToDo: redirect to result
+}
 
 loadQnA();
