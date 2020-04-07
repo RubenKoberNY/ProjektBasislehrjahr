@@ -166,11 +166,13 @@ $app->get("/api/thebigfive/get", function (Request $request, Response $response,
     $questions = $theBigFiveController->getAllQuestions();
     $response->getBody()->write($questions);
 });
-
-$app->get("/api/einbuergerung/get", function (Request $request, Response $response, array $args) {
-    $einbuergerungController = new einbuergerungController();
-    $questions = $einbuergerungController->getAllQuestions();
-    $response->getBody()->write($questions);
+$app->get("/api/socialmedia/get", function (Request $request, Response $response, array $args) {
+    $socialmediaController = new SocialmediaController();
+    echo $socialmediaController->getQuestionsAndAnswers();
 });
 
+$app->post("/api/socialmedia/post", function (Request $request, Response $response, array $args) {
+    $socialmediaController = new SocialmediaController();
+    $socialmediaController->save($_POST);
+});
 $app->run();
