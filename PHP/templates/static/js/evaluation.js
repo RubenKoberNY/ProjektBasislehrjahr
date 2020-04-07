@@ -18,8 +18,8 @@ function renderChart() {
                     wrong
                 ],
                 backgroundColor: [
-                    "red",
-                    "green"
+                    "green",
+                    "red"
                 ],
                 label: 'Dataset 1'
             }],
@@ -29,6 +29,12 @@ function renderChart() {
             ]
         },
         options: {
+            legend: {
+                labels: {
+                    fontColor: "white",
+                    fontSize: 18
+                }
+            },
             responsive: true
         }
     };

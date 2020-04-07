@@ -1,4 +1,3 @@
-let xml = new XMLHttpRequest();
 let qna;
 let questionnr = document.getElementById("questionnr");
 let question = document.getElementById("question");
@@ -13,6 +12,7 @@ let currentQuestionId;
 let answers = {};
 
 function loadQnA() {
+    let xml = new XMLHttpRequest();
     xml.open("GET", "/api/werwirdmillionaer/get");
     xml.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -94,9 +94,9 @@ function sendQuestions() {
         contentType: "application/json",
         data: JSON.stringify(answers)
     }).done(function (res) {
-        console.log(res);
+        let result = res.split("/");
+        window.location = "/evaluation?right=" + result[0] + "&wrong=" + result[1];
     });
-    //ToDo: redirect to result
 }
 
 loadQnA();
