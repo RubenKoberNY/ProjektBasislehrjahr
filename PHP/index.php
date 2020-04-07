@@ -144,7 +144,7 @@ $app->get("/api/werwirdmillionaer/get", function (Request $request, Response $re
 $app->post("/api/werwirdmillionaer/post", function (Request $request, Response $response, array $args) {
     $werWirdMillionaerController = new WerWirdMillionaerController();
     $data = (array)json_decode(file_get_contents('php://input'));
-    $werWirdMillionaerController->save($data);
+    echo $werWirdMillionaerController->save($data);
 });
 
 $app->get("/api/risiko/get", function (Request $request, Response $response, array $args) {
