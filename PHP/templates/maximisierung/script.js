@@ -3,43 +3,6 @@
     document.getElementById("second").classList.remove("hide");
 }*/
 
- function displayRadioButtonValue()
-{
-    var frage1Nummer1 = document.getElementById("frage1Nummer1").value;
-    var frage1Nummer2 = document.getElementById("frage1Nummer2").value;
-    var frage1Nummer3 = document.getElementById("frage1Nummer3").value;
-    var frage1Nummer4 = document.getElementById("frage1Nummer4").value;
-    var frage1Nummer5 = document.getElementById("frage1Nummer5").value;
-    var frage1Nummer6 = document.getElementById("frage1Nummer6").value;
-    var frage1Nummer7 = document.getElementById("frage1Nummer7").value;
-
-    /*if (frage1Nummer1.checked == true) {
-        frage1Nummer1 = 1;
-        return; frage1Nummer1
-    } else if (frage1Nummer2.checked == true) {
-        frage1Nummer2 = 2;
-        return; frage1Nummer2
-    }  else if (frage1Nummer3.checked == true) {
-        frage1Nummer3 = 3;
-        return; frage1Nummer3
-    }  else if (frage1Nummer4.checked == true) {
-        frage1Nummer4 = 4;
-        return; frage1Nummer4
-    }  else if (frage1Nummer5.checked == true) {
-        frage1Nummer5 = 5;
-        return; frage1Nummer5
-    }  else if (frage1Nummer6.checked == true) {
-        frage1Nummer6 = 6;
-        return; frage1Nummer6
-    }  else if (frage1Nummer7.checked == true) {
-        frage1Nummer7 = 7;
-        return; frage1Nummer7
-    }*/
-
-    alert(frage1Nummer1 || frage1Nummer2 || frage1Nummer3 || frage1Nummer4 | frage1Nummer5 || frage1Nummer6 ||
-            frage1Nummer7)
-}
-
 function getValueFromSelectedRadioButtonFromQuestionOne()
 {
     var questionOne = document.getElementsByName("frage1");
@@ -48,7 +11,10 @@ function getValueFromSelectedRadioButtonFromQuestionOne()
         if (radioButtonQuestionOne.checked)
         {
             return(radioButtonQuestionOne.value);
+        } else {
+
         }
+
     }
 }
 
@@ -60,6 +26,7 @@ function getValueFromSelectedRadioButtonFromQuestionTwo()
         if (radioButtonQuestionTwo.checked)
         {
             return(radioButtonQuestionTwo.value);
+        } else {
         }
     }
 }
@@ -72,6 +39,7 @@ function getValueFromSelectedRadioButtonFromQuestionThree()
         if (radioButtonQuestionThree.checked)
         {
             return(radioButtonQuestionThree.value);
+        } else {
         }
     }
 }
@@ -84,6 +52,8 @@ function getValueFromSelectedRadioButtonFromQuestionFour()
         if (radioButtonQuestionFour.checked)
         {
             return(radioButtonQuestionFour.value);
+        } else {
+            alert("Sie haben keine Antwort ausgewählt!")
         }
     }
 }
@@ -96,27 +66,33 @@ function getValueFromSelectedRadioButtonFromQuestionFive()
         if (radioButtonQuestionFive.checked)
         {
             return(radioButtonQuestionFive.value);
+        } else {
+            alert("Sie haben keine Antwort ausgewählt!")
         }
     }
 }
 
-
-
-
-
-
-/*FUNKTIONIERT! Frage zwei VALUES*/
-function displayRadioButtonValuefrage2()
+function getValueFromSelectedRadioButtonFromQuestionSix()
 {
-    var frage2Nummer = document.getElementsByName("frage2");
-    for (var radioFrage2Nummer of frage2Nummer) {
-        if (radioFrage2Nummer.checked) {
-            return(radioFrage2Nummer.value);
+    var questionSix = document.getElementsByName("frage6");
+    for (var radioButtonQuestionSix of questionSix)
+    {
+        if (radioButtonQuestionSix.checked)
+        {
+            return(radioButtonQuestionSix.value);
+        } else {
+            alert("Sie haben keine Antwort ausgewählt!")
         }
     }
 }
+
 
 function testfrage2()
 {
-    alert(displayRadioButtonValuefrage2());
+    alert(getValueFromSelectedRadioButtonFromQuestionOne());
+ /*   alert(getValueFromSelectedRadioButtonFromQuestionTwo());
+    alert(getValueFromSelectedRadioButtonFromQuestionThree());
+    alert(getValueFromSelectedRadioButtonFromQuestionFour());
+    alert(getValueFromSelectedRadioButtonFromQuestionFive());
+    alert(getValueFromSelectedRadioButtonFromQuestionSix());*/
 }
