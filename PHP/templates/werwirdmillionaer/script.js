@@ -1,4 +1,3 @@
-let xml = new XMLHttpRequest();
 let qna;
 let questionnr = document.getElementById("questionnr");
 let question = document.getElementById("question");
@@ -13,6 +12,7 @@ let currentQuestionId;
 let answers = {};
 
 function loadQnA() {
+    let xml = new XMLHttpRequest();
     xml.open("GET", "/api/werwirdmillionaer/get");
     xml.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -53,7 +53,6 @@ function renderQuestion() {
             pos4.onclick = () => {
                 choose(questions[3]["id_antwort"])
             };
-            $("#wholequiz").fadeIn();
         }
     }
 }
@@ -80,14 +79,24 @@ function getQuestionsByQuestionId(id) {
 }
 
 function choose(aid) {
-    $("#wholequiz").fadeOut();
     answers[currentQuestionId] = aid;
     if (soq < noq) {
         renderQuestion();
     } else {
-        alert("Completed");
+        sendQuestions();
     }
 }
 
+function sendQuestions() {
+    $.ajax({
+        url: "/api/werwirdmillionaer/post",
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(answers)
+    }).done(function (res) {
+        let result = res.split("/");
+        window.location = "/evaluation?right=" + result[0] + "&wrong=" + result[1];
+    });
+}
 
 loadQnA();
