@@ -5,19 +5,19 @@
         <div class="card grey lighten-5 custom-card-corners">
             <div class="card-content black-text left-align">
                 <span>Frage <span id="questionCount"></span></span>
-                <span class="card-title">Ich empfinde mich als <span id="question">extravertiert, offen</span></span>
+                <span class="card-title"><span id="question"></span></span>
             </div>
             <div class="card-action hoverable z-depth-2 custom-card-corners">
-                <form action="#">
+                <div action="#">
+                    <div class="col s12">
                     <p class="range-field">
-                        <input type="range" id="test5" min="1" max="7" />
-                    <div class="col s6">
-                        <span class="left-align">First Span</span>
-                </div>
-                        <span class="right-align">Second Span</span>
+                        <label class="left-align col s6 label-fix">gar nicht</label>
+                        <label class="right-align col s6 label-fix">absolut</label>
+                        <input type="range" id="slider" min="1" max="7" />
                     </p>
+                </div>
                     <div class="right-align">
-                        <button onclick="requestQuestion();" class="btn waves-effect waves-light" type="button" name="action">Weiter</i>
+                        <button onclick="saveAnswer();" class="btn waves-effect waves-light" type="button" id="submitBtn" name="action">Weiter</i>
                         </button>
                     </div>
                 </form>
@@ -40,5 +40,4 @@
             </div>
         </div>
     </div>
-</div>
 <div>
