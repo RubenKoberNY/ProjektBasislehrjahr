@@ -7,6 +7,10 @@ function renderChart() {
     const wrong = urlParams.get("wrong");
     let msg = urlParams.get("msg");
     let hide = urlParams.has("hide");
+    let rt = "Richtig";
+    let wt = "Falsch";
+    if(urlParams.get("rt")) rt = urlParams.get("rt");
+    if(urlParams.get("wt")) rt = urlParams.get("wt");
     if(!msg) msg = "Quiz Abgeschlossen!";
     document.getElementById("msg").innerText = msg;
     var config = {
