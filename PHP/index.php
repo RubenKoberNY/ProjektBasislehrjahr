@@ -167,4 +167,10 @@ $app->get("/api/thebigfive/get", function (Request $request, Response $response,
     $response->getBody()->write($questions);
 });
 
+$app->get("/api/einbuergerung/get", function (Request $request, Response $response, array $args) {
+    $einbuergerungController = new einbuergerungController();
+    $questions = $einbuergerungController->getAllQuestions();
+    $response->getBody()->write($questions);
+});
+
 $app->run();
