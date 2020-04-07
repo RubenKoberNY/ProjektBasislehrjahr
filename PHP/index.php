@@ -167,4 +167,15 @@ $app->get("/api/thebigfive/get", function (Request $request, Response $response,
     $response->getBody()->write($questions);
 });
 
+$app->get("/api/socialmedia/get", function (Request $request, Response $response, array $args) {
+    $socialmediaController = new SocialmediaController();
+    echo $socialmediaController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/socialmedia/post", function (Request $request, Response $response, array $args) {
+    $socialmediaController = new SocialmediaController();
+    $data = json_decode(file_get_contents('php://input'));
+   // echo $socialmediaController->save($data);
+});
+
 $app->run();

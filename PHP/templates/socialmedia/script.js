@@ -1,8 +1,22 @@
-let questions = 8;
+let qna;
+
+function loadQnA() {
+    let xml = new XMLHttpRequest();
+    xml.open("GET", "/api/socialmedia/get");
+    xml.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            qna = JSON.parse(xml.responseText);
+            noq = qna.length / 4;
+            createQuestions();
+        }
+    };
+    xml.send();
+}
+
 
 function createQuestions(){
-    for (let i = 1; i <= questions; i++){
-
+    for (let i = 1; i < (qna.length + 1); i ++){
+        let currentQuestion = qna[i - 1];
         let fragedivid = "frage" + i;
         let fragetext = "frage" + i + "frage";
         let radio1id = i + "radio1";
@@ -11,7 +25,7 @@ function createQuestions(){
         let span2id = "spn" + i + "radio2";
 
         let frage1 = document.getElementById(fragetext);
-        frage1.innerHTML = "[PLACEHOLDER FÜR FRAGE " + i + "]"
+        frage1.innerHTML = currentQuestion["fragetext"];
 
         let rdo1 = document.getElementById(radio1id);
         rdo1.setAttribute("name", fragedivid);
@@ -29,5 +43,5 @@ function createQuestions(){
         spn2.innerHTML = "Nein";
     }
 }
-createQuestions();
+loadQnA();
 
