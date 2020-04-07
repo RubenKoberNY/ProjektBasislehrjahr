@@ -1,7 +1,7 @@
 var questions;
 let amountOfQuestions;
 var currentQuestion = 0;
-var givenAnswers = new Object();
+var givenAnswer = {};
 
 $( document ).ready(function() {
     //initialize the range-slider on the page
@@ -15,7 +15,6 @@ $( document ).ready(function() {
     }).done(function (result) {
         questions = JSON.parse(result);
         amountOfQuestions = questions.length;
-        console.log(questions);
         loadQuestion();
     });
 
@@ -24,6 +23,10 @@ $( document ).ready(function() {
 // this function gets called as soon as the user presses the "Next" button
 // it's also called once the page loads in order to get the first question
 function loadQuestion(){
+    //disable the submit button until the next question is loaded
+    //this prevents the creation of empty values in the array, which could happen if the button is pressed too fast
+    //and before the question is even loaded (so therefore, null)
+    $("#submitBtn").prop('disabled', true);
     //check if there are any questions left
     if(currentQuestion < amountOfQuestions) {
         //when requested, the current question keywords will fade out
@@ -37,10 +40,23 @@ function loadQuestion(){
             $("#questionCount").text(currentQuestion)
             //fade in the new question
             $("#question").fadeIn('slow');
+            //since the question is now loaded and only fading in, enable the button again
+            $("#submitBtn").prop('disabled', false);
         });
     } else {
         //redirect to page
         console.log("quiz has ended"); //placeholder code, for debugging
     }
 
+}
+
+function saveAnswer() {
+    // get the value of what the user selected in the slider
+    let inputValue = $("#slider").val();
+    //create new entry in dictionary, set the key as the current question count
+    //set the associated value of the key to the given value of the slider
+    givenAnswer[currentQuestion] = inputValue;
+    console.log(givenAnswer); //debugging
+    //when the entry is saved, generate the next question
+    loadQuestion();
 }
