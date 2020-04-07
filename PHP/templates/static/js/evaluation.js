@@ -10,7 +10,7 @@ function renderChart() {
     let rt = "Richtig";
     let wt = "Falsch";
     if(urlParams.get("rt")) rt = urlParams.get("rt");
-    if(urlParams.get("wt")) rt = urlParams.get("wt");
+    if(urlParams.get("wt")) wt = urlParams.get("wt");
     if(!msg) msg = "Quiz Abgeschlossen!";
     document.getElementById("msg").innerText = msg;
     var config = {
@@ -28,8 +28,8 @@ function renderChart() {
                 label: 'Dataset 1'
             }],
             labels: [
-                'Richtig',
-                'Falsch'
+                rt,
+                wt
             ]
         },
         options: {
