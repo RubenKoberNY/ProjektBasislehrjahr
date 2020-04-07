@@ -5,9 +5,11 @@
  
 /* The slider itself */
 .slider {
+  margin-top: 20px !important;
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
-  width: 150px; /* Full-width */
+  outline: none !important;
+  width: 130px !important; /* Full-width */
   height: 25px; /* Specified height */
   background: #d3d3d3; 
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
