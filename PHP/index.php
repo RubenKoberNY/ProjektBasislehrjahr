@@ -188,7 +188,7 @@ $app->post("/api/einbuergerung/post", function (Request $request, Response $resp
 
 $app->post("/api/maximisierung/post", function (Request $request, Response $response, array $args){
     $maximisierungController = new MaximisierungController();
-    $maximisierungController->save(json_decode(file_get_contents('php://input')));
+    echo $maximisierungController->save((array) json_decode(file_get_contents('php://input')));
 });
 
 

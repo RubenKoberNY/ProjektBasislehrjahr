@@ -1,11 +1,11 @@
 <?php
 
-
 class MaximisierungController
 {
+    private $MaximisierungRepository;
     public function __construct()
     {
-        $this->MaximierungRepository = new MaximisierungRepository();
+        $this->MaximisierungRepository = new MaximisierungRepository();
     }
 
     public function save($arr)
@@ -21,13 +21,11 @@ class MaximisierungController
             $total += $rid;
 
         }
-
-        $msg = $this->MaximisierungRepository->getAntwortText($total/6);
-        $this->MaximierungRepository->updateResultat($total/6, $msg[0], $res_id);
+        $msg = $this->MaximisierungRepository->getAntwortText($total / 6);
+        $this->MaximisierungRepository->updateResultat($total / 6, $msg[0], $res_id);
 
         return $msg[1];
     }
-
 
 
 }

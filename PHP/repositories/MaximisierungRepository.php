@@ -19,7 +19,16 @@ class MaximisierungRepository
 
         return $result;
     }
-
+    public function insertResult($uid, $quiz_id, $gamecode_id)
+    {
+        $sql = "INSERT INTO resultat(benutzer_id, quiz_id, gameid_id, punktzahlantwort_id) VALUES(?, ?, ?, 12);";
+        $stmt = DB::getInstance()->prepare($sql);
+        $stmt->bind_param("iii", $uid, $quiz_id, $gamecode_id);
+        if ($stmt->execute()) {
+            return $stmt->insert_id;
+        }
+        return null;
+    }
     public function getAllAnswersFromMaximierung()
     {
         $sql = "SELECT frage.id_frage, antwortmöglichkeiten FROM antwort LEFT JOIN antwortfrage 
@@ -44,7 +53,7 @@ class MaximisierungRepository
         return null;
     }
 
-    public function getAnwortText($points)
+    public function getAntwortText($points)
     {
         $sql = "SELECT id_punktzahlantwort, antworttext FROM punktzahlantwort WHERE ? between punktezahlvon AND puntzahlbis AND quiz_id = 15;";
         $stmt = DB::getInstance()->prepare($sql);
