@@ -1,8 +1,8 @@
 document.getElementById("button").onclick = () => {
-  plswork();
+  GetSliderValue();
 }
 
-function plswork(){
+function GetSliderValue(){
 var s = document.getElementById("slide").value;
 var s1 = document.getElementById("slide1").value;
 var s2 = document.getElementById("slide2").value;
