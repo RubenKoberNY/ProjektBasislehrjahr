@@ -47,8 +47,8 @@ function loadQuestion() {
         });
     } else {
         //redirect to page
-        console.log("quiz has ended"); //placeholder code, for debugging
         prepareAnswers();
+        window.location = "/evaluation?chart=radar&data=" + processedValues[0] + "," + processedValues[1] + "," + processedValues[2] + "," + processedValues[3] + "," + processedValues[4];
     }
 
 }
@@ -63,7 +63,6 @@ function saveAnswer() {
     //when the entry is saved, generate the next question
     loadQuestion();
 }
-
 
 //this function reverses the answers the user gave us for question 2, 4, 6, 8 and 10
 //means, value 1 becomes value 7, 2 becomes 6 etc.
@@ -81,7 +80,6 @@ function prepareAnswers() {
         givenAnswer[key] = reverseInt(givenAnswer[key]);
         result += givenAnswer[key];
     }
-    console.log("Array: " + givenAnswer);
     console.log("Result full: " + result);
     result /= 2;
     console.log("Result processed: " + result);
