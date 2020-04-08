@@ -28,8 +28,8 @@ class EinbuergerungController
             $this->EinbuergerungRepository->insertUserAnswer($useranswer_id, $_SESSION["uid"], $res_id);
             $i++;
         }
-        $this->EinbuergerungRepository->updateGesamtPunktzahl($correct, $res_id);
-
-        Utils::redirect("/evaluation?right=" . $correct . "&wrong=" . (count($correctAnswers) - $correct));
+        $msg = $this->EinbuergerungRepository->getAnwortText($correct);
+        $this->EinbuergerungRepository->updateResultat($correct, $msg[0], $res_id);
+        Utils::redirect("/evaluation?chart=pie&right=" . $correct . "&wrong=" . (count($correctAnswers) - $correct)."&msg=".urlencode($msg[1]));
     }
 }
