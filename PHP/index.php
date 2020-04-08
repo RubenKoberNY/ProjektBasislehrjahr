@@ -175,4 +175,17 @@ $app->post("/api/socialmedia/post", function (Request $request, Response $respon
     $socialmediaController = new SocialmediaController();
     $socialmediaController->save($_POST);
 });
+
+$app->get("/api/einbuergerung/get", function (Request $request, Response $response, array $args) {
+    $einbuergerungController = new EinbuergerungController();
+    echo $einbuergerungController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/einbuergerung/post", function (Request $request, Response $response, array $args){
+    $einbuergerungController = new EinbuergerungController();
+    $einbuergerungController->save($_POST);
+});
+
+
+
 $app->run();
