@@ -51,6 +51,23 @@ function CheckIfAnswersSelectedAndGetValues() {
     return answers;
 }
 
+function meanValue() {
+    var values = CheckIfAnswersSelectedAndGetValues();
+    var i = 0;
+    var sum = 0;
+
+    for (; i < values.length;)   {
+        // console.log("values[" + i + "] = " + values[i]);
+        sum += parseInt(values[i]); i++;
+    }
+
+    // console.log("sum = " + sum);
+    // console.log("length = " + values.length);
+
+    var meanvalue = Math.round(sum / values.length);
+
+    console.log("mean value = " + meanvalue);
+}
 //==========================================================================
 
 function getValueFromSelectedRadioButtonFromQuestionOne()
@@ -62,8 +79,7 @@ function getValueFromSelectedRadioButtonFromQuestionOne()
         {
             return(radioButtonQuestionOne.value);
         } else {
-            modal_message.innerHTML = "Frage 1 nicht beantwortet";
-            modal.style.display = "block";
+
         }
 
     }
@@ -136,33 +152,32 @@ function getValueFromSelectedRadioButtonFromQuestionSix()
     }
 }
 
-function meanValue() {
-    var values = CheckIfAnswersSelectedAndGetValues();
-    var i = 0;
-    var sum = 0;
 
-    for (; i < values.length;)   {
-        // console.log("values[" + i + "] = " + values[i]);
-        sum += parseInt(values[i]); i++;
+function createDictionary()
+{
+    let dict = {};
+    for (let i = 1; i < 5; i++) {
+        let rv = 0;
+        for (let radioButton of document.getElementsByName("frage"+i)) {
+            if (radioButton.checked) rv = radioButton.value;
+        }
+        dict[81+i] = rv
     }
-
-    // console.log("sum = " + sum);
-    // console.log("length = " + values.length);
-
-    var meanvalue = Math.round(sum / values.length);
-
-    console.log("mean value = " + meanvalue);
-
-    //var maxValue = parseInt(getValueFromSelectedRadioButtonFromQuestionOne()) +
-    //    parseInt(getValueFromSelectedRadioButtonFromQuestionTwo()) +
-    //    parseInt(getValueFromSelectedRadioButtonFromQuestionThree()) +
-    //    parseInt(getValueFromSelectedRadioButtonFromQuestionFour()) +
-    //    parseInt(getValueFromSelectedRadioButtonFromQuestionFive()) +
-    //    parseInt(getValueFromSelectedRadioButtonFromQuestionSix());
-//
-    //var totalValue = maxValue/6;
-    //console.log(Math.round(totalValue));
+    return dict;
 }
 
-/*TODO Error Message Display
+function sendQuestions() {
+    if (CheckIfAnswersSelectedAndGetValues().length) {
+        $.ajax({
+            url: "/api/maximisierung/post",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(createDictionary())
+        }).done(function (res) {
+            window.location = "/evaluation?hide=1&msg=" + res;
+        });
+    }
+}
+
+/*TODO
 *  Value INSERT INTO DB*/
