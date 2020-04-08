@@ -66,14 +66,11 @@ function renderChart() {
                     chartLabels[i] = test[i];
                 }
 
-                if(urlParams.has("overrideLabels")) {
+                if (urlParams.has("overrideLabels")) {
                     chartLabels.splice(test.length, chartLabels.length - test.length);
                 }
-                if(urlParams.has("showBigFiveAverage")) {
-
-                }
             }
-            if(urlParams.get("max")) maxRange = urlParams.get("max");
+            if (urlParams.get("max")) maxRange = urlParams.get("max");
 
             let radarConfiguration =
                 {
@@ -89,12 +86,7 @@ function renderChart() {
                             backgroundColor: 'rgba(255, 255, 255, 0.1)',
                             borderColor: '#039be5',
                             data: data,
-                        }, {
-            label: 'Deine Angaben',
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            borderColor: '#039be5',
-            data: data,
-        }]
+                        },]
                     },
 
                     options: {
