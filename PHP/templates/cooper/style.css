@@ -10,19 +10,6 @@ label {
     width: 100px !important;
 }
 
-input[type=range] + .thumb, input[type=range] + .thumb .value, input[type=range] + .thumb.active,
-input[type=range] + .thumb.active .value, input[type=range], input[type=range]::-webkit-slider-runnable-track,
-input[type=range]::-webkit-slider-thumb, .keyboard-focused input[type=range]:focus:not(.active)::-webkit-slider-thumb,
-input[type=range], input[type=range]::-moz-range-track, input[type=range]::-moz-focus-inner,
-input[type=range]::-moz-range-thumb, input[type=range]:-moz-focusring,
-.keyboard-focused input[type=range]:focus:not(.active)::-moz-range-thumb, input[type=range]::-ms-track,
-input[type=range]::-ms-fill-lower, input[type=range]::-ms-fill-upper, input[type=range]::-ms-thumb,
-.keyboard-focused input[type=range]:focus:not(.active)::-ms-thumb {
-    padding-left: 25% !important;
-    width: 75% !important;
-}
-
-
 #slider {
     padding-left: 25%;
     width: 75%;
