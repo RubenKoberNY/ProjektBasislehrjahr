@@ -10,15 +10,6 @@ class MaximisierungRepository
 
     }
 
-    public function getAllQuestionsFromMaximierung()
-    {
-        $sql = "SELECT fragetext FROM frage WHERE quiz_id = 15";
-        $stmt = DB::getInstance()->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
-        return $result;
-    }
     public function insertResult($uid, $quiz_id, $gamecode_id)
     {
         $sql = "INSERT INTO resultat(benutzer_id, quiz_id, gameid_id, punktzahlantwort_id) VALUES(?, ?, ?, 12);";
@@ -28,17 +19,6 @@ class MaximisierungRepository
             return $stmt->insert_id;
         }
         return null;
-    }
-    public function getAllAnswersFromMaximierung()
-    {
-        $sql = "SELECT frage.id_frage, antwortmöglichkeiten FROM antwort LEFT JOIN antwortfrage 
-                    ON antwort.id_antwort = antwortfrage.antwort_id
-                    LEFT JOIN frage ON frage.id_frage = antwortfrage.frage_id WHERE frage.quiz_id = 15";
-        $stmt = DB::getInstance()->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
-        return $result;
     }
 
     public function insertUserAnswer($answer_id, $user_id, $result_id)
