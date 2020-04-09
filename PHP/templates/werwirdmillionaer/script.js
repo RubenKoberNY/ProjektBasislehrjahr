@@ -95,7 +95,7 @@ function sendQuestions() {
         data: JSON.stringify(answers)
     }).done(function (res) {
         let result = res.split("/");
-        window.location = "/evaluation?right=" + result[0] + "&wrong=" + result[1];
+        window.location = "/evaluation?right=" + result[0] + "&wrong=" + result[1] + "&chart=pie";
     });
 }
 

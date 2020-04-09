@@ -175,4 +175,21 @@ $app->post("/api/socialmedia/post", function (Request $request, Response $respon
     $socialmediaController = new SocialmediaController();
     $socialmediaController->save($_POST);
 });
+
+$app->get("/api/einbuergerung/get", function (Request $request, Response $response, array $args) {
+    $einbuergerungController = new EinbuergerungController();
+    echo $einbuergerungController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/einbuergerung/post", function (Request $request, Response $response, array $args){
+    $einbuergerungController = new EinbuergerungController();
+    $einbuergerungController->save($_POST);
+});
+
+$app->post("/api/maximisierung/post", function (Request $request, Response $response, array $args){
+    $maximisierungController = new MaximisierungController();
+    echo $maximisierungController->save((array) json_decode(file_get_contents('php://input')));
+});
+
+
 $app->run();
