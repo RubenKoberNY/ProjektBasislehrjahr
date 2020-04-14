@@ -158,9 +158,6 @@ $app->post("/api/risiko/post", function (Request $request, Response $response, a
     echo $risikoController->save($data);
 });
 
-$app->get("/debug/hash/{text}", function (Request $request, Response $response, array $args) {
-    echo password_hash($args['text'], PASSWORD_DEFAULT);
-});
 $app->get("/api/thebigfive/get", function (Request $request, Response $response, array $args) {
     $theBigFiveController = new TheBigFiveController();
     $questions = $theBigFiveController->getAllQuestions();
