@@ -1,8 +1,10 @@
+/* onclick execute fuction */
 document.getElementById("button").onclick = () => {
-  plswork();
+  GetSliderValue();
 }
 
-function plswork(){
+/* This functioon gets the Slider Values and counts them all together*/
+function GetSliderValue(){
 var s = document.getElementById("slide").value;
 var s1 = document.getElementById("slide1").value;
 var s2 = document.getElementById("slide2").value;

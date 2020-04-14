@@ -66,13 +66,11 @@ function renderChart() {
                     chartLabels[i] = test[i];
                 }
 
-                if(urlParams.has("overrideLabels")) {
-                    console.log("overriding...")
-                    console.log(chartLabels.length);
+                if (urlParams.has("overrideLabels")) {
                     chartLabels.splice(test.length, chartLabels.length - test.length);
                 }
             }
-            if(urlParams.get("max")) maxRange = urlParams.get("max");
+            if (urlParams.get("max")) maxRange = urlParams.get("max");
 
             let radarConfiguration =
                 {
@@ -88,7 +86,7 @@ function renderChart() {
                             backgroundColor: 'rgba(255, 255, 255, 0.1)',
                             borderColor: '#039be5',
                             data: data,
-                        }]
+                        },]
                     },
 
                     options: {
