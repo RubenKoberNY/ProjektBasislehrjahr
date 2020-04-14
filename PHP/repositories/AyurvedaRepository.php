@@ -100,4 +100,3 @@ class AyurvedaRepository
         return $result->fetch_row();
     }
 }
-}
