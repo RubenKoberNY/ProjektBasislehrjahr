@@ -187,6 +187,15 @@ $app->post("/api/maximisierung/post", function (Request $request, Response $resp
     $maximisierungController = new MaximisierungController();
     echo $maximisierungController->save((array) json_decode(file_get_contents('php://input')));
 });
+$app->get("/api/worklife/get", function (Request $request, Response $response, array $args) {
+    $WorkLifeController = new WorklifeController();
+    echo $WorkLifeController->getQuestionsAndAnswers();
+});
 
+$app->post("/api/worklife/post", function (Request $request, Response $response, array $args) {
+    $WorkLifeController = new WorklifeController();
+    //$WorkLifeController->save($_POST);});
+    print_r($_POST);
+});
 
 $app->run();
