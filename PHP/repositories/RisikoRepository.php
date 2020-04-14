@@ -28,7 +28,7 @@ class RisikoRepository
 
     public function insertResult($uid, $quiz_id, $gamecode_id)
     {
-        $sql = "INSERT INTO resultat(benutzer_id, quiz_id, gameid_id) VALUES(?, ?, ?);";
+        $sql = "INSERT INTO resultat(benutzer_id, quiz_id, gameid_id, punktzahlantwort_id) VALUES(?, ?, ?, 12);";
         $stmt = DB::getInstance()->prepare($sql);
         $stmt->bind_param("iii", $uid, $quiz_id, $gamecode_id);
         $stmt->execute();

@@ -97,7 +97,6 @@ $app->get("/dashboard", function (Request $request, Response $response, array $a
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
-    print_r($_SESSION);
     if (isset($_SESSION["uid"]))
         Utils::redirect("/");
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
@@ -187,15 +186,25 @@ $app->post("/api/maximisierung/post", function (Request $request, Response $resp
     $maximisierungController = new MaximisierungController();
     echo $maximisierungController->save((array) json_decode(file_get_contents('php://input')));
 });
-$app->get("/api/worklife/get", function (Request $request, Response $response, array $args) {
-    $WorkLifeController = new WorklifeController();
-    echo $WorkLifeController->getQuestionsAndAnswers();
+
+$app->get("/api/lerntyp/get", function (Request $request, Response $response, array $args) {
+    $lerntypController = new LerntypController();
+    echo $lerntypController->getQuestionsAndAnswers();
 });
 
-$app->post("/api/worklife/post", function (Request $request, Response $response, array $args) {
-    $WorkLifeController = new WorklifeController();
-    //$WorkLifeController->save($_POST);});
-    print_r($_POST);
+$app->post("/api/lerntyp/post", function (Request $request, Response $response, array $args) {
+    $lerntypController = new LerntypController();
+    $lerntypController->save($_POST);
+});
+
+$app->get("/api/ayurveda/get", function (Request $request, Response $response, array $args) {
+    $ayurvedaController = new AyurvedaController();
+    echo $ayurvedaController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/ayurveda/post", function (Request $request, Response $response, array $args) {
+    $ayurvedaController = new AyurvedaController();
+    $ayurvedaController->save($_POST);
 });
 
 $app->run();
