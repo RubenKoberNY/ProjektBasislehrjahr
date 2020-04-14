@@ -187,5 +187,24 @@ $app->post("/api/maximisierung/post", function (Request $request, Response $resp
     echo $maximisierungController->save((array) json_decode(file_get_contents('php://input')));
 });
 
+$app->get("/api/lerntyp/get", function (Request $request, Response $response, array $args) {
+    $lerntypController = new LerntypController();
+    echo $lerntypController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/lerntyp/post", function (Request $request, Response $response, array $args) {
+    $lerntypController = new LerntypController();
+    $lerntypController->save($_POST);
+});
+
+$app->get("/api/ayurveda/get", function (Request $request, Response $response, array $args) {
+    $ayurvedaController = new AryuvedaController();
+    echo $ayurvedaController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/ayurveda/post", function (Request $request, Response $response, array $args) {
+    $ayurvedaController = new AyurvedaController();
+    $ayurvedaController->save($_POST);
+});
 
 $app->run();
