@@ -44,19 +44,24 @@ class LerntypController
         $most = max($auditiv, $visuell, $leseundschreibe, $kinaestetisch);
         if ($auditiv == $most)
         {
-            $msg = "Sie sind ein auditiver Typ!";
+            $msg = "Ihr Lerntyp -> Auditiv. Was er an Erklärungen hört, klingt für ihn stimmig und nachvollziehbar. 
+            Hörbüchern können auditive Lerntypen sehr gut folgen, selbst zu lesen bedeutet für sie jedoch oft eine echte Konzentrationsleistung.";
         }
         else if ($visuell == $most)
         {
-            $msg = "Sie sind ein visueller Typ!";
+            $msg = "Ihr Lerntyp -> Visuell. Bei mündlichen Erklärungen fällt es ihm schwerer, den Stoff zu verstehen und zu behalten. 
+            Visuelle Lerntypen lesen meistens sehr gern, haben aber Probleme, bei einem Hörbuch den Faden nicht zu verlieren. 
+            Visuelle Lerntypen erfreuen sich auch an Filmen ganz anders als zum Beispiel die Auditiven.";
         }
         else if ($kinaestetisch == $most)
         {
-            $msg = "Sie sind ein kinästetischer Typ!";
+            $msg = "Ihr Lerntyp -> Kinästhetisch. Der kinästhetische Typ lebt vor allem in seinen Gefühlen. Daher atmet er tief im Bauch und seine Augen sind häufig nach unten gerichtet. 
+            Er spricht langsam und mit einer tiefen Stimme. Insgesamt scheint er eher passiv zu sein, da seine Gefühle ihm weniger spontane Reaktionen erlauben.";
         }
         else if ($leseundschreibe == $most)
         {
-            $msg = "Sie sind ein lese und schreibe Typ!";
+            $msg = "Ihr Lerntyp -> Lesen und Schreiben.  Er/Sie lernt am besten durch das Lesen und Schreiben von Texten,  ist also auch ein visueller Lerntyp, da er Informationen durch das Sehen aufnimmt. 
+            Jedoch liegt der Fokus hier auf Worten und Texten anstatt auf Grafiken wie beim Visuellen. Das zusätzliche Aufschreiben hilft den Stoff zu behalten und zu verstehen.";
         }
         Utils::redirect("/evaluation?hide=1&msg=".urlencode($msg));
     }
