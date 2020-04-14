@@ -193,9 +193,19 @@ $app->get("/api/lerntyp/get", function (Request $request, Response $response, ar
     echo $lerntypController->getQuestionsAndAnswers();
 });
 
-$app->post("/api/lerntyp/post", function (Request $request, Response $response, array $args){
+$app->post("/api/lerntyp/post", function (Request $request, Response $response, array $args) {
     $lerntypController = new LerntypController();
     $lerntypController->save($_POST);
+});
+
+$app->get("/api/ayurveda/get", function (Request $request, Response $response, array $args) {
+    $ayurvedaController = new AryuvedaController();
+    echo $ayurvedaController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/ayurveda/post", function (Request $request, Response $response, array $args) {
+    $ayurvedaController = new AyurvedaController();
+    $ayurvedaController->save($_POST);
 });
 
 $app->run();
