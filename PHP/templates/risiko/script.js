@@ -64,9 +64,8 @@ function sendQuestions() {
         contentType: "application/json",
         data: JSON.stringify(result)
     }).done(function (res) {
-        console.log(res);
+        let resObj = JSON.parse(res);
     });
-    //ToDo: redirect to result
 }
 
 //endregion
