@@ -198,7 +198,7 @@ $app->post("/api/lerntyp/post", function (Request $request, Response $response, 
 });
 
 $app->get("/api/ayurveda/get", function (Request $request, Response $response, array $args) {
-    $ayurvedaController = new AryuvedaController();
+    $ayurvedaController = new AyurvedaController();
     echo $ayurvedaController->getQuestionsAndAnswers();
 });
 

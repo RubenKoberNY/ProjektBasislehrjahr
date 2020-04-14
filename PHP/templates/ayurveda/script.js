@@ -4,7 +4,7 @@ let quiz = document.getElementById("quiz");
 
 function loadQnA() {
     let xml = new XMLHttpRequest();
-    xml.open("GET", "/api/Ayurveda/get");
+    xml.open("GET", "/api/ayurveda/get");
     xml.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             qna = JSON.parse(xml.responseText);
@@ -16,12 +16,12 @@ function loadQnA() {
 
 
 function createQuestions() {
-    for (let i = 0; i < qna.length; i += 4) {
+    for (let i = 0; i < qna.length; i += 3) {
         let question = document.createElement("div");
         let heading = document.createElement("h4");
         heading.innerText = qna[i]["fragetext"];
         question.appendChild(heading);
-        for (let a = 0; a < 4; a++) {
+        for (let a = 0; a < 3; a++) {
             let possibility = document.createElement("label");
             let radio = document.createElement("input");
             let span = document.createElement("span");

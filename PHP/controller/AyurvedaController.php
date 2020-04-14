@@ -17,8 +17,8 @@ class AyurvedaController
     public function save($arr)
     {
 
-        $correctAnswers = $this->AryuvedaRepository->getCorrectAnswers();
-        $res_id = $this->AryuvedaRepository->insertResult($_SESSION["uid"], 14, null);
+        $correctAnswers = $this->AyurvedaRepository->getCorrectAnswers();
+        $res_id = $this->AyurvedaRepository->insertResult($_SESSION["uid"], 14, null);
         $i = 0;
         $vata = $pitta = $kapha = 0;
         $msg = "";
