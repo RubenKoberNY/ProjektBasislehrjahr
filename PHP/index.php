@@ -206,5 +206,14 @@ $app->post("/api/ayurveda/post", function (Request $request, Response $response,
     $ayurvedaController = new AyurvedaController();
     $ayurvedaController->save($_POST);
 });
+$app->get("/api/worklife/get", function (Request $request, Response $response, array $args) {
+    $worklifeController = new WorklifeController();
+    echo $worklifeController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/worklife/post", function (Request $request, Response $response, array $args) {
+    $worklifeController = new WorklifeController();
+    $worklifeController->save($_POST);
+});
 
 $app->run();
