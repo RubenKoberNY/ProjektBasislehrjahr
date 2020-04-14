@@ -30,7 +30,7 @@ class WorklifeController
         }
         $msg="";
         if ($yes > 3){
-            $msg="Sie haben ".$yes." Fragen mit Ja beantowrtet. Sie sollten eine Beratung in Erwägung ziehen.";
+            $msg="Sie haben ".$yes." Fragen mit Ja beantwortet. Sie sollten eine Beratung in Erwägung ziehen.";
         }else{
             $msg="Bei Ihnen ist alles in ordnung";
         }
