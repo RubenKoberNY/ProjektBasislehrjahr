@@ -20,4 +20,28 @@ class WerWirdMillionaerController
         return json_encode($result);
     }
 
+    public function save($arr)
+    {
+        if (!isset($_SESSION["uid"])) {
+            return false;
+        }
+
+        $res_id = $this->werWirdMillionaerRepository->insertResult($_SESSION["uid"], 23, null);
+        $total = count($arr);
+        $correct = 0;
+        $correctAnswers = $this->werWirdMillionaerRepository->getCorrectAnswers();
+        //print_r($correctAnswers);
+        $i = 0;
+        foreach ($arr as $qid => $rid) {
+            $this->werWirdMillionaerRepository->insertUserAnswer($rid, $_SESSION["uid"], $res_id);
+            if ($correctAnswers[$i]["id_antwort"] === $rid) {
+                $correct++;
+            }
+            $i++;
+        }
+        $false = $total - $correct;
+        $this->werWirdMillionaerRepository->updateGesamtPunktzahl($correct, $res_id);
+        return $correct . "/" . $false;
+    }
+
 }
