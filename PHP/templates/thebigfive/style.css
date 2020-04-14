@@ -8,3 +8,9 @@
 .label-fix {
     padding: 0px !important;
 }
+.full-width {
+    width: 100% !important;
+}
+.valign-custom {
+    height: 75%;
+}
