@@ -11,25 +11,29 @@ function renderNextQuestion() {
 }
 $("#answer1").click(function () {
     let id = questions[currentIndex].answers[0].id_answer;
-    result.push(id);
+    let qid = questions[currentIndex].id_frage;
+    result.push({qid: qid, id: id});
     sendIfEnded();
     renderNextQuestion();
 });
 $("#answer2").click(function () {
     let id = questions[currentIndex].answers[1].id_answer;
-    result.push(id);
+    let qid = questions[currentIndex].id_frage;
+    result.push({qid: qid, id: id});
     sendIfEnded();
     renderNextQuestion();
 });
 $("#answer3").click(function () {
     let id = questions[currentIndex].answers[2].id_answer;
-    result.push(id);
+    let qid = questions[currentIndex].id_frage;
+    result.push({qid: qid, id: id});
     sendIfEnded();
     renderNextQuestion();
 });
 $("#answer4").click(function () {
     let id = questions[currentIndex].answers[3].id_answer;
-    result.push(id);
+    let qid = questions[currentIndex].id_frage;
+    result.push({qid: qid, id: id});
     sendIfEnded();
     renderNextQuestion();
 });
@@ -58,7 +62,6 @@ function sendQuestions() {
         url: "/api/risiko/post",
         method: "POST",
         contentType: "application/json",
-        dataType: 'json',
         data: JSON.stringify(result)
     }).done(function (res) {
         console.log(res);

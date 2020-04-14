@@ -3,15 +3,11 @@
     border-radius: 50px;
 }
 
-button {
+.rbtn {
     width: 100%;
 }
 .pos{
     width: 200%;
-}
-
-h1{
-    color:white;
 }
 
 .valign-wrapper{

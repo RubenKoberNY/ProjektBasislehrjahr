@@ -57,9 +57,6 @@ if (isset($_SESSION["login"])) {
         $userController = new UserController();
         $userController->logout();
     }
-} else {
-    $userController = new UserController();
-    $userController->logout();
 }
 
 $uri = $_SERVER["REQUEST_URI"]; //get the request uri
@@ -96,10 +93,11 @@ $app->get("/quiz/{quiz}", function (Request $request, Response $response, array 
 });
 
 $app->get("/dashboard", function (Request $request, Response $response, array $args) {
-    Render::render("general/quiz.html");
+    Render::render("general/index.html");
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
+    print_r($_SESSION);
     if (isset($_SESSION["uid"]))
         Utils::redirect("/");
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
@@ -111,6 +109,10 @@ $app->get("/register", function (Request $request, Response $response, array $ar
 $app->get("/logout", function (Request $request, REsponse $response, array $args) {
     $userController = new UserController();
     $userController->logout();
+});
+
+$app->get("/evaluation", function (Request $request, REsponse $response, array $args) {
+    Render::render("general/auswertung.html", null, null, array(), true);
 });
 //API
 $app->post("/api/login", function (Request $request, Response $response, array $args) {
@@ -133,10 +135,16 @@ $app->post("/api/register", function (Request $request, Response $response, arra
     $userController->register(trim($_POST["first_name"]), trim($_POST["last_name"]), trim($_POST["username"]), $_POST["password"]);
 });
 
-$app->get("/api/werwirdmillionaer/get", function (Request $request, REsponse $response, array $args) {
+$app->get("/api/werwirdmillionaer/get", function (Request $request, Response $response, array $args) {
     $werWirdMillionaerController = new WerWirdMillionaerController();
     $qna = $werWirdMillionaerController->getQuestionsAndAnswers();
     $response->getBody()->write($qna);
+});
+
+$app->post("/api/werwirdmillionaer/post", function (Request $request, Response $response, array $args) {
+    $werWirdMillionaerController = new WerWirdMillionaerController();
+    $data = (array)json_decode(file_get_contents('php://input'));
+    echo $werWirdMillionaerController->save($data);
 });
 
 $app->get("/api/risiko/get", function (Request $request, Response $response, array $args) {
@@ -147,10 +155,38 @@ $app->get("/api/risiko/get", function (Request $request, Response $response, arr
 $app->post("/api/risiko/post", function (Request $request, Response $response, array $args) {
     $risikoController = new RisikoController();
     $data = json_decode(file_get_contents('php://input'));
-    $risikoController->save($data);
+    echo $risikoController->save($data);
 });
-$app->get("/debug/hash/{text}", function (Request $request, Response $response, array $args) {
-    echo password_hash($args['text'], PASSWORD_DEFAULT);
+
+$app->get("/api/thebigfive/get", function (Request $request, Response $response, array $args) {
+    $theBigFiveController = new TheBigFiveController();
+    $questions = $theBigFiveController->getAllQuestions();
+    $response->getBody()->write($questions);
 });
+$app->get("/api/socialmedia/get", function (Request $request, Response $response, array $args) {
+    $socialmediaController = new SocialmediaController();
+    echo $socialmediaController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/socialmedia/post", function (Request $request, Response $response, array $args) {
+    $socialmediaController = new SocialmediaController();
+    $socialmediaController->save($_POST);
+});
+
+$app->get("/api/einbuergerung/get", function (Request $request, Response $response, array $args) {
+    $einbuergerungController = new EinbuergerungController();
+    echo $einbuergerungController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/einbuergerung/post", function (Request $request, Response $response, array $args){
+    $einbuergerungController = new EinbuergerungController();
+    $einbuergerungController->save($_POST);
+});
+
+$app->post("/api/maximisierung/post", function (Request $request, Response $response, array $args){
+    $maximisierungController = new MaximisierungController();
+    echo $maximisierungController->save((array) json_decode(file_get_contents('php://input')));
+});
+
 
 $app->run();

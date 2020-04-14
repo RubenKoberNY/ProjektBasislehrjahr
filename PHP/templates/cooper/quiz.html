@@ -1,8 +1,14 @@
-<div class="center white-text">
-    <h1>Der Cooper-Test</h1>
+<div class="center white-text cooper">
+    <h4>Der Cooper-Test</h4>
     <hr>
     <br>
-    <form action="#">
+    <h5>Wie ausdauernd bin ich?</h5>
+    <h6>Der Test</h6>
+    <p>Laufe 12 Minuten auf einer 400-Meter-Bahn!</p>
+    <h6>Die Auswertung</h6>
+    <p>Faustregel: Wer über 3000 Meter schafft, hat eine hervorragende Kondition.</p>
+    <br>
+    <form action="/api/cooper/post" method="post">
         <p>Bitte wähle dein Geschlecht:</p>
         <p>
             <label>
@@ -57,11 +63,11 @@
         <p>
             <label>
                 <input class="with-gap" name="age" type="radio" value="50">
-                <span class="custom">50+</span>
+                <span class="custom">50 +</span>
             </label>
         </p>
         <p>Deine zurückgelegte Strecke nach 12 Minuten (in Meter):</p>
-        <p class="range-field">
+        <p class="range-field" id="slider">
             <input max="3000" min="1000" type="range"/>
         </p>
         <br>
