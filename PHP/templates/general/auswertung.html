@@ -6,16 +6,16 @@
     <meta name="author" content="TeamDesign"/>
 
     <!--custom css-->
-    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/main.css"/>
 
     <!--import materialize.css-->
-    <link rel="stylesheet" type="text/css" href="../css/materialize.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/materialize.min.css"/>
 
     <!--import normalize.css-->
-    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/normalize.css">
 
     <!--import hover.css-->
-    <link rel="stylesheet" type="text/css" href="../css/hover-min.css">
+    <link rel="stylesheet" type="text/css" href="/templates/static/css/hover-min.css">
 
     <!--import google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -26,7 +26,6 @@
     <title>Project:HomeOffice - Auswertung</title>
 </head>
 <body>
-
 <nav class="flex-container">
     <!--topnav-->
     <div id="topnav" class="row flex-container grey darken-2">
@@ -39,31 +38,30 @@
             </div>
         </div>
     </div>
-
     <!--sidebar-->
     <div id="sidebar" class="sidebar grey darken-4">
         <div class="sidebar_content">
             <!--insert links to quiz -->
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Ayurveda</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Bekanntheitstest</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Big-Five</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Cooper</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Einbürgerung</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Lerntyp</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Liegestütze</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Maximisierung</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Risiko</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Self-Leadership</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Social Media süchtig?</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Wer wird Millionär?</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="#">Work-Life</a>
-            <img class="logoImage" src="../img/logo.gif">
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/ayurveda">Ayurveda</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/bekanntheit">Bekanntheitstest</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/thebigfive">Big-Five</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/cooper">Cooper</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/einbuergerung">Einbürgerung</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/lerntyp">Lerntyp</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/liegestuetze">Liegestütze</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/maximisierung">Maximisierung</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/risiko">Risiko</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/selfleadership">Self-Leadership</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/socialmedia">Social Media süchtig?</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/werwirdmillionaer">Wer wird Millionär?</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/worklife">Work-Life</a>
+            <img class="logoImage" src="/templates/static/img/logo.gif">
             <a onclick="toggleSidebar()" href="#"></a>
         </div>
     </div>
 </nav>
 <div class="container">
-<div class="row">
+<div class="row white-text">
     <div class="col s12">
         <h1 class="center white-text">Auswertung</h1>
         <!--===================================
@@ -71,8 +69,10 @@
         PLACEHOLDER. NEEDS TO BE REPLACED BY
         AN INTERACTIVE CHART LATER!!!
         =======================================-->
-        <img src="../img/chartPlaceholder.png" id="chartPlaceholder"
-             class="scale-up-center col offset-s3 s6"/>
+        <div id="canvas-holder">
+            <canvas id="chart-area"></canvas>
+        </div>
+        <h5 class="center white-text" id="msg">test</h5>
     </div>
 </div>
 </div>
@@ -81,16 +81,14 @@
 </body>
 
 <!--import jQuery-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="/templates/static/js/jquery.min.js"></script>
 
 <!--custom JS-->
-<script src="../js/script.js"></script>
+<script src="/templates/static/js/script.js"></script>
 
 <!--import materialize.js-->
-<script src="../js/materialize.js"></script>
-
+<script src="/templates/static/js/materialize.min.js"></script>
+<script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
 <!--dropdown menu-->
-<script>
-    $('.dropdown-trigger').dropdown();
-</script>
+<script src="/templates/static/js/evaluation.js"></script>
 </html>
