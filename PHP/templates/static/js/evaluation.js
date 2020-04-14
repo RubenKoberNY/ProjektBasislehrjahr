@@ -7,7 +7,7 @@ let chartType = urlParams.get("chart");
 function renderChart() {
     let msg = urlParams.get("msg");
     let hide = urlParams.has("hide");
-    if (!msg) msg = "Quiz Abgeschlossen!"; //if there is no custom message, go for the default one
+    if (!msg) msg = "Quiz abgeschlossen!"; //if there is no custom message, go for the default one
     var ctx = document.getElementById('chart-area').getContext('2d');
     var chart;
     //set message
@@ -60,12 +60,11 @@ function renderChart() {
             var maxRange = 7.0;
             var chartLabels = ["Extraversion", "Verträglichkeit", "Gewissenhaftigkeit", "Emotionale Stabilität", "Offenheit für Erfahrung"];
             var data = urlParams.get("data").split(",");
-            if (urlParams.get("test")) {
-                var test = urlParams.get("test").split(",");
-                for (var i = 0; i < test.length; i++) {
-                    chartLabels[i] = test[i];
+            if (urlParams.get("labels")) {
+                var customLabels = urlParams.get("labels").split(",");
+                for (var i = 0; i < customLabels.length; i++) {
+                    chartLabels[i] = customLabels[i];
                 }
-
                 if (urlParams.has("overrideLabels")) {
                     chartLabels.splice(test.length, chartLabels.length - test.length);
                 }
