@@ -154,7 +154,7 @@ $app->get("/api/risiko/get", function (Request $request, Response $response, arr
 $app->post("/api/risiko/post", function (Request $request, Response $response, array $args) {
     $risikoController = new RisikoController();
     $data = json_decode(file_get_contents('php://input'));
-    echo $risikoController->save($data);
+    echo json_encode($risikoController->save($data));
 });
 
 $app->get("/api/thebigfive/get", function (Request $request, Response $response, array $args) {

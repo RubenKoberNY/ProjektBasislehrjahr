@@ -9,6 +9,21 @@ class RisikoRepository
     {
     }
 
+    public function getScoreFromUserAnswerId($id)
+    {
+        $sql = "SELECT 
+                    antwort.punktezahl
+                FROM
+                    benutzerantwort
+                        JOIN
+                    antwort ON benutzerantwort.antwort_id = antwort.id_antwort
+                    WHERE id_benutzerantwort = ?;";
+        $stmt = DB::getInstance()->prepare($sql);
+        $stmt->execute();
+        $res = $stmt->get_result()->fetch_row();
+        return sizeof($res) > 0 ? $res[0] : false;
+    }
+
     public function getAllQuestions()
     {
         $sql = "CALL risiko_getAllFrage()";
@@ -43,4 +58,6 @@ class RisikoRepository
         $stmt->execute();
         return $stmt->insert_id;
     }
+
+
 }
