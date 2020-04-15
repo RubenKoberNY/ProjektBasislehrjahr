@@ -212,4 +212,14 @@ $app->post("/api/thebigfive/post", function (Request $request, Response $respons
     echo $bigFiveController->save($data);
 });
 
+$app->get("/api/worklife/get", function (Request $request, Response $response, array $args) {
+    $worklifeController = new WorklifeController();
+    echo $worklifeController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/worklife/post", function (Request $request, Response $response, array $args) {
+    $worklifeController = new WorklifeController();
+    $worklifeController->save($_POST);
+});
+
 $app->run();
