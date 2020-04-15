@@ -27,6 +27,20 @@ class RisikoRepository
         return false;
     }
 
+    public function getScoreFromAnswerId($id)
+    {
+        $sql = "SELECT antwort.punktezahl
+        FROM antwort
+        WHERE antwort.id_antwort = ?";
+        $stmt = DB::getInstance()->prepare($sql);
+        $stmt->bind_param("i", $id);
+        if ($stmt->execute()) {
+            $res = $stmt->get_result()->fetch_row();
+            return sizeof($res) > 0 ? $res[0] : false;
+        }
+        return false;
+    }
+
     public function getAllQuestions()
     {
         $sql = "CALL getFrageFromQuizId(4)";
