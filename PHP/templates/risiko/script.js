@@ -10,32 +10,40 @@ function renderNextQuestion() {
     }
 }
 $("#answer1").click(function () {
-    let id = questions[currentIndex].answers[0].id_answer;
-    let qid = questions[currentIndex].id_frage;
-    result.push({qid: qid, id: id});
-    sendIfEnded();
-    renderNextQuestion();
+    if (currentIndex < questions.length) {
+        let id = questions[currentIndex].answers[0].id_answer;
+        let qid = questions[currentIndex].id_frage;
+        result.push({qid: qid, id: id});
+        sendIfEnded();
+        renderNextQuestion();
+    }
 });
 $("#answer2").click(function () {
-    let id = questions[currentIndex].answers[1].id_answer;
-    let qid = questions[currentIndex].id_frage;
-    result.push({qid: qid, id: id});
-    sendIfEnded();
-    renderNextQuestion();
+    if (currentIndex < questions.length) {
+        let id = questions[currentIndex].answers[1].id_answer;
+        let qid = questions[currentIndex].id_frage;
+        result.push({qid: qid, id: id});
+        sendIfEnded();
+        renderNextQuestion();
+    }
 });
 $("#answer3").click(function () {
-    let id = questions[currentIndex].answers[2].id_answer;
-    let qid = questions[currentIndex].id_frage;
-    result.push({qid: qid, id: id});
-    sendIfEnded();
-    renderNextQuestion();
+    if (currentIndex < questions.length) {
+        let id = questions[currentIndex].answers[2].id_answer;
+        let qid = questions[currentIndex].id_frage;
+        result.push({qid: qid, id: id});
+        sendIfEnded();
+        renderNextQuestion();
+    }
 });
 $("#answer4").click(function () {
-    let id = questions[currentIndex].answers[3].id_answer;
-    let qid = questions[currentIndex].id_frage;
-    result.push({qid: qid, id: id});
-    sendIfEnded();
-    renderNextQuestion();
+    if (currentIndex < questions.length) {
+        let id = questions[currentIndex].answers[3].id_answer;
+        let qid = questions[currentIndex].id_frage;
+        result.push({qid: qid, id: id});
+        sendIfEnded();
+        renderNextQuestion();
+    }
 });
 //region Prototypes
 HTMLElement.prototype.replaceHTML = function (search, replacement) {
@@ -73,7 +81,7 @@ function sendQuestions() {
 function renderCurrentQuestion() {
     let answers = questions[currentIndex].answers;
     document.getElementById("questionTitle").innerHTML = "Frage " + (currentIndex + 1);
-    document.getElementById("questionText").innerHTML = questions[currentIndex].question;
+    document.getElementById("questionText").innerHTML = questions[currentIndex].fragetext;
     for (let i = 0; i < answers.length; i++) {
         document.getElementById("ans" + (i + 1)).innerText = answers[i].value;
     }
