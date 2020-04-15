@@ -11,13 +11,17 @@
   height: 25px; /* Specified height */
 }
 
-p{/*minor text changes*/
-text-align: center;
-font-size: 14px;
-Margin: 14px 0px 14px 0px;
+p { /*minor text changes*/
+  text-align: center;
+  font-size: 14px;
+  Margin: 14px 0px 14px 0px;
 }
 
-button{/*button placement*/
-  margin-left: 45%;
-  width: 10%;
+.wrapper {
+  text-align: center;
+}
+
+button { /*button placement*/
+  position: absolute;
+  width: auto;
 }
