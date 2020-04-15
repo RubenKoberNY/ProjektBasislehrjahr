@@ -19,7 +19,7 @@ class AyurvedaRepository
         return $result;
     }
 
-    public function getAllAnswersFromLerntyp()
+    public function getAllAnswersFromAyurveda()
     {
         $query = "SELECT frage.id_frage, antwortmöglichkeiten FROM antwort LEFT JOIN antwortfrage ON antwort.id_antwort = antwortfrage.antwort_id LEFT JOIN frage ON frage.id_frage = antwortfrage.frage_id WHERE frage.quiz_id = 14";
         $stmt = DB::getInstance()->prepare($query);
