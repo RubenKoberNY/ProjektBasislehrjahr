@@ -116,59 +116,80 @@ function renderChart() {
                 };
             chart = new Chart(ctx, radarConfiguration);
         case "scattered":
-        let cordx = urlParams.get("datax");
-        let cordy = urlParams.get("datay");
-        let title = urlParams.get("title");
-        let scatteredConfiguration = {
-            type: 'scatter',
+            let cordx = urlParams.get("datax");
+            let cordy = urlParams.get("datay");
+
+            let title = "Auswertung";
+            if(urlParams.get("title"))  title = urlParams.get("title");
+            let yLabel = "";
+            if(urlParams.get("ylabel")) yLabel = urlParams.get("ylabel");
+            let xLabel = "";
+            if(urlParams.get("xlabel")) xLabel = urlParams.get("xlabel");
+
+            let scatteredConfiguration = {
+                type: 'scatter',
                 data: {
-            datasets: [{
-                label: title,
-                backgroundColor: '',
-                borderColor: '#039be5',
-                borderWidth: 10,
-                data: [{
-                    x: cordx,
-                    y: cordy,
-                }],
-            }],
-        },
-            options: {
-                scales: {
-                    xAxes: [{
-                        type: 'linear',
-                        position: 'bottom',
-                        gridLines: {
-                            color: 'white',
-                            display: true,
-                        },
+                    datasets: [{
+                        label: title,
+                        backgroundColor: '',
+                        borderColor: '#039be5',
+                        borderWidth: 10,
+                        data: [{
+                            x: cordx,
+                            y: cordy,
+                        }],
                     }],
-                    yAxes: [{
-                        gridLines: {
-                            color: 'white',
-                            display: true,
-                        },
-                    }]
                 },
-                legend: {
-                    position: 'top',
-                    borderWidth: 3,
-                    hidden: true,
-                    labels: {
-                        fontColor: 'white',
+                options: {
+                    scales: {
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: xLabel,
+                                fontColor: "white",
+                                fontSize: 14,
+                                fontFamily: "Roboto",
+                            },
+                            type: 'linear',
+                            position: 'bottom',
+                            gridLines: {
+                                color: 'white',
+                                display: true,
+                            },
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: yLabel,
+                                fontColor: "white",
+                                fontSize: 14,
+                                fontFamily: "Roboto",
+                            },
+                            gridLines: {
+                                color: 'white',
+                                display: true,
+                            },
+                        }]
+                    },
+                    legend: {
+                        position: 'top',
+                        borderWidth: 3,
+                        hidden: true,
+                        labels: {
+                            fontColor: 'white',
+                        }
+                    },
+                    pointLabels: {
+                        fontColor: 'white'
+                    },
+                    gridLines: {
+                        color: 'rgba(255, 255, 255, 0.2)'
+                    },
+                    angleLines: {
+                        color: 'white'
                     }
-                },
-                pointLabels: {
-                    fontColor: 'white'
-                },
-                gridLines: {
-                    color: 'rgba(255, 255, 255, 0.2)'
-                },
-                angleLines: {
-                    color: 'white'
                 }
-            }
-        };
+            };
             chart = new Chart(ctx, scatteredConfiguration);
     }
     if (hide) document.getElementById("canvas-holder").style.display = "none";
