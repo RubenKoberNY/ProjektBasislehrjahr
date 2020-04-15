@@ -34,6 +34,6 @@ class WorklifeController
         }else{
             $msg="Bei Ihnen ist alles in ordnung";
         }
-        Utils::redirect("/evaluation?hide=1&msg=".urlencode($msg));
+        Utils::redirect("/evaluation?hide=1&msg=".urlencode($msg)."&chart=pie&right=".$yes."&wrong=".(10-$yes));
     }
 }

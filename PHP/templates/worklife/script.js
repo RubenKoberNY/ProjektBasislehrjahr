@@ -46,6 +46,7 @@ function createQuestions() {
     input.classList.add("btn");
     quiz.appendChild(br);
     quiz.appendChild(input);
+
 }
 
 loadQnA();
