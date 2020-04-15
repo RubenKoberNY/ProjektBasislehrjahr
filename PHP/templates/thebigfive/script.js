@@ -3,6 +3,7 @@ let amountOfQuestions;
 var currentQuestion = 0;
 var givenAnswer = {};
 
+var databaseValues = [];
 var processedValues = [];
 
 $(document).ready(function () {
@@ -48,9 +49,15 @@ function loadQuestion() {
     } else {
         //redirect to page
         prepareAnswers();
-        window.location = "/evaluation?chart=radar&data=" + processedValues[0] + "," + processedValues[1] + "," + processedValues[2] + "," + processedValues[3] + "," + processedValues[4];
+        $.ajax({
+            type: "POST",
+            url: "/api/thebigfive/post",
+            content: "application/json",
+            data: JSON.stringify(databaseValues),
+        }).done(function (result) {
+            window.location = "/evaluation?chart=radar&data=" + processedValues[0] + "," + processedValues[1] + "," + processedValues[2] + "," + processedValues[3] + "," + processedValues[4];
+    });
     }
-
 }
 
 function saveAnswer() {
@@ -86,7 +93,11 @@ function prepareAnswers() {
 
     for (var j = 0; j < 5; j++) {
         processedValues[j] = (givenAnswer[j+1] + givenAnswer[j + 6]) / 2;
+        if (processedValues[j].length != 1) {
+            databaseValues[j] = processedValues[j].toString().replace(".", "");
+        }
     }
+    console.log(databaseValues);
 }
 
 function reverseInt(value) {

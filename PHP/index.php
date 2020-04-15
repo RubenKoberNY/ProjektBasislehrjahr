@@ -97,6 +97,7 @@ $app->get("/dashboard", function (Request $request, Response $response, array $a
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
+    print_r($_SESSION);
     if (isset($_SESSION["uid"]))
         Utils::redirect("/");
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
@@ -154,7 +155,7 @@ $app->get("/api/risiko/get", function (Request $request, Response $response, arr
 $app->post("/api/risiko/post", function (Request $request, Response $response, array $args) {
     $risikoController = new RisikoController();
     $data = json_decode(file_get_contents('php://input'));
-    echo json_encode($risikoController->save($data));
+    echo $risikoController->save($data);
 });
 
 $app->get("/api/thebigfive/get", function (Request $request, Response $response, array $args) {
@@ -186,25 +187,10 @@ $app->post("/api/maximisierung/post", function (Request $request, Response $resp
     $maximisierungController = new MaximisierungController();
     echo $maximisierungController->save((array) json_decode(file_get_contents('php://input')));
 });
-
-$app->get("/api/lerntyp/get", function (Request $request, Response $response, array $args) {
-    $lerntypController = new LerntypController();
-    echo $lerntypController->getQuestionsAndAnswers();
-});
-
-$app->post("/api/lerntyp/post", function (Request $request, Response $response, array $args) {
-    $lerntypController = new LerntypController();
-    $lerntypController->save($_POST);
-});
-
-$app->get("/api/ayurveda/get", function (Request $request, Response $response, array $args) {
-    $ayurvedaController = new AyurvedaController();
-    echo $ayurvedaController->getQuestionsAndAnswers();
-});
-
-$app->post("/api/ayurveda/post", function (Request $request, Response $response, array $args) {
-    $ayurvedaController = new AyurvedaController();
-    $ayurvedaController->save($_POST);
+$app->post("/api/thebigfive/post", function (Request $request, Response $response, array $args) {
+    $bigFiveController = new TheBigFiveController();
+    $data = json_decode(file_get_contents('php://input'));
+    echo $bigFiveController->save($data);
 });
 
 $app->run();
