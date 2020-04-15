@@ -97,6 +97,7 @@ $app->get("/dashboard", function (Request $request, Response $response, array $a
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
+    print_r($_SESSION);
     if (isset($_SESSION["uid"]))
         Utils::redirect("/");
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
@@ -186,7 +187,6 @@ $app->post("/api/maximisierung/post", function (Request $request, Response $resp
     $maximisierungController = new MaximisierungController();
     echo $maximisierungController->save((array) json_decode(file_get_contents('php://input')));
 });
-
 $app->get("/api/lerntyp/get", function (Request $request, Response $response, array $args) {
     $lerntypController = new LerntypController();
     echo $lerntypController->getQuestionsAndAnswers();
@@ -206,14 +206,10 @@ $app->post("/api/ayurveda/post", function (Request $request, Response $response,
     $ayurvedaController = new AyurvedaController();
     $ayurvedaController->save($_POST);
 });
-$app->get("/api/worklife/get", function (Request $request, Response $response, array $args) {
-    $worklifeController = new WorklifeController();
-    echo $worklifeController->getQuestionsAndAnswers();
-});
-
-$app->post("/api/worklife/post", function (Request $request, Response $response, array $args) {
-    $worklifeController = new WorklifeController();
-    $worklifeController->save($_POST);
+$app->post("/api/thebigfive/post", function (Request $request, Response $response, array $args) {
+    $bigFiveController = new TheBigFiveController();
+    $data = json_decode(file_get_contents('php://input'));
+    echo $bigFiveController->save($data);
 });
 
 $app->run();
