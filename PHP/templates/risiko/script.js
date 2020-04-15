@@ -73,10 +73,15 @@ function sendQuestions() {
         data: JSON.stringify(result)
     }).done(function (res) {
         let resObj = JSON.parse(res);
+        window.location = buildEvaluationURL("scattered", resObj[0], resObj[1], "Auswertung Risiko", "Risikobereitschaft", "Risikofähigkeit");
     });
 }
 
 //endregion
+
+function buildEvaluationURL(chart, x, y, title, xlabel, ylabel) {
+    return "/evaluation?chart=" + chart + "&datax=" + x + "&datay=" + y + "&title=" + encodeURI(title) + "&xlabel=" + encodeURI(xlabel) + "&ylabel=" + ylabel;
+}
 
 function renderCurrentQuestion() {
     let answers = questions[currentIndex].answers;
