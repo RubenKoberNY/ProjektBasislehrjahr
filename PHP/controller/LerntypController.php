@@ -14,6 +14,7 @@ class LerntypController
         return json_encode($questionArray);
     }
 
+    /*   Überprüft, wie viele Antworten von welchem Typ ausgewählt wurden und gibt den ensprechenden Text zurück   */
     public function save($arr)
     {
 
@@ -42,26 +43,34 @@ class LerntypController
             $i++;
         }
         $most = max($auditiv, $visuell, $leseundschreibe, $kinaestetisch);
+
+        /* Auditiver Typ */
         if ($auditiv == $most)
         {
-            $msg = "Ihr Lerntyp -> Auditiv. Was er an Erklärungen hört, klingt für ihn stimmig und nachvollziehbar. 
-            Hörbüchern können auditive Lerntypen sehr gut folgen, selbst zu lesen bedeutet für sie jedoch oft eine echte Konzentrationsleistung.";
+            $msg = "Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
+        oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.";
         }
+
+        /* Visueller Typ */
         else if ($visuell == $most)
         {
-            $msg = "Ihr Lerntyp -> Visuell. Bei mündlichen Erklärungen fällt es ihm schwerer, den Stoff zu verstehen und zu behalten. 
-            Visuelle Lerntypen lesen meistens sehr gern, haben aber Probleme, bei einem Hörbuch den Faden nicht zu verlieren. 
-            Visuelle Lerntypen erfreuen sich auch an Filmen ganz anders als zum Beispiel die Auditiven.";
+            $msg = "Sie lernen durch Beobachtungen. Benutzen Sie Diagramme und Modelle, um Ihre Ideen zu visualisieren.
+        Ersetzen Sie Schlüsselwörter durch Symbole. Benutzen Sie Farbmarker.";
         }
+
+        /* Kinästetischer Typ */
         else if ($kinaestetisch == $most)
         {
-            $msg = "Ihr Lerntyp -> Kinästhetisch. Der kinästhetische Typ lebt vor allem in seinen Gefühlen. Daher atmet er tief im Bauch und seine Augen sind häufig nach unten gerichtet. 
-            Er spricht langsam und mit einer tiefen Stimme. Insgesamt scheint er eher passiv zu sein, da seine Gefühle ihm weniger spontane Reaktionen erlauben.";
+            $msg = "Sie lernen durch Ausprobieren.
+        Benutzen Sie Beispiele, um Ihre Konzepte zu erklären.
+        Versuchen Sie, sich nicht an Fakten zu erinnern, sondern an Erlebnisse.";
         }
+
+        /* Lese und Schreibe Typ */
         else if ($leseundschreibe == $most)
         {
-            $msg = "Ihr Lerntyp -> Lesen und Schreiben.  Er/Sie lernt am besten durch das Lesen und Schreiben von Texten,  ist also auch ein visueller Lerntyp, da er Informationen durch das Sehen aufnimmt. 
-            Jedoch liegt der Fokus hier auf Worten und Texten anstatt auf Grafiken wie beim Visuellen. Das zusätzliche Aufschreiben hilft den Stoff zu behalten und zu verstehen.";
+            $msg = "Sie lernen durch Texte. Sie schaffen Klarheit im Denken, indem Sie schreiben.
+        Erweitern Sie Ihre Notizen beim Abschreiben. Formulieren Sie wichtige Stellen neu.";
         }
         Utils::redirect("/evaluation?hide=1&msg=".urlencode($msg));
     }

@@ -17,6 +17,10 @@ function renderChart() {
         case "pie":
             const right = urlParams.get("right");
             const wrong = urlParams.get("wrong");
+            let color1 = "green";
+            let color2 = "red";
+            if(urlParams.get("color1")) color1 = urlParams.get("color1");
+            if(urlParams.get("color2")) color2 = urlParams.get("color2");
             let rt = "Richtig";
             let wt = "Falsch";
             if (urlParams.get("rt")) rt = urlParams.get("rt");
@@ -31,8 +35,8 @@ function renderChart() {
                             wrong
                         ],
                         backgroundColor: [
-                            "green",
-                            "red"
+                            color1,
+                            color2
                         ],
                         label: 'Dataset 1'
                     }],

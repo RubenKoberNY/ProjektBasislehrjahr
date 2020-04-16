@@ -97,6 +97,12 @@ nav {
     /*padding: 0 5px 0 5px;*/
 }
 
+.logoutbtn{
+    align-self: center;
+    right: 15px;
+    position:absolute;
+}
+
 /* logo*/
 #logo {
     position: absolute;
