@@ -10,21 +10,21 @@ var dictionary = {
 };
 var ageSelection = 0;
 var genderSelection = "";
-$(document).ready(function() {
-   ageSelection =  $('input[name=age]:checked').val();
-   genderSelection =  $('input[name=gender]:checked').val();
+$(document).ready(function () {
+    ageSelection = $('input[name=age]:checked').val();
+    genderSelection = $('input[name=gender]:checked').val();
     updateLabels();
     $('input:radio[name="gender"]').change(
-        function() {
-            if(this.checked) {
+        function () {
+            if (this.checked) {
                 genderSelection = this.value;
                 updateLabels();
             }
         }
     );
     $('input:radio[name="age"]').change(
-        function() {
-            if(this.checked) {
+        function () {
+            if (this.checked) {
                 ageSelection = this.value;
                 updateLabels();
             }
@@ -43,6 +43,7 @@ function updateLabels() {
         i++;
     });
 }
+
 function submit() {
     let value = $('input[name=length]:checked').val();
     let result = "";

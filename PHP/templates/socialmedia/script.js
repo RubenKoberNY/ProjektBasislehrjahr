@@ -1,5 +1,6 @@
 let qna;
 
+
 function loadQnA() {
     let xml = new XMLHttpRequest();
     xml.open("GET", "/api/socialmedia/get");
