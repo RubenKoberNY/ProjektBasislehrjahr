@@ -9,9 +9,41 @@ class RisikoRepository
     {
     }
 
+    public function getScoreFromUserAnswerId($id)
+    {
+        $sql = "SELECT 
+                    antwort.punktezahl
+                FROM
+                    benutzerantwort
+                        JOIN
+                    antwort ON benutzerantwort.antwort_id = antwort.id_antwort
+                    WHERE id_benutzerantwort = ?;";
+        $stmt = DB::getInstance()->prepare($sql);
+        $stmt->bind_param("i", $id);
+        if ($stmt->execute()) {
+            $res = $stmt->get_result()->fetch_row();
+            return sizeof($res) > 0 ? $res[0] : false;
+        }
+        return false;
+    }
+
+    public function getScoreFromAnswerId($id)
+    {
+        $sql = "SELECT antwort.punktezahl
+        FROM antwort
+        WHERE antwort.id_antwort = ?";
+        $stmt = DB::getInstance()->prepare($sql);
+        $stmt->bind_param("i", $id);
+        if ($stmt->execute()) {
+            $res = $stmt->get_result()->fetch_row();
+            return sizeof($res) > 0 ? $res[0] : false;
+        }
+        return false;
+    }
+
     public function getAllQuestions()
     {
-        $sql = "CALL risiko_getAllFrage()";
+        $sql = "CALL getFrageFromQuizId(4)";
         $stmt = DB::getInstance()->prepare($sql);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -19,7 +51,7 @@ class RisikoRepository
 
     public function getAnswersFromQuestionId($id)
     {
-        $sql = "CALL risiko_getAntwortFromFrageId(?)";
+        $sql = "CALL getAntwortIdAndAntwortTextFromFrageId(?)";
         $stmt = DB::getInstance()->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -43,4 +75,6 @@ class RisikoRepository
         $stmt->execute();
         return $stmt->insert_id;
     }
+
+
 }

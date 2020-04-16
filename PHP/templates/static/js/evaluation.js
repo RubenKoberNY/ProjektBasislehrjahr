@@ -8,8 +8,8 @@ function renderChart() {
     let msg = urlParams.get("msg");
     let hide = urlParams.has("hide");
     if (!msg) msg = "Quiz abgeschlossen!"; //if there is no custom message, go for the default one
-    var ctx = document.getElementById('chart-area').getContext('2d');
-    var chart;
+    let ctx = document.getElementById('chart-area').getContext('2d');
+    let chart;
     //set message
     document.getElementById("msg").innerText = msg;
 
@@ -17,6 +17,10 @@ function renderChart() {
         case "pie":
             const right = urlParams.get("right");
             const wrong = urlParams.get("wrong");
+            let color1 = "green";
+            let color2 = "red";
+            if(urlParams.get("color1")) color1 = urlParams.get("color1");
+            if(urlParams.get("color2")) color2 = urlParams.get("color2");
             let rt = "Richtig";
             let wt = "Falsch";
             if (urlParams.get("rt")) rt = urlParams.get("rt");
@@ -31,8 +35,8 @@ function renderChart() {
                             wrong
                         ],
                         backgroundColor: [
-                            "green",
-                            "red"
+                            color1,
+                            color2
                         ],
                         label: 'Dataset 1'
                     }],
@@ -57,9 +61,9 @@ function renderChart() {
 
         case "radar":
             //default values for quiz The Big Five, overridable
-            var maxRange = 7.0;
-            var chartLabels = ["Extraversion", "Verträglichkeit", "Gewissenhaftigkeit", "Emotionale Stabilität", "Offenheit für Erfahrung"];
-            var data = urlParams.get("data").split(",");
+            let maxRange = 7.0;
+            let chartLabels = ["Extraversion", "Verträglichkeit", "Gewissenhaftigkeit", "Emotionale Stabilität", "Offenheit für Erfahrung"];
+            let data = urlParams.get("data").split(",");
             if (urlParams.get("labels")) {
                 var customLabels = urlParams.get("labels").split(",");
                 for (var i = 0; i < customLabels.length; i++) {
@@ -115,6 +119,82 @@ function renderChart() {
                     }
                 };
             chart = new Chart(ctx, radarConfiguration);
+        case "scattered":
+            let cordx = urlParams.get("datax");
+            let cordy = urlParams.get("datay");
+
+            let title = "Auswertung";
+            if(urlParams.get("title"))  title = urlParams.get("title");
+            let yLabel = "";
+            if(urlParams.get("ylabel")) yLabel = urlParams.get("ylabel");
+            let xLabel = "";
+            if(urlParams.get("xlabel")) xLabel = urlParams.get("xlabel");
+
+            let scatteredConfiguration = {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: title,
+                        backgroundColor: '',
+                        borderColor: '#039be5',
+                        borderWidth: 10,
+                        data: [{
+                            x: cordx,
+                            y: cordy,
+                        }],
+                    }],
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: xLabel,
+                                fontColor: "white",
+                                fontSize: 14,
+                                fontFamily: "Roboto",
+                            },
+                            type: 'linear',
+                            position: 'bottom',
+                            gridLines: {
+                                color: 'white',
+                                display: true,
+                            },
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: yLabel,
+                                fontColor: "white",
+                                fontSize: 14,
+                                fontFamily: "Roboto",
+                            },
+                            gridLines: {
+                                color: 'white',
+                                display: true,
+                            },
+                        }]
+                    },
+                    legend: {
+                        position: 'top',
+                        borderWidth: 3,
+                        hidden: true,
+                        labels: {
+                            fontColor: 'white',
+                        }
+                    },
+                    pointLabels: {
+                        fontColor: 'white'
+                    },
+                    gridLines: {
+                        color: 'rgba(255, 255, 255, 0.2)'
+                    },
+                    angleLines: {
+                        color: 'white'
+                    }
+                }
+            };
+            chart = new Chart(ctx, scatteredConfiguration);
     }
     if (hide) document.getElementById("canvas-holder").style.display = "none";
 }
