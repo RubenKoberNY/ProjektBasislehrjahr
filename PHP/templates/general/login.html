@@ -111,10 +111,11 @@
     <div class="modal-content">
         <h4 class="center-align">GameID</h4>
         <div class="col s6">
-            <form class="center-align">
+            <form method="POST" action="/api/idlogin" class="center-align">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="gameid" type="text" class="validate" maxlength="8" required="" aria-required="true">
+                        <input name="game_id" id="gameid" type="text" class="validate" maxlength="8" required=""
+                               aria-required="true">
                         <label for="gameid">GameID</label>
                     </div>
                     <div class="input-field col s12">
