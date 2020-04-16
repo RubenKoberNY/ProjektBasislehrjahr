@@ -75,6 +75,4 @@ class RisikoRepository
         $stmt->execute();
         return $stmt->insert_id;
     }
-
-
 }
