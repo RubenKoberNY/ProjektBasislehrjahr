@@ -30,10 +30,10 @@ class WorklifeController
         }
         $msg="";
         if ($yes > 3){
-            $msg="Sie haben ".$yes." Fragen mit Ja beantwortet. Sie sollten eine Beratung in Erwägung ziehen.";
+            $msg="Sie haben ".$yes." Fragen mit Ja beantwortet. Sie sollten eine Beratung in Erwägung ziehen. *Ja mehr als 3 mal";
         }else{
-            $msg="Bei Ihnen ist alles in ordnung";
+            $msg="Bei Ihnen ist alles in ordnung *Ja weniger als 3 mal";
         }
-        Utils::redirect("/evaluation?hide=1&msg=".urlencode($msg)."&chart=pie&right=".$yes."&wrong=".(10-$yes));
+        Utils::redirect("/evaluation?hide=1&msg=".urlencode($msg)."&chart=pie&right=".(10-$yes)."&wrong=".$yes);
     }
 }
