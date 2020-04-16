@@ -29,7 +29,7 @@
 </head>
 <body>
 
-<nav class="flex-container">
+<nav class="flex-containery">
     <!--topnav-->
     <div id="topnav" class="row flex-container grey darken-2">
         <!--burger-->
@@ -39,6 +39,9 @@
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
+        </div>
+        <div class="col logoutbtn">
+            <a href="/logout" class="waves-effect waves-light btn">Abmelden</a>
         </div>
     </div>
     <!--sidebar-->
