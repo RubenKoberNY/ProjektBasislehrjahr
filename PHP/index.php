@@ -226,5 +226,5 @@ $app->get("/api/worklife/get", function (Request $request, Response $response, a
 $app->post("/api/worklife/post", function (Request $request, Response $response, array $args) {
     $worklifeController = new WorklifeController();
     $worklifeController->save($_POST);
-
-$app->run();
+});
+    $app->run();
