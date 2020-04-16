@@ -209,4 +209,14 @@ $app->post("/api/thebigfive/post", function (Request $request, Response $respons
     echo $bigFiveController->save($data);
 });
 
+$app->get("/api/cooper/get", function (Request $request, Response $response, array $args) {
+    $cooperController = new CooperController();
+    echo $cooperController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/cooper/post", function (Request $request, Response $response, array $args) {
+    $cooperController = new CooperController();
+    $cooperController->save($_POST);
+});
+
 $app->run();
