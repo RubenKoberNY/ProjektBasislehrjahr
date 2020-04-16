@@ -5,8 +5,7 @@ DROP PROCEDURE IF EXISTS getFrageAndAntwortFromQuizId;
 DROP PROCEDURE IF EXISTS getQuizFromGameId;
 DROP PROCEDURE IF EXISTS getAntwortFromFrageId;
 DROP PROCEDURE IF EXISTS getFrageFromQuizId;
-DROP PROCEDURE IF EXISTS risiko_getAllFrage;
-DROP PROCEDURE IF EXISTS risiko_getAntwortFromFrageId;
+DROP PROCEDURE IF EXISTS getAntwortIdAndAntwortTextFromFrageId;
 
 DELIMITER //
 /*CREATE PROCEDURE getFrageAndAntwortFromQuiz (IN quiz_ varchar(45))
@@ -38,22 +37,16 @@ JOIN antwortfrage ON antwortfrage.antwort_id=antwort.id_antwort
 WHERE antwortfrage.frage_id=frage_id_;
 END//
 
+CREATE PROCEDURE getAntwortIdAndAntwortTextFromFrageId(IN frage_id_ int)
+BEGIN
+SELECT antwort.id_antwort 'id_answer', antwort.antwortmöglichkeiten 'value' FROM antwort
+JOIN antwortfrage ON antwortfrage.antwort_id=antwort.id_antwort
+WHERE antwortfrage.frage_id=frage_id_;
+END//
+
 CREATE PROCEDURE getQuizFromGameId (IN gamecode_ varchar(6))
 BEGIN
 SELECT Quiz FROM quiz
 WHERE id_quiz IN
 (SELECT  quiz_id FROM gameid WHERE gamecode = gamecode_);
-END//
-
-CREATE PROCEDURE risiko_getAllFrage()
-BEGIN
-SELECT frage.id_frage AS 'id_frage', frage.fragetext AS 'question' FROM frage
-WHERE frage.quiz_id = (SELECT id_quiz FROM quiz WHERE quiz ="Risiko");
-END//
-
-CREATE PROCEDURE risiko_getAntwortFromFrageId(IN frage_id_ int)
-BEGIN
-SELECT antwort.id_antwort 'id_answer', antwort.antwortmöglichkeiten 'value' FROM antwort
-JOIN antwortfrage ON antwortfrage.antwort_id = antwort.id_antwort
-WHERE antwortfrage.frage_id=frage_id_;
 END//

@@ -21,10 +21,8 @@ class Utils
             $stmt->bind_param("s", $id);
             if ($stmt->execute()) {
                 $res = $stmt->get_result();
-                if ($res->num_rows) {
-                    if ($res->fetch_row()[0] == 0) {
-                        return $id;
-                    }
+                if ($res->num_rows && $res->fetch_row()[0] == 0) {
+                    return $id;
                 }
             }
         }

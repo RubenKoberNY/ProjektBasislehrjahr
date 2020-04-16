@@ -21,56 +21,65 @@ class LerntypController
         $correctAnswers = $this->LerntypRepository->getCorrectAnswers();
         $res_id = $this->LerntypRepository->insertResult($_SESSION["uid"], 16, null);
         $i = 0;
-        $auditiv = $visuell = $leseundschreibe = $kinaestetisch = 0;
+        $au = $vi = $le = $ki = 0;
         $msg = "";
         foreach ($arr as $k => $v) {
             switch($v[0])
             {
                 case "A":
-                    $auditiv++;
+                    $au++;
                     break;
                 case "V":
-                    $visuell++;
-                    break;
+                    $vi++;
                 case "R":
-                    $leseundschreibe++;
+                    $le++;
                     break;
                 case "K":
-                    $kinaestetisch++;
+                    $ki++;
                     break;
             }
             $this->LerntypRepository->insertUserAnswer($this->LerntypRepository->getFrageByAntworttext($v), $_SESSION["uid"], $res_id);
             $i++;
         }
-        $most = max($auditiv, $visuell, $leseundschreibe, $kinaestetisch);
+        $most = max($au, $vi, $le, $ki);
 
-        /* Auditiver Typ */
-        if ($auditiv == $most)
+        /* Else */
+        if ($le == 0 || $vi == 0 || $ki == 0 || $au == 0)
         {
-            $msg = "Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
-        oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.";
+            $msg = "Sie sind jeweils 33% jedes Lerntypes";
         }
-
-        /* Visueller Typ */
-        else if ($visuell == $most)
+        /* Auditiver Typ
+             66%       */
+        else if ($au == $most)
         {
-            $msg = "Sie lernen durch Beobachtungen. Benutzen Sie Diagramme und Modelle, um Ihre Ideen zu visualisieren.
-        Ersetzen Sie Schlüsselwörter durch Symbole. Benutzen Sie Farbmarker.";
+            $msg = "Sie sind zu 66% ein auditiver Lerntyp!.
+            Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
+            oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.";
         }
-
-        /* Kinästetischer Typ */
-        else if ($kinaestetisch == $most)
+        /* Visueller Typ
+              66%     */
+        else if ($vi == $most)
         {
-            $msg = "Sie lernen durch Ausprobieren.
-        Benutzen Sie Beispiele, um Ihre Konzepte zu erklären.
-        Versuchen Sie, sich nicht an Fakten zu erinnern, sondern an Erlebnisse.";
+            $msg = "Sie sind zu 66% ein visueller Lerntyp!.
+            Sie lernen durch Beobachtungen. Benutzen Sie Diagramme und Modelle, um Ihre Ideen zu visualisieren.
+            Ersetzen Sie Schlüsselwörter durch Symbole. Benutzen Sie Farbmarker.";
         }
-
-        /* Lese und Schreibe Typ */
-        else if ($leseundschreibe == $most)
+        /* Kinästetischer Typ
+             66%       */
+        else if ($ki == $most)
         {
-            $msg = "Sie lernen durch Texte. Sie schaffen Klarheit im Denken, indem Sie schreiben.
-        Erweitern Sie Ihre Notizen beim Abschreiben. Formulieren Sie wichtige Stellen neu.";
+            $msg = "Sie sind zu 66% ein kinästhetischer Lerntyp!.
+            Sie lernen durch Ausprobieren.
+            Benutzen Sie Beispiele, um Ihre Konzepte zu erklären.
+            Versuchen Sie, sich nicht an Fakten zu erinnern, sondern an Erlebnisse.";
+        }
+        /* Lese und Schreibe Typ
+                 66%     */
+        else if ($le == $most)
+        {
+            $msg = "Sie sind zu 66% ein lese und schreibe Lerntyp!.
+            Sie lernen durch Texte. Sie schaffen Klarheit im Denken, indem Sie schreiben.
+            Erweitern Sie Ihre Notizen beim Abschreiben. Formulieren Sie wichtige Stellen neu.";
         }
         Utils::redirect("/evaluation?hide=1&msg=".urlencode($msg));
     }
