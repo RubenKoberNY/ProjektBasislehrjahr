@@ -218,5 +218,13 @@ $app->post("/api/cooper/post", function (Request $request, Response $response, a
     $cooperController = new CooperController();
     $cooperController->save($_POST);
 });
+$app->get("/api/worklife/get", function (Request $request, Response $response, array $args) {
+    $worklifeController = new WorklifeController();
+    echo $worklifeController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/worklife/post", function (Request $request, Response $response, array $args) {
+    $worklifeController = new WorklifeController();
+    $worklifeController->save($_POST);
 
 $app->run();
