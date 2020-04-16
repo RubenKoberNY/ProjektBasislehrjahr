@@ -102,10 +102,7 @@ $app->get("/login", function (Request $request, Response $response, array $args)
         Utils::redirect("/");
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
 });
-/*//Register Frontend
-$app->get("/register", function (Request $request, Response $response, array $args) {
-    Render::render("general/register.html", "static/css/registrierung.css");
-});*/
+
 $app->get("/logout", function (Request $request, REsponse $response, array $args) {
     $userController = new UserController();
     $userController->logout();
