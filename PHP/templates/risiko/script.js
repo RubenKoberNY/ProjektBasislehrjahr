@@ -9,49 +9,42 @@ function renderNextQuestion() {
         renderCurrentQuestion();
     }
 }
+
 $("#answer1").click(function () {
     if (currentIndex < questions.length) {
         let id = questions[currentIndex].answers[0].id_answer;
         let qid = questions[currentIndex].id_frage;
-        result.push({qid: qid, id: id});
-        sendIfEnded();
-        renderNextQuestion();
+        handleClick(id, qid);
     }
 });
 $("#answer2").click(function () {
     if (currentIndex < questions.length) {
         let id = questions[currentIndex].answers[1].id_answer;
         let qid = questions[currentIndex].id_frage;
-        result.push({qid: qid, id: id});
-        sendIfEnded();
-        renderNextQuestion();
+        handleClick(id, qid);
     }
 });
 $("#answer3").click(function () {
     if (currentIndex < questions.length) {
         let id = questions[currentIndex].answers[2].id_answer;
         let qid = questions[currentIndex].id_frage;
-        result.push({qid: qid, id: id});
-        sendIfEnded();
-        renderNextQuestion();
+        handleClick(id, qid);
     }
 });
 $("#answer4").click(function () {
     if (currentIndex < questions.length) {
         let id = questions[currentIndex].answers[3].id_answer;
         let qid = questions[currentIndex].id_frage;
-        result.push({qid: qid, id: id});
-        sendIfEnded();
-        renderNextQuestion();
+        handleClick(id, qid);
     }
 });
-//region Prototypes
-HTMLElement.prototype.replaceHTML = function (search, replacement) {
-    this.innerHTML = this.innerHTML.replace(search, replacement);
-}
-//endregion
 
-//getAllQuestions();
+function handleClick(id, qid) {
+    result.push({qid: qid, id: id});
+    sendIfEnded();
+    renderNextQuestion();
+}
+
 getAllQuestions();
 
 //region Questions
@@ -80,7 +73,34 @@ function sendQuestions() {
 //endregion
 
 function buildEvaluationURL(chart, x, y, title, xlabel, ylabel) {
-    return "/evaluation?chart=" + chart + "&datax=" + x + "&datay=" + y + "&title=" + encodeURI(title) + "&xlabel=" + encodeURI(xlabel) + "&ylabel=" + ylabel;
+    return URLBuilder.buildURL("/evaluation", {
+        chart: chart,
+        datax: x,
+        datay: y,
+        title: encodeURI(title),
+        xlabel: encodeURI(xlabel),
+        ylabel: encodeURI(ylabel),
+        xmax: 9,
+        ymax: 9
+    });
+}
+
+var URLBuilder = {
+    buildURL: function (url, dict) {
+        console.log(dict);
+        let out = url;
+        Object.entries(dict).forEach((value, index) => {
+            out += this.getNextURLParam(value[0], value[1], index);
+        });
+        return out;
+
+    },
+    getNextURLParam: function (key, value, count) {
+        if (count == 0)
+            return "?" + key + "=" + value;
+        else
+            return "&" + key + "=" + value;
+    }
 }
 
 function renderCurrentQuestion() {
