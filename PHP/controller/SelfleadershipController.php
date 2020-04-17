@@ -3,30 +3,33 @@
 
 class SelfleadershipController
 {
-    private $selfleadershipRepository;
-
     public function __construct()
     {
-        $this->selfleadershipRepository = new SelfleadershipRepository();
+        $this->SelfleadershipRepository = new SelfleadershipRepository();
     }
 
     public function getQuestionsAndAnswers()
     {
-        $result = $this->selfleadershipRepository->getQuestionsAndAnswers();
-        echo json_encode($result);
+        $questionArray = $this->SelfleadershipRepository->getAllQuestionsFromSelfleadership();
+        return json_encode($questionArray);
     }
 
     public function save($arr)
     {
-        $points = array_sum($arr);
-        $msg = 'Deine Gesamtpunktzahl beträgt ' . $points . ' Punkte. ';
-        if ($points < 19) {
-            $msg = $msg . "Raum für Verbesserungen. Geh im Kopf Situationen durch, in denen du deine Ziele nicht erfülltest. Woran lag es? Welche Rolle spielte fehlende Selbstführung.";
-        } else if ($points >= 19 && $points <= 36) {
-            $msg = $msg . "Mittlere Selbstführungsfähigkeiten. Lies noch einmal die Selbstführungsstrategien. Frag dich: Wie kann ich mich in diesen Punkten verbessern?";
-        } else if ($points > 36) {
-            $msg = $msg . "Sehr starke Selbstführungsfähigkeiten. Du bist in der Lage, dein Verhalten und deine Gedanken positiv zu lenken.";
+
+        $correctAnswers = $this->SelfleadershipRepository->getCorrectAnswers();
+        $res_id = $this->SelfleadershipRepository->insertResult($_SESSION["uid"], 17, null);
+        $i = 0;
+        $correct = 0;
+        foreach ($arr as $k => $v) {
+            $useranswer_id = $v;
+
+            if ($useranswer_id + 166 == $correctAnswers[$i]["id_antwort"]) $correct++;
+            $this->SelfleadershipRepository->insertUserAnswer($useranswer_id, $_SESSION["uid"], $res_id);
+            $i++;
         }
-        Utils::redirect("/evaluation?hide=1&msg=" . urlencode($msg));
+        $msg = $this->SelfleadershipRepository->getAnwortText($correct);
+        $this->SelfleadershipRepository->updateResultat($correct, $msg[0], $res_id);
+        Utils::redirect("/evaluation?chart=pie&right=" . $correct . "&wrong=" . (count($correctAnswers) - $correct)."&msg=".urlencode($msg[1]));
     }
 }

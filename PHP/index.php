@@ -212,16 +212,6 @@ $app->post("/api/thebigfive/post", function (Request $request, Response $respons
     echo $bigFiveController->save($data);
 });
 
-$app->get("/api/selfleadership/get", function (Request $request, Response $response, array $args) {
-    $selfleadershipController = new SelfleadershipController();
-    echo $selfleadershipController->getQuestionsAndAnswers();
-});
-
-$app->post("/api/selfleadership/post", function (Request $request, Response $response, array $args) {
-    $selfleadershipController = new SelfleadershipController();
-    $selfleadershipController->save($_POST);
-});
-
 $app->get("/api/cooper/get", function (Request $request, Response $response, array $args) {
     $cooperController = new CooperController();
     echo $cooperController->getQuestionsAndAnswers();
@@ -240,6 +230,16 @@ $app->get("/api/worklife/get", function (Request $request, Response $response, a
 $app->post("/api/worklife/post", function (Request $request, Response $response, array $args) {
     $worklifeController = new WorklifeController();
     $worklifeController->save($_POST);
+});
+
+$app->get("/api/selfleadership/get", function (Request $request, Response $response, array $args) {
+    $selfleadershipController = new SelfleadershipController();
+    echo $selfleadershipController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/selfleadership/post", function (Request $request, Response $response, array $args) {
+    $selfleadershipController = new SelfleadershipController();
+    $selfleadershipController->save($_POST);
 });
 
 $app->run();
