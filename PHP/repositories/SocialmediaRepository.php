@@ -31,7 +31,7 @@ class SocialmediaRepository
         return null;
     }
 
-    public function getAnwortText($points)
+    public function getAntwortText($points)
     {
         $sql = "SELECT id_punktzahlantwort, antworttext FROM punktzahlantwort WHERE ? between punktezahlvon AND puntzahlbis AND quiz_id = 20;";
         $stmt = DB::getInstance()->prepare($sql);

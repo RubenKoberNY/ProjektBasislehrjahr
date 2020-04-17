@@ -16,12 +16,8 @@ class AyurvedaController
 
     public function save($arr)
     {
-
-        $correctAnswers = $this->AyurvedaRepository->getCorrectAnswers();
         $res_id = $this->AyurvedaRepository->insertResult($_SESSION["uid"], 14, null);
-        $i = 0;
         $vata = $pitta = $kapha = 0;
-        $msg = "";
         foreach ($arr as $k => $v) {
             switch ($v[0]) {
                 case "A":
@@ -35,9 +31,9 @@ class AyurvedaController
                     break;
             }
             $this->AyurvedaRepository->insertUserAnswer($this->AyurvedaRepository->getFrageByAntworttext($v), $_SESSION["uid"], $res_id);
-            $i++;
         }
         $most = max($vata, $pitta, $kapha);
+        $msg = "";
         if ($vata == $most) {
             $msg = "Vata - Du bist Lebhaft, gewandt, fröhlich und beliebt. Aber auch fahrig, sprunghaft und schnell gelangweilt. Du schläfst schlecht, neigst zu Atemwegserkrankungen und Gelenkbeschwerden. Du hast einen schmalen, leichten Körperbau.";
         } else if ($pitta == $most) {
