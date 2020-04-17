@@ -84,7 +84,6 @@ $app->get('/', function (Request $request, Response $response, array $args) {
     } else {
         Utils::redirect("/login");
     }
-
 });
 
 //Router
@@ -102,10 +101,7 @@ $app->get("/login", function (Request $request, Response $response, array $args)
         Utils::redirect("/");
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
 });
-/*//Register Frontend
-$app->get("/register", function (Request $request, Response $response, array $args) {
-    Render::render("general/register.html", "static/css/registrierung.css");
-});*/
+
 $app->get("/logout", function (Request $request, REsponse $response, array $args) {
     $userController = new UserController();
     $userController->logout();
@@ -178,14 +174,14 @@ $app->get("/api/einbuergerung/get", function (Request $request, Response $respon
     echo $einbuergerungController->getQuestionsAndAnswers();
 });
 
-$app->post("/api/einbuergerung/post", function (Request $request, Response $response, array $args){
+$app->post("/api/einbuergerung/post", function (Request $request, Response $response, array $args) {
     $einbuergerungController = new EinbuergerungController();
     $einbuergerungController->save($_POST);
 });
 
-$app->post("/api/maximisierung/post", function (Request $request, Response $response, array $args){
+$app->post("/api/maximisierung/post", function (Request $request, Response $response, array $args) {
     $maximisierungController = new MaximisierungController();
-    echo $maximisierungController->save((array) json_decode(file_get_contents('php://input')));
+    echo $maximisierungController->save((array)json_decode(file_get_contents('php://input')));
 });
 $app->get("/api/lerntyp/get", function (Request $request, Response $response, array $args) {
     $lerntypController = new LerntypController();
@@ -212,16 +208,6 @@ $app->post("/api/thebigfive/post", function (Request $request, Response $respons
     echo $bigFiveController->save($data);
 });
 
-$app->get("/api/selfleadership/get", function (Request $request, Response $response, array $args) {
-    $selfleadershipController = new SelfleadershipController();
-    echo $selfleadershipController->getQuestionsAndAnswers();
-});
-
-$app->post("/api/selfleadership/post", function (Request $request, Response $response, array $args) {
-    $selfleadershipController = new SelfleadershipController();
-    $selfleadershipController->save($_POST);
-});
-
 $app->get("/api/cooper/get", function (Request $request, Response $response, array $args) {
     $cooperController = new CooperController();
     echo $cooperController->getQuestionsAndAnswers();
@@ -242,4 +228,24 @@ $app->post("/api/worklife/post", function (Request $request, Response $response,
     $worklifeController->save($_POST);
 });
 
+$app->get("/api/selfleadership/get", function (Request $request, Response $response, array $args) {
+    $selfleadershipController = new SelfleadershipController();
+    echo $selfleadershipController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/selfleadership/post", function (Request $request, Response $response, array $args) {
+    $selfleadershipController = new SelfleadershipController();
+    $selfleadershipController->save($_POST);
+});
+
+$app->get("/api/bekanntheit/get", function (Request $request, Response $response, array $args) {
+    $bekanntheitController = new BekanntheitController();
+    echo $bekanntheitController->get();
+});
+
+$app->post("/api/bekanntheit/post", function (Request $request, Response $response, array $args) {
+    $bekanntheitController = new BekanntheitController();
+    $data = json_decode(file_get_contents('php://input'));
+    echo $bekanntheitController->save($data);
+});
 $app->run();

@@ -1,25 +1,9 @@
-/* onclick execute fuction */
-document.getElementById("button").onclick = () => {
-  getSliderValue();
-};
+let qna;
+let quiz = document.getElementById("quiz");
 
-/* This function gets the Slider Values and counts them all together*/
-function getSliderValue() {
-  var s = document.getElementById("slide0").value;
-  var s1 = document.getElementById("slide1").value;
-  var s2 = document.getElementById("slide2").value;
-  var s3 = document.getElementById("slide3").value;
-  var s4 = document.getElementById("slide4").value;
-  var s5 = document.getElementById("slide5").value;
-  var s6 = document.getElementById("slide6").value;
-  var s7 = document.getElementById("slide7").value;
-  var s8 = document.getElementById("slide8").value;
-  var sliders = parseInt(s) + parseInt(s1) + parseInt(s2) + parseInt(s3) + parseInt(s4) + parseInt(s5) + parseInt(s6) + parseInt(s7) + parseInt(s8);
-  console.log(sliders)
-}
 
 function loadQnA() {
-  var xml = new XMLHttpRequest();
+  let xml = new XMLHttpRequest();
   xml.open("GET", "/api/selfleadership/get");
   xml.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -28,7 +12,42 @@ function loadQnA() {
     }
   };
   xml.send();
-  jQuery.get('/api/selfleadership/get');
 }
 
-jQuery(document).ready(loadQnA);
+
+function createQuestions() {
+  for (let i = 0; i < qna.length; i += 5) {
+    let question = document.createElement("div");
+    let heading = document.createElement("h6");
+    heading.innerText = qna[i]["fragetext"];
+    question.appendChild(heading);
+    for (let a = 0; a < 5; a++) {
+      let possibility = document.createElement("label");
+      let radio = document.createElement("input");
+      let span = document.createElement("span");
+      let br = document.createElement("br");
+      if (a==0)radio.checked="checked";
+      radio.value = i+a;
+      radio.name = "radio" + i;
+      radio.classList.add("with-gap");
+      span.innerText = qna[a + i]["antwortmöglichkeiten"];
+      radio.type = "radio";
+      possibility.appendChild(radio);
+      possibility.appendChild(span);
+      possibility.appendChild(br);
+      question.appendChild(possibility);
+    }
+    quiz.appendChild(question);
+  }
+  let input = document.createElement("input");
+  let br = document.createElement("br");
+  input.type = "submit";
+  input.value = "Auswertung";
+  input.classList.add("btn");
+  quiz.appendChild(br);
+  quiz.appendChild(input);
+}
+
+loadQnA();
+
+
