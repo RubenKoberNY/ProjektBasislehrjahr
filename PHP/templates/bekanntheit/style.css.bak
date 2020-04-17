@@ -1,0 +1,16 @@
+/*===============================
+general styles
+===============================*/
+
+
+#introduction {
+    margin-top: 30px;
+}
+
+table {
+    margin-bottom: 30px;
+}
+
+label span {
+    padding: 0 5px 0 25px !important;
+}

@@ -1,16 +1,28 @@
-/*===============================
-general styles
-===============================*/
 
-
-#introduction {
-    margin-top: 30px;
+#question {
+    margin-left: 10%;
+    width: 80%;
+    text-align: center;
 }
 
-table {
-    margin-bottom: 30px;
+.answerButton {
+    height: 100%;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    font-size: 30px;
+    text-transform: none;
+    width: 100%;
 }
 
-label span {
-    padding: 0 5px 0 25px !important;
+.answers div div {
+    height: 100%;
+}
+
+.answers div {
+    height: 50%;
+}
+
+.answers {
+    height: 50vh;
 }
