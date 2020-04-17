@@ -1,7 +1,7 @@
 <?php
 
-if (!defined( "MYSQLI_ASSOC"))
-    define("MYSQLI_ASSOC", 1);
+/*if (!defined( "MYSQLI_ASSOC"))
+    define("MYSQLI_ASSOC", 1);*/
 
 class MaximisierungRepository
 {

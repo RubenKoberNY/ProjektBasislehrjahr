@@ -35,7 +35,7 @@ class SocialmediaController
             $this->SocialmediaRepository->insertUserAnswer($i, $_SESSION["uid"], $res_id);
             $i++;
         }
-        $antworttext = $this->SocialmediaRepository->getAnwortText($yes);
+        $antworttext = $this->SocialmediaRepository->getAntwortText($yes);
         $this->SocialmediaRepository->updateResultat($yes, $antworttext[0], $res_id);
         Utils::redirect("/evaluation?chart=pie&right=" . $yes . "&wrong=" . ($total - $yes) . "&rt=Ja&wt=Nein&msg=" . urlencode($antworttext[1]));
     }

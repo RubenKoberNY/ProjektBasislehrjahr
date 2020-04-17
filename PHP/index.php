@@ -102,7 +102,10 @@ $app->get("/login", function (Request $request, Response $response, array $args)
         Utils::redirect("/");
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
 });
-
+/*//Register Frontend
+$app->get("/register", function (Request $request, Response $response, array $args) {
+    Render::render("general/register.html", "static/css/registrierung.css");
+});*/
 $app->get("/logout", function (Request $request, REsponse $response, array $args) {
     $userController = new UserController();
     $userController->logout();
@@ -209,6 +212,16 @@ $app->post("/api/thebigfive/post", function (Request $request, Response $respons
     echo $bigFiveController->save($data);
 });
 
+$app->get("/api/selfleadership/get", function (Request $request, Response $response, array $args) {
+    $selfleadershipController = new SelfleadershipController();
+    echo $selfleadershipController->getQuestionsAndAnswers();
+});
+
+$app->post("/api/selfleadership/post", function (Request $request, Response $response, array $args) {
+    $selfleadershipController = new SelfleadershipController();
+    $selfleadershipController->save($_POST);
+});
+
 $app->get("/api/cooper/get", function (Request $request, Response $response, array $args) {
     $cooperController = new CooperController();
     echo $cooperController->getQuestionsAndAnswers();
@@ -218,6 +231,7 @@ $app->post("/api/cooper/post", function (Request $request, Response $response, a
     $cooperController = new CooperController();
     $cooperController->save($_POST);
 });
+
 $app->get("/api/worklife/get", function (Request $request, Response $response, array $args) {
     $worklifeController = new WorklifeController();
     echo $worklifeController->getQuestionsAndAnswers();
@@ -227,4 +241,5 @@ $app->post("/api/worklife/post", function (Request $request, Response $response,
     $worklifeController = new WorklifeController();
     $worklifeController->save($_POST);
 });
-    $app->run();
+
+$app->run();
