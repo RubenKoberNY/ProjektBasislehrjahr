@@ -44,7 +44,7 @@ class SelfleadershipRepository
     }
     public function insertResult($uid, $quiz_id, $gamecode_id)
     {
-        $sql = "INSERT INTO resultat(benutzer_id, quiz_id, gameid_id, punktzahlantwort_id) VALUES(?, ?, ?, ?);";
+        $sql = "INSERT INTO resultat(benutzer_id, quiz_id, gameid_id, punktzahlantwort_id) VALUES(?, ?, ?, 12);";
         $stmt = DB::getInstance()->prepare($sql);
         $stmt->bind_param("iii", $uid, $quiz_id, $gamecode_id);
         if ($stmt->execute()) {
@@ -72,7 +72,7 @@ class SelfleadershipRepository
         return null;
     }
 
-    public function getAnwortText($points)
+    public function getAntwortText($points)
     {
         $sql = "SELECT id_punktzahlantwort, antworttext FROM punktzahlantwort WHERE ? between punktezahlvon AND puntzahlbis AND quiz_id = 17;";
         $stmt = DB::getInstance()->prepare($sql);
