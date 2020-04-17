@@ -2,17 +2,16 @@ label {
     color: #ffffff !important;
 }
 
-.cooper {
-    padding-bottom: 25px;
-}
-
 .custom {
     width: 100px !important;
 }
 
-#slider {
-    padding-left: 25%;
-    width: 75%;
+.distance {
+    width: 200px !important;
+}
+
+.done {
+    margin-bottom: 25px;
 }
 
 /*
