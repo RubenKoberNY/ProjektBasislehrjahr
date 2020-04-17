@@ -129,7 +129,10 @@ function renderChart() {
             if(urlParams.get("ylabel")) yLabel = urlParams.get("ylabel");
             let xLabel = "";
             if(urlParams.get("xlabel")) xLabel = urlParams.get("xlabel");
-
+            let xMax = 10;
+            if(urlParams.get("xmax")) xMax = urlParams.get("xmax");
+            let yMax = 10;
+            if(urlParams.get("ymax")) yMax = urlParams.get("ymax");
             let scatteredConfiguration = {
                 type: 'scatter',
                 data: {
@@ -160,6 +163,12 @@ function renderChart() {
                                 color: 'white',
                                 display: true,
                             },
+                            ticks: {
+                                beginAtZero: true,
+                                max: parseInt(xMax),
+                                fontColor: 'white',
+                                showLabelBackdrop: false
+                            },
                         }],
                         yAxes: [{
                             scaleLabel: {
@@ -172,6 +181,12 @@ function renderChart() {
                             gridLines: {
                                 color: 'white',
                                 display: true,
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                max: parseInt(yMax),
+                                fontColor: 'white',
+                                showLabelBackdrop: false
                             },
                         }]
                     },
