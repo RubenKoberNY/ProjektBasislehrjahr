@@ -246,7 +246,7 @@ $app->post("/api/bekanntheit/post", function (Request $request, Response $respon
 });
 
 
-$app->get("/scripts", function (Request $request, Response $response, array $args){
+$app->get("/loadfile", function (Request $request, Response $response, array $args){
    $script = "";
    $path=substr(__FILE__, 0, -strlen($_SERVER['SCRIPT_NAME'])) . DIRECTORY_SEPARATOR . $_GET["script"];
    if(file_exists($path)){
