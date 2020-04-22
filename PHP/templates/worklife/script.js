@@ -42,7 +42,7 @@ function createQuestions() {
     let input = document.createElement("input");
     let br = document.createElement("br");
     input.type = "submit";
-    input.value = "Auswertung";
+    input.value = "Quiz abschliessen";
     input.classList.add("btn");
     quiz.appendChild(br);
     quiz.appendChild(input);
