@@ -21,10 +21,3 @@ function dismiss() {
     document.querySelector('.js-cookie-banner').remove();
 }
 
-// Get button element
-const buttonElement = document.querySelector('.js-cookie-dismiss');
-// Maybe cookie consent is not present
-if (buttonElement) {
-    // Listen on button click
-    buttonElement.addEventListener('click', dismiss);
-}
