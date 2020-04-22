@@ -58,7 +58,7 @@ if (isset($_SESSION["login"])) {
 }
 
 $uri = $_SERVER["REQUEST_URI"]; //get the request uri
-
+$path=substr(__FILE__, 0, -strlen($_SERVER['SCRIPT_NAME'])) . DIRECTORY_SEPARATOR . $_GET["script"];
 $allowed = array("/login", "/api/login", "/api/register", "/register", "/", "/api/idlogin"); //all pages that can be visited without login
 if ((!in_array($uri, $allowed)) && !isset($_SESSION["uid"])) { //redirect to login if requested page requires a user
     Utils::redirect("/login", 401);
@@ -75,6 +75,8 @@ $c['notFoundHandler'] = function ($c) {
 };
 
 $app = new \Slim\App($c);
+
+
 $app->get('/', function (Request $request, Response $response, array $args) {
     if (isset($_SESSION["uid"])) {
         Utils::redirect("/dashboard");
@@ -246,9 +248,9 @@ $app->post("/api/bekanntheit/post", function (Request $request, Response $respon
 });
 
 
-$app->get("/scripts", function (Request $request, Response $response, array $args){
+$app->get("/loadfile", function (Request $request, Response $response, array $args){
    $script = "";
-   $path=substr(__FILE__, 0, -strlen($_SERVER['SCRIPT_NAME'])) . DIRECTORY_SEPARATOR . $_GET["script"];
+    global $path;
    if(file_exists($path)){
        $script = file_get_contents($path);
    }
