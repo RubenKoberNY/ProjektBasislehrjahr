@@ -2,7 +2,6 @@
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-use Slim\Http\UploadedFile;
 
 //UTILITIES
 require "utilities/Render.php";
@@ -49,7 +48,6 @@ require './vendor/autoload.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start(); //start session if not started
 }
-
 $timeout = (24 * 60 * 60); //set session timeout in seconds
 
 if (isset($_SESSION["login"])) {
@@ -77,7 +75,6 @@ $c['notFoundHandler'] = function ($c) {
 };
 
 $app = new \Slim\App($c);
-
 $app->get('/', function (Request $request, Response $response, array $args) {
     if (isset($_SESSION["uid"])) {
         Utils::redirect("/dashboard");
@@ -247,5 +244,15 @@ $app->post("/api/bekanntheit/post", function (Request $request, Response $respon
     $bekanntheitController = new BekanntheitController();
     $data = json_decode(file_get_contents('php://input'));
     echo $bekanntheitController->save($data);
+});
+
+
+$app->get("/scripts", function (Request $request, Response $response, array $args){
+   $script = "";
+   $path=substr(__FILE__, 0, -strlen($_SERVER['SCRIPT_NAME'])) . DIRECTORY_SEPARATOR . $_GET["script"];
+   if(file_exists($path)){
+       $script = file_get_contents($path);
+   }
+   echo $script;
 });
 $app->run();
