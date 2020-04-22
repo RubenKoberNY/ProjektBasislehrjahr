@@ -58,7 +58,7 @@ if (isset($_SESSION["login"])) {
 }
 
 $uri = $_SERVER["REQUEST_URI"]; //get the request uri
-$path=substr(__FILE__, 0, -strlen($_SERVER['SCRIPT_NAME'])) . DIRECTORY_SEPARATOR . $_GET["script"];
+$path=substr(__FILE__, 0, -strlen($_SERVER['SCRIPT_NAME'])) . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR;
 $allowed = array("/login", "/api/login", "/api/register", "/register", "/", "/api/idlogin"); //all pages that can be visited without login
 if ((!in_array($uri, $allowed)) && !isset($_SESSION["uid"])) { //redirect to login if requested page requires a user
     Utils::redirect("/login", 401);
