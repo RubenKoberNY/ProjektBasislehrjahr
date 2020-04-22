@@ -93,13 +93,12 @@ $app->get("/dashboard", function (Request $request, Response $response, array $a
 });
 // Login Frontend
 $app->get("/login", function (Request $request, Response $response, array $args) {
-    print_r($_SESSION);
     if (isset($_SESSION["uid"]))
         Utils::redirect("/");
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
 });
 
-$app->get("/logout", function (Request $request, REsponse $response, array $args) {
+$app->get("/logout", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
     $userController->logout();
 });

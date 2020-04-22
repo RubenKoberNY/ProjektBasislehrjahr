@@ -22,12 +22,15 @@ function createQuestions() {
     heading.innerText = qna[i]["fragetext"];
     question.appendChild(heading);
     for (let a = 0; a < 5; a++) {
+      if(a==6) {
+        a = 0;
+      }
       let possibility = document.createElement("label");
       let radio = document.createElement("input");
       let span = document.createElement("span");
       let br = document.createElement("br");
       if (a==0)radio.checked="checked";
-      radio.value = i+a;
+      radio.value = a + 1;
       radio.name = "radio" + i;
       radio.classList.add("with-gap");
       span.innerText = qna[a + i]["antwortmöglichkeiten"];
