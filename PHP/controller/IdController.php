@@ -26,7 +26,7 @@ class IdController
 
     function addRandomId($quiz_id)
     {
-        addId($quiz_id, Utils::getNewValidId());
+        $this->addId($quiz_id, Utils::getNewValidId());
     }
 
     private function addId($quiz_id, $gamecode)
