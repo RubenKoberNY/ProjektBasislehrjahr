@@ -97,8 +97,7 @@ $app->get(BASE_URL . "dashboard", function (Request $request, Response $response
 });
 // Login Frontend
 $app->get(BASE_URL . "login", function (Request $request, Response $response, array $args) {
-    if (isset($_SESSION["uid"]))
-        Utils::redirect(BASE_URL . "/");
+    if (isset($_SESSION["uid"])) Utils::redirect(BASE_URL);
     Render::render("general/login.html", "static/css/login.css", "static/js/login.js", array(), true);
 });
 
