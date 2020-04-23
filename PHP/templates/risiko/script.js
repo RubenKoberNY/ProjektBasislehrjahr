@@ -85,9 +85,8 @@ function buildEvaluationURL(chart, x, y, title, xlabel, ylabel) {
     });
 }
 
-var URLBuilder = {
+const URLBuilder = {
     buildURL: function (url, dict) {
-        console.log(dict);
         let out = url;
         Object.entries(dict).forEach((value, index) => {
             out += this.getNextURLParam(value[0], value[1], index);
