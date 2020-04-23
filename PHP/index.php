@@ -57,12 +57,13 @@ if (isset($_SESSION["login"])) {
     }
 }
 
-$uri = $_SERVER["REQUEST_URI"]; //get the request uri
+$uri = strtok($_SERVER["REQUEST_URI"], '?'); //get the request uri
 $path = substr(__FILE__, 0, -strlen($_SERVER['SCRIPT_NAME'])) . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR;
 const BASE_URL = "/";
-$allowed = array(BASE_URL . "/login", BASE_URL . "/api/login", BASE_URL . "/api/register", BASE_URL . "/register", BASE_URL . "/", BASE_URL . "/api/idlogin"); //all pages that can be visited without login
+$GLOBALS["BASE_URL"] = BASE_URL;
+$allowed = array(BASE_URL . "login", BASE_URL . "api/login", BASE_URL . "api/register", BASE_URL . "register", BASE_URL . "", BASE_URL . "api/idlogin", BASE_URL . "api/loadfile"); //all pages that can be visited without login
 if ((!in_array($uri, $allowed)) && !isset($_SESSION["uid"])) { //redirect to login if requested page requires a user
-    Utils::redirect(BASE_URL . "/login", 401);
+    Utils::redirect(BASE_URL . "login", 401);
 }
 $c = new \Slim\Container();
 
@@ -104,6 +105,11 @@ $app->get(BASE_URL . "login", function (Request $request, Response $response, ar
 $app->get(BASE_URL . "logout", function (Request $request, Response $response, array $args) {
     $userController = new UserController();
     $userController->logout();
+});
+
+
+$app->get(BASE_URL . "impressum", function (Request $request, Response $response, array $args){
+    Render::render("general/impressum.html", null,null);
 });
 
 $app->get(BASE_URL . "evaluation", function (Request $request, REsponse $response, array $args) {
