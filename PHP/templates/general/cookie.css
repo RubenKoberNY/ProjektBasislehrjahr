@@ -1,5 +1,6 @@
 /* Quelle https://stackoverflow.com/questions/55782865/create-cookie-banner/55786219 */
-.cookie-banner {
+.cookieNotification {
+    display: none;
     background-color: lightblue;
     padding: 20px;
 }
