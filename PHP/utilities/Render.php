@@ -23,10 +23,10 @@ class Render
                 $page = str_replace("%" . $key . "%", $value, $page);
             }
             if ($stylesheet != null) {
-                $page = str_replace("<!--style-->", "<link rel='stylesheet' type='text/css' href='" . $GLOBALS["BASE_URL"] . "api/loadfile?file=". $stylesheet . "'>", $page);
+                $page = str_replace("<!--style-->", "<link rel='stylesheet' type='text/css' href='" . $GLOBALS["BASE_URL"] . "api/loadfile?file=". $stylesheet . "&type=css'>", $page);
             }
             if ($script != null) {
-                $page = str_replace("<!--scripts-->", "<script src='/" . self::$tempdir . "/" . $script . "'></script>", $page);
+                $page = str_replace("<!--scripts-->", "<script src='" . $GLOBALS["BASE_URL"] . "api/loadfile?file=" . $script . "&type=js'></script>", $page);
             }
             echo $page;
         } else {

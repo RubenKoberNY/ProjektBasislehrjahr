@@ -72,7 +72,7 @@ $c['notFoundHandler'] = function ($c) {
     return function ($request, $response) use ($c) {
         return $response->withStatus(404)
             ->withHeader('Content-Type', 'text/html')
-            ->write('<script>window.location="'. BASE_URL . '/quiz/notfound"</script>');
+            ->write('<script>window.location="' . BASE_URL . '/quiz/notfound"</script>');
     };
 };
 
@@ -106,9 +106,8 @@ $app->get(BASE_URL . "logout", function (Request $request, Response $response, a
     $userController->logout();
 });
 
-
-$app->get(BASE_URL . "impressum", function (Request $request, Response $response, array $args){
-    Render::render("general/impressum.html", null,null);
+$app->get(BASE_URL . "impressum", function (Request $request, Response $response, array $args) {
+    Render::render("general/impressum.html", null, null);
 });
 
 $app->get(BASE_URL . "evaluation", function (Request $request, REsponse $response, array $args) {
@@ -256,8 +255,15 @@ $app->post(BASE_URL . "api/bekanntheit/post", function (Request $request, Respon
 
 $app->get(BASE_URL . "api/loadfile", function (Request $request, Response $response, array $args) {
     global $path;
-    if (file_exists($path)) {
-        Render::render( $_GET["file"], null, null, array("BASE_URL" => BASE_URL), true);
+    if (!isset($_GET["file"]) || !isset($_GET["type"])) return;
+    $filepath = $path . $_GET["file"];
+    if (!file_exists($filepath)) return;
+    $temp = $response->withStatus(200);
+    if ($_GET["type"] == "css") {
+        $temp = $temp->withHeader('Content-Type', 'text/css');
+    }elseif ($_GET["type"] == "js"){
+        $temp = $temp->withHeader('Content-Type', 'text/script');
     }
+    return $temp->write(str_replace("%BASE_URL%", BASE_URL, file_get_contents($filepath)));
 });
 $app->run();
