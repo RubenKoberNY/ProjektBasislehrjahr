@@ -55,10 +55,10 @@
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/einbuergerung">Einbürgerung</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/lerntyp">Lerntyp</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/liegestuetze">Liegestütze</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/maximisierung">Maximisierung</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/maximisierung">Maximierung</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/risiko">Risiko</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/selfleadership">Self-Leadership</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/socialmedia">Social Media süchtig?</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/socialmedia">Social-Media-Sucht</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/werwirdmillionaer">Wer wird Millionär?</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/worklife">Work-Life</a>
             <img class="logoImage" src="/templates/static/img/logo.gif">
