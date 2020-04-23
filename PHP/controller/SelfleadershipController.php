@@ -29,6 +29,10 @@ class SelfleadershipController
         $msg = $this->SelfleadershipRepository->getAntwortText($total);
         $this->SelfleadershipRepository->updateResultat($total, $msg[0], $res_id);
 
-        return $msg[1];
+
+
+        //return $msg[1];
+        Utils::redirect("/evaluation?hide&msg=" . $msg[1]);
+
     }
 }
