@@ -16,6 +16,8 @@ class SelfleadershipController
 
     public function save($arr)
     {
+        $idController = new IdController();
+        $idController->addRandomId(17);
         if (!isset($_SESSION["uid"])) {
             return false;
         }

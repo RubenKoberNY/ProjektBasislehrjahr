@@ -21,6 +21,8 @@ class SocialmediaController
 
     public function save($arr)
     {
+        $idController = new IdController();
+        $idController->addRandomId(20);
         if (!isset($_SESSION["uid"]))
             return false;
 
