@@ -58,6 +58,7 @@ class RisikoRepository
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
+
     public function insertResult($uid, $quiz_id, $gamecode_id)
     {
         $sql = "INSERT INTO resultat(benutzer_id, quiz_id, gameid_id, punktzahlantwort_id) VALUES(?, ?, ?, 12);";
@@ -75,4 +76,6 @@ class RisikoRepository
         $stmt->execute();
         return $stmt->insert_id;
     }
+
+
 }
