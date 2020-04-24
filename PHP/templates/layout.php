@@ -6,16 +6,16 @@
     <meta name="author" content="TeamDesign"/>
 
     <!--import normalize.css-->
-    <link rel="stylesheet" type="text/css" href="/templates/static/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/normalize.css&type=css">
 
     <!--import materialize.css-->
-    <link rel="stylesheet" type="text/css" href="/templates/static/css/materialize.min.css"/>
+    <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/materialize.min.css&type=css"/>
 
     <!--custom css-->
-    <link rel="stylesheet" type="text/css" href="/templates/static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href=%BASE_URL%api/loadfile?file=templates/static/css/main.css&type=css"/>
 
     <!--import hover.css-->
-    <link rel="stylesheet" type="text/css" href="/templates/static/css/hover-min.css">
+    <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/hover-min.css&type=css">
 
     <!--import google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -41,27 +41,27 @@
             </div>
         </div>
         <div class="col logoutbtn">
-            <a href="/logout" class="waves-effect waves-light btn">Abmelden</a>
+            <a href="%BASE_URL%logout" class="waves-effect waves-light btn">Abmelden</a>
         </div>
     </div>
     <!--sidebar-->
     <div id="sidebar" class="sidebar grey darken-4">
         <div class="sidebar_content">
             <!--insert links to quiz -->
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/ayurveda">Ayurveda</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/bekanntheit">Bekanntheitstest</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/thebigfive">Big-Five</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/cooper">Cooper</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/einbuergerung">Einbürgerung</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/lerntyp">Lerntyp</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/liegestuetze">Liegestütze</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/maximisierung">Maximierung</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/risiko">Risiko</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/selfleadership">Self-Leadership</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/socialmedia">Social-Media-Sucht</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/werwirdmillionaer">Wer wird Millionär?</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="/quiz/worklife">Work-Life</a>
-            <img class="logoImage" src="/templates/static/img/logo.gif">
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/ayurveda">Ayurveda</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/bekanntheit">Bekanntheitstest</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/thebigfive">Big-Five</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/cooper">Cooper</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/einbuergerung">Einbürgerung</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/lerntyp">Lerntyp</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/liegestuetze">Liegestütze</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/maximisierung">Maximierung</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/risiko">Risiko</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/selfleadership">Self-Leadership</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/socialmedia">Social-Media-Sucht</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/werwirdmillionaer">Wer wird Millionär?</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/worklife">Work-Life</a>
+            <img class="logoImage" src="%BASE_URL%templates/static/img/logo.gif">
             <a onclick="toggleSidebar()" href="#"></a>
         </div>
     </div>
@@ -74,13 +74,13 @@
 
 
 <!--import jQuery-->
-<script src="/templates/static/js/jquery.min.js"></script>
+<script src="%BASE_URL%api/loadfile?file=templates/static/js/jquery.min.js&type=js"></script>
 
 <!--custom JS-->
-<script src="/templates/static/js/script.js"></script>
+<script src="%BASE_URL%api/loadfile?file=/templates/static/js/script.js&type=js"></script>
 
 <!--import materialize.js-->
-<script src="/templates/static/js/materialize.js"></script>
+<script src="%BASE_URL%api/loadfile?file=templates/static/js/materialize.js&type=js"></script>
 
 <!--dropdown menu-->
 <script>
