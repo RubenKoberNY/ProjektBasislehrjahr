@@ -4,12 +4,10 @@ $(document).ready(function () {
 
 function cookieNotification() {
     var cookieNotificationEl = jQuery('.cookieNotification');
-    if (cookieNotificationEl.length > 0) {
-        var hasSeenCookieNotification = localStorage.getItem('hasSeenCookieNotification');
-        if (hasSeenCookieNotification === null) {
-            cookieNotificationEl.show();
-            localStorage.setItem('hasSeenCookieNotification', '1');
-        }
+    var hasSeenCookieNotification = localStorage.getItem('hasSeenCookieNotification');
+    if (hasSeenCookieNotification === null) {
+        cookieNotificationEl.show();
+        localStorage.setItem('hasSeenCookieNotification', '1');
     }
 }
 
