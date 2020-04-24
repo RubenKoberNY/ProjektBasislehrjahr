@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     //fetch all questions from database
     $.ajax({
-        url: "/api/thebigfive/get",
+        url: "%BASE_URL%api/thebigfive/get",
         method: "GET"
     }).done(function (result) {
         questions = JSON.parse(result);
@@ -51,11 +51,11 @@ function loadQuestion() {
         prepareAnswers();
         $.ajax({
             type: "POST",
-            url: "/api/thebigfive/post",
+            url: "%BASE_URL%api/thebigfive/post",
             content: "application/json",
             data: JSON.stringify(databaseValues),
         }).done(function (result) {
-            window.location = "/evaluation?chart=radar&data=" + processedValues[0] + "," + processedValues[1] + "," + processedValues[2] + "," + processedValues[3] + "," + processedValues[4];
+            window.location = "%BASE_URL%evaluation?chart=radar&data=" + processedValues[0] + "," + processedValues[1] + "," + processedValues[2] + "," + processedValues[3] + "," + processedValues[4];
     });
     }
 }

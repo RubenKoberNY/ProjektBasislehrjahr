@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/materialize.min.css&type=css"/>
 
     <!--custom css-->
-    <link rel="stylesheet" type="text/css" href=%BASE_URL%api/loadfile?file=templates/static/css/main.css&type=css"/>
+    <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/main.css&type=css"/>
 
     <!--import hover.css-->
     <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/hover-min.css&type=css">
@@ -77,7 +77,7 @@
 <script src="%BASE_URL%api/loadfile?file=templates/static/js/jquery.min.js&type=js"></script>
 
 <!--custom JS-->
-<script src="%BASE_URL%api/loadfile?file=/templates/static/js/script.js&type=js"></script>
+<script src="%BASE_URL%api/loadfile?file=templates/static/js/script.js&type=js"></script>
 
 <!--import materialize.js-->
 <script src="%BASE_URL%api/loadfile?file=templates/static/js/materialize.js&type=js"></script>

@@ -3,7 +3,7 @@ let qna;
 
 function loadQnA() {
     let xml = new XMLHttpRequest();
-    xml.open("GET", "/api/socialmedia/get");
+    xml.open("GET", "%BASE_URL%api/socialmedia/get");
     xml.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             qna = JSON.parse(xml.responseText);
