@@ -8,7 +8,7 @@ function cookieNotification() {
         var hasSeenCookieNotification = localStorage.getItem('hasSeenCookieNotification');
         if (hasSeenCookieNotification === null) {
             cookieNotificationEl.show();
-            localStorage.setItem('hasSeenCookieNotification', '1');
+            // localStorage.setItem('hasSeenCookieNotification', '1');
         }
     }
 }
