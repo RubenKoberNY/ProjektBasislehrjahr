@@ -25,3 +25,6 @@ button { /*button placement*/
   position: absolute;
   width: auto;
 }
+label {
+  color: #ffffff !important;
+}

@@ -18,6 +18,7 @@
     margin-right: auto;
     padding: 20px;
     background-color: white;
-
-
+}
+label {
+    color: #ffffff !important;
 }
