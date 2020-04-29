@@ -14,12 +14,18 @@
     text-transform: none;
     width: 100%;
 }
-.answers div div{
+.answers div div {
     height:100%;
 }
+
 .answers div{
     height:50%;
 }
 .answers{
     height:50vh;
+}
+
+.answers p{
+    width: -webkit-fill-available;  /*set width of p tag to width of container (Chrome, IE, Opera)*/
+    width: -moz-available;  /*set width of p tag to width of container (Firefox)*/
 }
