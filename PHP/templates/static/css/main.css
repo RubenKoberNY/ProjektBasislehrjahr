@@ -15,6 +15,12 @@ p {
     color: #F6F8F8;
 }
 
+#law{
+    position: absolute;
+    bottom:10px;
+    right: 10px;
+}
+
 /*
 =====================================
 classes

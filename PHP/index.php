@@ -88,7 +88,7 @@ $app->get("/dashboard", function (Request $request, Response $response, array $a
 });
 
 $app->get("/datenschutz", function (Request $request, Response $response, array $args){
-   Render::render("general/datenschutz.html");
+   Render::render("general/datenschutz.html", null, null, array(),true);
 });
 // Login Frontend
 $app->get( "/login", function (Request $request, Response $response, array $args) {
@@ -102,7 +102,7 @@ $app->get("/logout", function (Request $request, Response $response, array $args
 });
 
 $app->get("/impressum", function (Request $request, Response $response, array $args) {
-    Render::render("general/impressum.html", null, null);
+    Render::render("general/impressum.html", null, null, array(), true);
 });
 
 $app->get("/evaluation", function (Request $request, REsponse $response, array $args) {
