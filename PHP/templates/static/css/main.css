@@ -3,7 +3,7 @@ html * {
 }
 
 html {
-    background-image: url("%BASE_URL%templates/static/img/question-marks.jpg");
+    background-image: url("%BASE_URL%templates/static/img/question-marks.jpg"); /* HINT: path resolved by php*/
     background-attachment: fixed;
 }
 
@@ -25,7 +25,6 @@ classes
     justify-content: flex-start;
     align-content: center;
 }
-
 
 /*
 =====================================
