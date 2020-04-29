@@ -17,15 +17,15 @@ class LerntypController
     /*   Überprüft, wie viele Antworten von welchem Typ ausgewählt wurden und gibt den ensprechenden Text zurück   */
     public function save($arr)
     {
-
+        $idController = new IdController();
+        $idController->addRandomId(16);
         $correctAnswers = $this->LerntypRepository->getCorrectAnswers();
         $res_id = $this->LerntypRepository->insertResult($_SESSION["uid"], 16, null);
         $i = 0;
         $au = $vi = $le = $ki = 0;
         $msg = "";
         foreach ($arr as $k => $v) {
-            switch($v[0])
-            {
+            switch ($v[0]) {
                 case "A":
                     $au++;
                     break;

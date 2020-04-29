@@ -58,25 +58,6 @@ function CheckIfAnswersSelectedAndGetValues() {
     return answers;
 }
 
-// Old function DO NOT USE ANYMORE
-/*function meanValue() {
-    var values = CheckIfAnswersSelectedAndGetValues();
-    var i = 0;
-    var sum = 0;
-
-    for (; i < values.length;)   {
-        // console.log("values[" + i + "] = " + values[i]);
-        sum += parseInt(values[i]); i++;
-    }
-
-    // console.log("sum = " + sum);
-    // console.log("length = " + values.length);
-
-    var meanvalue = Math.round(sum / values.length);
-
-    console.log("mean value = " + meanvalue);
-}*/
-
 //===============================================================================================
 
 
@@ -96,12 +77,12 @@ function createDictionary()
 function sendQuestions() {
     if (CheckIfAnswersSelectedAndGetValues().length) {
         $.ajax({
-            url: "/api/maximisierung/post",
+            url: "%BASE_URL%api/maximisierung/post",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify(createDictionary())
         }).done(function (res) {
-            window.location = "/evaluation?hide=1&msg=" + res;
+            window.location = "%BASE_URL%evaluation?hide=1&msg=" + res;
         });
     }
 }

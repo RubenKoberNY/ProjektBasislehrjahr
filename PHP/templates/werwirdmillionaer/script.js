@@ -13,7 +13,7 @@ let answers = {};
 
 function loadQnA() {
     let xml = new XMLHttpRequest();
-    xml.open("GET", "/api/werwirdmillionaer/get");
+    xml.open("GET", "%BASE_URL%api/werwirdmillionaer/get");
     xml.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             qna = JSON.parse(xml.responseText);
@@ -89,13 +89,13 @@ function choose(aid) {
 
 function sendQuestions() {
     $.ajax({
-        url: "/api/werwirdmillionaer/post",
+        url: "%BASE_URL%api/werwirdmillionaer/post",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(answers)
     }).done(function (res) {
         let result = res.split("/");
-        window.location = "/evaluation?right=" + result[0] + "&wrong=" + result[1] + "&chart=pie";
+        window.location = "%BASE_URL%evaluation?right=" + result[0] + "&wrong=" + result[1] + "&chart=pie";
     });
 }
 

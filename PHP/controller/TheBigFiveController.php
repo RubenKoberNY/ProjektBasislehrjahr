@@ -12,14 +12,15 @@ class TheBigFiveController
         return json_encode($questionArray);
     }
     public function save($array) {
-
-        if(!isset($_SESSION["uid"])) {
+        $idController = new IdController();
+        $idController->addRandomId(2);
+        if (!isset($_SESSION["uid"])) {
             return false;
         }
 
         $result_id = $this->bigFiveRepository->createResult($_SESSION["uid"], 2, null);
 
-        foreach($array as $item) {
+        foreach ($array as $item) {
             $this->bigFiveRepository->insertUserResult($item, $_SESSION["uid"], $result_id);
         }
 

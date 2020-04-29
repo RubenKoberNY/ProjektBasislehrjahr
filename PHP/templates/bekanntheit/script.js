@@ -24,7 +24,7 @@ getAllQuestions();
 
 function getAllQuestions() {
     $.ajax({
-        url: "/api/bekanntheit/get",
+        url: "%BASE_URL%api/bekanntheit/get",
         method: "GET"
     }).done(function (result) {
         questions = JSON.parse(result);
@@ -61,13 +61,13 @@ function sendIfEnded() {
     if (currentIndex == questions.length) {
         currentIndex++;
         $.ajax({
-            url: "/api/bekanntheit/post",
+            url: "%BASE_URL%api/bekanntheit/post",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify(result)
         }).done(function (res) {
             let resObj = JSON.parse(res);
-            window.location = URLBuilder.buildURL("/evaluation", {
+            window.location = URLBuilder.buildURL("%BASE_URL%evaluation", {
                 msg: "Der folgende Wert ist die Summe aller Personen, " +
                     "welche Sie mit \"Kenne ich vielleicht\" oder \"Kenne ich sicher\" bewertet haben, " +
                     "die jedoch nicht existieren: " + resObj["score"]

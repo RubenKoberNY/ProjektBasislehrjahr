@@ -66,6 +66,6 @@ function submit() {
             result = "Sehr schlecht!";
             break;
     }
-    window.location = "/evaluation?hide&msg=" + result;
+    window.location = "%BASE_URL%evaluation?hide&msg=" + result;
 
 }

@@ -16,6 +16,8 @@ class AyurvedaController
 
     public function save($arr)
     {
+        $idController = new IdController();
+        $idController->addRandomId(14);
         $res_id = $this->AyurvedaRepository->insertResult($_SESSION["uid"], 14, null);
         $vata = $pitta = $kapha = 0;
         foreach ($arr as $k => $v) {
@@ -41,6 +43,7 @@ class AyurvedaController
         } else if ($kapha == $most) {
             $msg = "Kapha - Du bist ausgeglichen und entspannt. Deine langsame Auffassungsgabe kontrastiert ein gutes Langzeitgedächtnis. Dein Körperbau ist kräftig, das Haar dicht. Du bist ein guter Schläfer. Du neigst zu Gewichtsproblemen.";
         }
-        Utils::redirect("/evaluation?hide=1&msg=" . urlencode($msg));
+        Utils::redirect($GLOBALS["BASE_URL"] . "evaluation?hide=1&msg=" . urlencode($msg));
+
     }
 }
