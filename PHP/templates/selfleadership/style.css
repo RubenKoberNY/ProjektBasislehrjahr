@@ -25,6 +25,7 @@ button { /*button placement*/
   position: absolute;
   width: auto;
 }
+/*Global Design*/
 label {
   color: #ffffff !important;
 }
