@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;">
     <meta name="author" content="TeamDesign"/>
+
     <!--import normalize.css-->
     <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/normalize.css&type=css">
+
     <!--import materialize.css-->
     <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/materialize.min.css&type=css"/>
+
     <!--custom css-->
     <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/main.css&type=css"/>
+
     <!--import hover.css-->
     <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/hover-min.css&type=css">
+
     <!--import google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
     <!--import icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!--style-->
+
     <title>Project:HomeOffice</title>
 </head>
 <body>
+
 <nav class="flex-containery">
     <!--topnav-->
     <div id="topnav" class="row flex-container grey darken-2">
@@ -60,12 +69,23 @@
 <div class="container">
     %%content%%
 </div>
+
+
+<div id="law">
+    <a href="%BASE_URL%impressum">Impressum</a>
+    <span> </span>
+    <a href="%BASE_URL%datenschutz">Datenschutz</a>
+</div>
+
 <!--import jQuery-->
 <script src="%BASE_URL%api/loadfile?file=templates/static/js/jquery.min.js&type=js"></script>
+
 <!--custom JS-->
 <script src="%BASE_URL%api/loadfile?file=templates/static/js/script.js&type=js"></script>
+
 <!--import materialize.js-->
 <script src="%BASE_URL%api/loadfile?file=templates/static/js/materialize.js&type=js"></script>
+
 <!--dropdown menu-->
 <script>
     $('.dropdown-trigger').dropdown();

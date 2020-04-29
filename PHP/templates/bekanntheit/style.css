@@ -26,3 +26,9 @@
 .answers {
     height: 50vh;
 }
+
+.answer p {
+    width: -webkit-fill-available;  /*set width of p tag to width of container (Chrome, IE, Opera)*/
+    width: -moz-available; /*set width of p tag to width of container (Firefox)*/
+
+}
