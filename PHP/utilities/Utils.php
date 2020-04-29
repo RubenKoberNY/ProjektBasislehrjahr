@@ -8,7 +8,7 @@ class Utils
     static function redirect($url, $status = 302)
     {
         http_response_code($status);
-        header("Location: $url");
+        header("Location: " . $GLOBALS["BASE_URL"] . substr($url, 1));
         die();
     }
 

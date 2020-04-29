@@ -50,7 +50,7 @@ getAllQuestions();
 //region Questions
 function getAllQuestions() {
     $.ajax({
-        url: "/api/risiko/get",
+        url: "%BASE_URL%api/risiko/get",
         method: "GET"
     }).done(function (result) {
         questions = JSON.parse(result);
@@ -60,7 +60,7 @@ function getAllQuestions() {
 
 function sendQuestions() {
     $.ajax({
-        url: "/api/risiko/post",
+        url: "%BASE_URL%api/risiko/post",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(result)
@@ -73,7 +73,7 @@ function sendQuestions() {
 //endregion
 
 function buildEvaluationURL(chart, x, y, title, xlabel, ylabel) {
-    return URLBuilder.buildURL("/evaluation", {
+    return URLBuilder.buildURL("%BASE_URL%evaluation", {
         chart: chart,
         datax: x,
         datay: y,
