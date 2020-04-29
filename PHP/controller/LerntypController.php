@@ -43,19 +43,15 @@ class LerntypController
         }
         $most = max($au, $vi, $le, $ki);
 
-        /* Else */
-        if ($le == 0 || $vi == 0 || $ki == 0 || $au == 0)
-        {
-            $msg = "Sie sind jeweils 33% jedes Lerntypes";
-        }
         /* Auditiver Typ
              66%       */
-        else if ($au == $most)
+        if ($au == $most)
         {
             $msg = "Sie sind zu 66% ein auditiver Lerntyp!.
             Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
             oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.";
         }
+
         /* Visueller Typ
               66%     */
         else if ($vi == $most)
