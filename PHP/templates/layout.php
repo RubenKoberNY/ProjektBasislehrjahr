@@ -71,7 +71,11 @@
 </div>
 
 
-
+<div id="law">
+    <a href="%BASE_URL%impressum">Impressum</a>
+    <span> </span>
+    <a href="%BASE_URL%datenschutz">Datenschutz</a>
+</div>
 
 <!--import jQuery-->
 <script src="%BASE_URL%api/loadfile?file=templates/static/js/jquery.min.js&type=js"></script>
