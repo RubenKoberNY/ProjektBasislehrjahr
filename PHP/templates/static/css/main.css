@@ -274,3 +274,13 @@ animation <img> scale-up-center
 .btn:hover, .btn-large:hover, .btn-small:hover {
     background-color: #26a69a !important;
 }
+
+/*
+=====================================
+radioButtons
+=====================================
+*/
+[type="radio"]:not(:checked) + span:before,
+[type="radio"]:not(:checked) + span:after {
+    border: 2px solid #ffffff !important;
+}
