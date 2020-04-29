@@ -3,30 +3,38 @@
 
 class SelfleadershipController
 {
-    private $selfleadershipRepository;
-
     public function __construct()
     {
-        $this->selfleadershipRepository = new SelfleadershipRepository();
+        $this->SelfleadershipRepository = new SelfleadershipRepository();
     }
 
     public function getQuestionsAndAnswers()
     {
-        $result = $this->selfleadershipRepository->getQuestionsAndAnswers();
-        echo json_encode($result);
+        $questionArray = $this->SelfleadershipRepository->getAllQuestionsFromSelfleadership();
+        return json_encode($questionArray);
     }
 
     public function save($arr)
     {
-        $points = array_sum($arr);
-        $msg = 'Deine Gesamtpunktzahl beträgt ' . $points . ' Punkte. ';
-        if ($points < 19) {
-            $msg = $msg . "Raum für Verbesserungen. Geh im Kopf Situationen durch, in denen du deine Ziele nicht erfülltest. Woran lag es? Welche Rolle spielte fehlende Selbstführung.";
-        } else if ($points >= 19 && $points <= 36) {
-            $msg = $msg . "Mittlere Selbstführungsfähigkeiten. Lies noch einmal die Selbstführungsstrategien. Frag dich: Wie kann ich mich in diesen Punkten verbessern?";
-        } else if ($points > 36) {
-            $msg = $msg . "Sehr starke Selbstführungsfähigkeiten. Du bist in der Lage, dein Verhalten und deine Gedanken positiv zu lenken.";
+        $idController = new IdController();
+        $idController->addRandomId(17);
+        if (!isset($_SESSION["uid"])) {
+            return false;
         }
-        Utils::redirect("/evaluation?hide=1&msg=" . urlencode($msg));
+
+        $res_id = $this->SelfleadershipRepository->insertResult($_SESSION["uid"], 17, null);
+        $total = 0;
+        foreach ($arr as $qid => $rid) {
+            $this->SelfleadershipRepository->insertUserAnswer($rid, $_SESSION["uid"], $res_id);
+            $total += $rid;
+        }
+        $msg = $this->SelfleadershipRepository->getAntwortText($total);
+        $this->SelfleadershipRepository->updateResultat($total, $msg[0], $res_id);
+
+
+
+        //return $msg[1];
+        Utils::redirect("/evaluation?hide&msg=" . $msg[1]);
+
     }
 }

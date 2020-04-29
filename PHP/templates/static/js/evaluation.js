@@ -58,7 +58,7 @@ function renderChart() {
 
 
             chart = new Chart(ctx, pieConfiguration);
-
+             break;
         case "radar":
             //default values for quiz The Big Five, overridable
             let maxRange = 7.0;
@@ -119,6 +119,7 @@ function renderChart() {
                     }
                 };
             chart = new Chart(ctx, radarConfiguration);
+            break;
         case "scattered":
             let cordx = urlParams.get("datax");
             let cordy = urlParams.get("datay");
@@ -210,6 +211,7 @@ function renderChart() {
                 }
             };
             chart = new Chart(ctx, scatteredConfiguration);
+            break;
     }
     if (hide) document.getElementById("canvas-holder").style.display = "none";
 }

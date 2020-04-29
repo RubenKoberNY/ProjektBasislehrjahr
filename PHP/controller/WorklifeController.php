@@ -16,6 +16,8 @@ class WorklifeController
 
     public function save($arr)
     {
+        $idController = new IdController();
+        $idController->addRandomId(19);
         if (!isset($_SESSION["uid"]))
             return false;
 

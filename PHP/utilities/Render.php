@@ -23,7 +23,7 @@ class Render
                 $page = str_replace("%" . $key . "%", $value, $page);
             }
             if ($stylesheet != null) {
-                $page = str_replace("<!--style-->", "<link rel='stylesheet' href='/" . self::$tempdir . "/" . $stylesheet . "'>", $page);
+                $page = str_replace("<!--style-->", "<link rel='stylesheet' type='text/css' href='" . $GLOBALS["BASE_URL"] . "api/loadfile?file=". $stylesheet . "'>", $page);
             }
             if ($script != null) {
                 $page = str_replace("<!--scripts-->", "<script src='/" . self::$tempdir . "/" . $script . "'></script>", $page);

@@ -12,6 +12,7 @@ class Utils
         die();
     }
 
+
     static function getNewValidId()
     {
         $sql = "SELECT COUNT(*) FROM gameid WHERE gamecode = ?";

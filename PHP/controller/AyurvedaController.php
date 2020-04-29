@@ -16,6 +16,8 @@ class AyurvedaController
 
     public function save($arr)
     {
+        $idController = new IdController();
+        $idController->addRandomId(14);
         $res_id = $this->AyurvedaRepository->insertResult($_SESSION["uid"], 14, null);
         $vata = $pitta = $kapha = 0;
         foreach ($arr as $k => $v) {

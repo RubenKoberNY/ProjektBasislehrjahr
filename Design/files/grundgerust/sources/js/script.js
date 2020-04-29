@@ -4,3 +4,4 @@ function toggleSidebar() {
     sidebar.classList.toggle("sidebar_visible");
     burgerIcon.classList.toggle("change");
 }
+

@@ -89,7 +89,7 @@ function choose(aid) {
 
 function sendQuestions() {
     $.ajax({
-        url: "/api/werwirdmillionaer/post",
+        url: "%BASE_URL%api/werwirdmillionaer/post",
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify(answers)

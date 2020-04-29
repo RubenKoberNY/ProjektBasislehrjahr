@@ -16,7 +16,8 @@ class EinbuergerungController
 
     public function save($arr)
     {
-
+        $idController = new IdController();
+        $idController->addRandomId(22);
         $correctAnswers = $this->EinbuergerungRepository->getCorrectAnswers();
         $res_id = $this->EinbuergerungRepository->insertResult($_SESSION["uid"], 22, null);
         $i = 0;

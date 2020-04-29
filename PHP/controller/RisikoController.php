@@ -23,6 +23,8 @@ class RisikoController
 
     public function save($arr)
     {
+        $idController = new IdController();
+        $idController->addRandomId(4);
         if (isset($_SESSION["uid"])) {
             $res_id = $this->risikoRepository->insertResult($_SESSION["uid"], 4, null);
             for ($i = 0; $i < sizeof($arr); $i++) {
