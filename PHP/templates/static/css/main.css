@@ -289,3 +289,12 @@ radioButtons
 [type="radio"]:not(:checked) + span:after {
     border: 2px solid #ffffff !important;
 }
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+    background-color: #5b90d9;
+}
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+    border: 2px solid #5b90d9;
+}
