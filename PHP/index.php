@@ -62,16 +62,25 @@ $path = "./";
 const BASE_URL = "/";
 $GLOBALS["BASE_URL"] = BASE_URL;
 $allowed = array(BASE_URL . "login", BASE_URL . "api/login", BASE_URL . "api/register", BASE_URL . "register", BASE_URL . "", BASE_URL . "api/idlogin", BASE_URL . "api/loadfile", BASE_URL . "datenschutz", BASE_URL . "impressum"); //all pages that can be visited without login
-if ((!in_array($uri, $allowed)) && !isset($_SESSION["uid"])) { //redirect to login if requested page requires a user
+if ((!in_array($uri, $allowed)) && (!isset($_SESSION["uid"]) || $_SESSION["uid"] == "gameid")) { //redirect to login if requested page requires a user
     Utils::redirect("/login", 401);
 }
 $c = new \Slim\Container();
+
+//Override the default Not Found Handler before creating App
+$c['notFoundHandler'] = function ($c) {
+    return function ($request, $response) use ($c) {
+        return $response->withStatus(404)
+            ->withHeader('Content-Type', 'text/html')
+            ->write('<script>window.location="' . BASE_URL . '/quiz/notfound"</script>');
+    };
+};
 
 $app = new \Slim\App($c);
 
 
 $app->get("/", function (Request $request, Response $response, array $args) {
-    if (isset($_SESSION["uid"])) {
+    if (isset($_SESSION["uid"]) && $_SESSION["uid"] != "gameid") {
         Utils::redirect("/dashboard");
     } else {
         Utils::redirect("/login");
@@ -84,7 +93,7 @@ $app->get("/quiz/{quiz}", function (Request $request, Response $response, array 
 });
 
 $app->get("/dashboard", function (Request $request, Response $response, array $args) {
-    Render::render("general/index.html");
+    Render::render("general/index.html", null, "static/js/index.js");
 });
 
 $app->get("/datenschutz", function (Request $request, Response $response, array $args){
@@ -92,7 +101,7 @@ $app->get("/datenschutz", function (Request $request, Response $response, array 
 });
 // Login Frontend
 $app->get( "/login", function (Request $request, Response $response, array $args) {
-    if (isset($_SESSION["uid"])) Utils::redirect(BASE_URL);
+    if (isset($_SESSION["uid"]) && $_SESSION["uid"] != "gameid") Utils::redirect(BASE_URL);
     Render::render("general/login.html", null, null, array(), true);
 });
 
@@ -255,9 +264,19 @@ $app->get("/api/loadfile", function (Request $request, Response $response, array
     $temp = $response->withStatus(200);
     if ($_GET["type"] == "css") {
         $temp = $temp->withHeader('Content-Type', 'text/css');
-    }elseif ($_GET["type"] == "js"){
+    } elseif ($_GET["type"] == "js") {
         $temp = $temp->withHeader('Content-Type', 'text/script');
     }
     return $temp->write(str_replace("%BASE_URL%", BASE_URL, file_get_contents($filepath)));
 });
+
+$app->get(BASE_URL . "api/questions/get", function (Request $request, Response $response, array $args) {
+    header("Content-Type: application/json");
+    $userController = new UserController();
+    if (isset($_SESSION['uid']) && $_SESSION['uid'] != 'gameid')
+        $userController->printAllQuizzes($_SESSION['uid']);
+    else
+        echo "{}";
+});
+
 $app->run();
