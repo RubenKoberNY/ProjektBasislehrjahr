@@ -17,8 +17,6 @@ class LerntypController
     /*   Überprüft, wie viele Antworten von welchem Typ ausgewählt wurden und gibt den ensprechenden Text zurück   */
     public function save($arr)
     {
-        $idController = new IdController();
-        $idController->addRandomId(16);
         $correctAnswers = $this->LerntypRepository->getCorrectAnswers();
         $res_id = $this->LerntypRepository->insertResult($_SESSION["uid"], 16, null);
         $i = 0;

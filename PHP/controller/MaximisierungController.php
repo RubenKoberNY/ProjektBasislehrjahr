@@ -10,8 +10,6 @@ class MaximisierungController
 
     public function save($arr)
     {
-        $idController = new IdController();
-        $idController->addRandomId(15);
         if (!isset($_SESSION["uid"])) {
             return false;
         }
