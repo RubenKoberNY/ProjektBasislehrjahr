@@ -40,7 +40,7 @@ class UserRepository
                 FROM
                     quiz
                 WHERE
-                id_quiz IN (SELECT quiz_id FROM resultat WHERE benutzer_id = ?)";
+                id_quiz IN (SELECT quiz_id FROM resultat WHERE benutzer_id = ?) LIMIT 5";
 
         $stmt = DB::getInstance()->prepare($sql);
         $stmt->bind_param("i", $uid);
