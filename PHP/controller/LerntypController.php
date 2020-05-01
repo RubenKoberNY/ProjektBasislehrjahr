@@ -52,6 +52,22 @@ class LerntypController
             {
                 $msg = "Visueller Typ";
             }
+            else if ($au == 2)
+            {
+                $msg = "Auditiver Typ";
+            }
+            else if ($le == 2)
+            {
+                $msg = "Lesen und Schreibe Typ";
+            }
+            else if ($ki == 2)
+            {
+                $msg = "Kinästethischer Typ";
+            }
+            else if ($vi == 2)
+            {
+                $msg = "Visueller Typ";
+            }
             $this->LerntypRepository->insertUserAnswer($this->LerntypRepository->getFrageByAntworttext($v), $_SESSION["uid"], $res_id);
             $i++;
         }
