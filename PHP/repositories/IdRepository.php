@@ -11,7 +11,25 @@ class IdRepository
         if (!$stmt->execute()) {
             return false;
         }
-        return $stmt->get_result()->fetch_row();
+        $res = $stmt->get_result();
+        if (!$stmt->num_rows)
+            return false;
+        return $res->fetch_row();
+    }
+
+    public function getGameIdFromQuiz($quiz)
+    {
+        $sql = "CALL getGameIdFromQuiz(?);";
+        $stmt = DB::getInstance()->prepare($sql);
+        $stmt->bind_param("s", $quiz);
+        if (!$stmt->execute()) {
+            return false;
+        }
+        $res = $stmt->get_result();
+        if (!$res->num_rows) {
+            return false;
+        }
+        return $res->fetch_row();
     }
 
 }
