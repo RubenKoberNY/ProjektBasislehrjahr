@@ -19,8 +19,8 @@ function renderChart() {
             const wrong = urlParams.get("wrong");
             let color1 = "green";
             let color2 = "red";
-            if(urlParams.get("color1")) color1 = urlParams.get("color1");
-            if(urlParams.get("color2")) color2 = urlParams.get("color2");
+            if (urlParams.get("color1")) color1 = urlParams.get("color1");
+            if (urlParams.get("color2")) color2 = urlParams.get("color2");
             let rt = "Richtig";
             let wt = "Falsch";
             if (urlParams.get("rt")) rt = urlParams.get("rt");
@@ -58,7 +58,7 @@ function renderChart() {
 
 
             chart = new Chart(ctx, pieConfiguration);
-             break;
+            break;
         case "radar":
             //default values for quiz The Big Five, overridable
             let maxRange = 7.0;
@@ -125,15 +125,15 @@ function renderChart() {
             let cordy = urlParams.get("datay");
 
             let title = "Auswertung";
-            if(urlParams.get("title"))  title = urlParams.get("title");
+            if (urlParams.get("title")) title = urlParams.get("title");
             let yLabel = "";
-            if(urlParams.get("ylabel")) yLabel = urlParams.get("ylabel");
+            if (urlParams.get("ylabel")) yLabel = urlParams.get("ylabel");
             let xLabel = "";
-            if(urlParams.get("xlabel")) xLabel = urlParams.get("xlabel");
+            if (urlParams.get("xlabel")) xLabel = urlParams.get("xlabel");
             let xMax = 10;
-            if(urlParams.get("xmax")) xMax = urlParams.get("xmax");
+            if (urlParams.get("xmax")) xMax = urlParams.get("xmax");
             let yMax = 10;
-            if(urlParams.get("ymax")) yMax = urlParams.get("ymax");
+            if (urlParams.get("ymax")) yMax = urlParams.get("ymax");
             let scatteredConfiguration = {
                 type: 'scatter',
                 data: {
