@@ -32,14 +32,7 @@ class LerntypController
                         Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
                         oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.";
                     }
-                    else if ($au == 2)
-                    {
-                        $msg = "Sie sind zu 100% ein auditiver Lerntyp!.
-                        Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
-                        oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.";
-                    }
                     break;
-
                 case "V":
                     $vi++;
                     if ($vi == 3)
@@ -48,23 +41,11 @@ class LerntypController
                         Sie lernen durch Beobachtungen. Benutzen Sie Diagramme und Modelle, um Ihre Ideen zu visualisieren.
                         Ersetzen Sie Schlüsselwörter durch Symbole. Benutzen Sie Farbmarker.";
                     }
-                    else if ($vi == 2)
-                    {
-                        $msg = "Sie sind zu 66% ein visueller Lerntyp!.
-                        Sie lernen durch Beobachtungen. Benutzen Sie Diagramme und Modelle, um Ihre Ideen zu visualisieren.
-                        Ersetzen Sie Schlüsselwörter durch Symbole. Benutzen Sie Farbmarker.";
-                    }
                 case "R":
                     $le++;
                     if ($le == 3)
                     {
                         $msg = "Sie sind zu 100% ein lese und schreibe Lerntyp!.
-                        Sie lernen durch Texte. Sie schaffen Klarheit im Denken, indem Sie schreiben.
-                        Erweitern Sie Ihre Notizen beim Abschreiben. Formulieren Sie wichtige Stellen neu.";
-                    }
-                    else if ($le == 2)
-                    {
-                        $msg = "Sie sind zu 66% ein lese und schreibe Lerntyp!.
                         Sie lernen durch Texte. Sie schaffen Klarheit im Denken, indem Sie schreiben.
                         Erweitern Sie Ihre Notizen beim Abschreiben. Formulieren Sie wichtige Stellen neu.";
                     }
@@ -78,23 +59,20 @@ class LerntypController
                         Benutzen Sie Beispiele, um Ihre Konzepte zu erklären.
                         Versuchen Sie, sich nicht an Fakten zu erinnern, sondern an Erlebnisse.";
                     }
-                    else if ($ki == 2)
-                    {
-                        $msg = "Sie sind zu 66% ein kinästhetischer Lerntyp!.
-                        Sie lernen durch Ausprobieren.
-                        Benutzen Sie Beispiele, um Ihre Konzepte zu erklären.
-                        Versuchen Sie, sich nicht an Fakten zu erinnern, sondern an Erlebnisse.";
-                    }
-                    else if ($ki == 1)
-                    {
-                        $msg = "Nani desuka";
-                    }
                     break;
             }
+
+
             $this->LerntypRepository->insertUserAnswer($this->LerntypRepository->getFrageByAntworttext($v), $_SESSION["uid"], $res_id);
             $i++;
         }
         $most = max($au, $vi, $le, $ki);
+        if ($most == 2)
+        {
+            $msg = "Test";
+        }
+        else $msg = "Nani";
+
 
         /*
     if ($le == 3)
