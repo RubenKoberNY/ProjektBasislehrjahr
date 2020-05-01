@@ -16,9 +16,13 @@ p {
 }
 
 #law{
-    position: absolute;
+    position: fixed;
     bottom:10px;
     right: 10px;
+}
+
+#law a {
+    color: white !important;
 }
 
 /*
