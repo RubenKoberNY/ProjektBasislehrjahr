@@ -2,3 +2,7 @@
 label {
     color: #ffffff !important;
 }
+
+p {
+    text-align: justify;
+}
