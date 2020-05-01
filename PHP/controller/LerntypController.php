@@ -41,18 +41,45 @@ class LerntypController
         }
         $most = max($au, $vi, $le, $ki);
 
+    if ($le == 3)
+    {
+        $msg = "Sie sind zu 100% ein lese und schreibe Lerntyp!.
+            Sie lernen durch Texte. Sie schaffen Klarheit im Denken, indem Sie schreiben.
+            Erweitern Sie Ihre Notizen beim Abschreiben. Formulieren Sie wichtige Stellen neu.";
+    }
+    else if ($ki == 3)
+    {
+        $msg = "Sie sind zu 100% ein kinästhetischer Lerntyp!.
+            Sie lernen durch Ausprobieren.
+            Benutzen Sie Beispiele, um Ihre Konzepte zu erklären.
+            Versuchen Sie, sich nicht an Fakten zu erinnern, sondern an Erlebnisse.";
+    }
+    else if ($vi == 3)
+    {
+        $msg = "Sie sind zu 100% ein visueller Lerntyp!.
+            Sie lernen durch Beobachtungen. Benutzen Sie Diagramme und Modelle, um Ihre Ideen zu visualisieren.
+            Ersetzen Sie Schlüsselwörter durch Symbole. Benutzen Sie Farbmarker.";
+    }
+    else if ($au == 3)
+    {
+        $msg = "Sie sind zu 100% ein auditiver Lerntyp!.
+            Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
+            oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.";
+    }
+
         /* Auditiver Typ
              66%       */
-        if ($au == $most)
+        else if ($au == 2)
         {
             $msg = "Sie sind zu 66% ein auditiver Lerntyp!.
             Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
             oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.";
         }
 
+
         /* Visueller Typ
               66%     */
-        else if ($vi == $most)
+        else if ($vi == 2)
         {
             $msg = "Sie sind zu 66% ein visueller Lerntyp!.
             Sie lernen durch Beobachtungen. Benutzen Sie Diagramme und Modelle, um Ihre Ideen zu visualisieren.
@@ -60,7 +87,7 @@ class LerntypController
         }
         /* Kinästetischer Typ
              66%       */
-        else if ($ki == $most)
+        else if ($ki == 2)
         {
             $msg = "Sie sind zu 66% ein kinästhetischer Lerntyp!.
             Sie lernen durch Ausprobieren.
@@ -69,12 +96,20 @@ class LerntypController
         }
         /* Lese und Schreibe Typ
                  66%     */
-        else if ($le == $most)
+        else if ($le == 2)
         {
             $msg = "Sie sind zu 66% ein lese und schreibe Lerntyp!.
             Sie lernen durch Texte. Sie schaffen Klarheit im Denken, indem Sie schreiben.
             Erweitern Sie Ihre Notizen beim Abschreiben. Formulieren Sie wichtige Stellen neu.";
         }
+        else if ($most == 1)
+        {
+            $msg = "Sie sind 33% jedes Lerntypes!";
+        }
+
+
+
+
         Utils::redirect("/evaluation?hide=1&msg=".urlencode($msg));
     }
 }
