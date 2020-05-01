@@ -27,48 +27,41 @@ class LerntypController
                 case "A":
                     $au++;
                     $most = max($au, $vi, $le, $ki);
-                    if ($au == 3)
-                    {
+                    if ($au == 3) {
                         $msg = "Sie sind zu 100% ein auditiver Lerntyp!.
                         Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
                         oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.";
                     }
+                    else $msg = "Sie haben keinen eindeutigen Lerntyp!";
                     break;
                 case "V":
                     $vi++;
-                    if ($vi == 3)
-                    {
+                    if ($vi == 3) {
                         $msg = "Sie sind zu 100% ein visueller Lerntyp!.
                         Sie lernen durch Beobachtungen. Benutzen Sie Diagramme und Modelle, um Ihre Ideen zu visualisieren.
                         Ersetzen Sie Schlüsselwörter durch Symbole. Benutzen Sie Farbmarker.";
                     }
+                    else $msg = "Sie haben keinen eindeutigen Lerntyp!";
                 case "R":
                     $le++;
-                    if ($le == 3)
-                    {
+                    if ($le == 3) {
                         $msg = "Sie sind zu 100% ein lese und schreibe Lerntyp!.
                         Sie lernen durch Texte. Sie schaffen Klarheit im Denken, indem Sie schreiben.
                         Erweitern Sie Ihre Notizen beim Abschreiben. Formulieren Sie wichtige Stellen neu.";
                     }
+                    else $msg = "Sie haben keinen eindeutigen Lerntyp!";
                     break;
                 case "K":
                     $ki++;
-                    if ($ki == 3)
-                    {
+                    if ($ki == 3) {
                         $msg = "Sie sind zu 100% ein kinästhetischer Lerntyp!.
                         Sie lernen durch Ausprobieren.
                         Benutzen Sie Beispiele, um Ihre Konzepte zu erklären.
                         Versuchen Sie, sich nicht an Fakten zu erinnern, sondern an Erlebnisse.";
                     }
+                    else $msg = "Sie haben keinen eindeutigen Lerntyp!";
                     break;
             }
-
-            if ($most == 2)
-            {
-                $msg = "Test";
-            }
-            else $msg = "Nani";
-
 
             $this->LerntypRepository->insertUserAnswer($this->LerntypRepository->getFrageByAntworttext($v), $_SESSION["uid"], $res_id);
             $i++;
