@@ -11,7 +11,8 @@ class IdRepository
         if (!$stmt->execute()) {
             return false;
         }
-        return $stmt->get_result()->fetch_row();
+        $res = $stmt->get_result();
+        return $res->fetch_row();
     }
 
 }

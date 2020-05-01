@@ -27,7 +27,7 @@ class IdController
     function login($game_id)
     {
         $res = $this->repository->getQuizFromGameId($game_id);
-        if ($res) {
+        if ($res != false) {
             if (sizeof($res) == 0) {
                 Utils::redirect("/login");
             } else {

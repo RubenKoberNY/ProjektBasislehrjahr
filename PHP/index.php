@@ -62,7 +62,7 @@ $path = "./";
 const BASE_URL = "/";
 $GLOBALS["BASE_URL"] = BASE_URL;
 $allowed = array(BASE_URL . "login", BASE_URL . "api/login", BASE_URL . "api/register", BASE_URL . "register", BASE_URL . "", BASE_URL . "api/idlogin", BASE_URL . "api/loadfile", BASE_URL . "datenschutz", BASE_URL . "impressum"); //all pages that can be visited without login
-if ((!in_array($uri, $allowed)) && (!isset($_SESSION["uid"]) || $_SESSION["uid"] == "gameid")) { //redirect to login if requested page requires a user
+if ((!in_array($uri, $allowed)) && !isset($_SESSION["uid"])) { //redirect to login if requested page requires a user
     Utils::redirect("/login", 401);
 }
 $c = new \Slim\Container();
