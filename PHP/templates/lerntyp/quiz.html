@@ -1,121 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h6 class="center-align" style="color: whitesmoke; margin-bottom: 5%;">LERNTYP-QUIZ</h6>
-<!-- FRAGE 1 -->
-<div>
-    <form action="#">
+<div class=white-text>
+    <div class="boxinhalt">
+        <h1 class="center-align"> Lerntyp - Quiz </h1>
         <p>
-            Sie bekommen die Speisekarte im Restaurant.
-            <br>
-            Wie entscheiden Sie sich?
+        <h5 class="center-align" style="margin-top: 5%;">Das Thema</h5>
+        Zu den schnellsten Small-Talk-Startern gehören Gespräche über Misserfolge in der Schule.
+        Jedermann wirt erleichtert sein schwächstes Fach nennen und darüber berichten, dass er
+        "eine Niete in Math" war, "Französisch gehasst" oder "schlechter gezeichnet als ein Kleinkind".
+        Siege sind gut für die Seele, Niederlagen sind gut für Geschichten.
+        Möglicherweise besitzen Sie tatsächlich für manche Fächer kein Talent.
+        Möglicherweise wurden Sie aber auch nur falsch an das Fach herangeführt.
+        Wir reden hier nicht von unsensiblen Pädagogen, sondern von unterschiedlichen Lerntypen.
         </p>
         <p>
-            <label>
-                <input class="with-gap" name="group1" type="radio"checked/>
-                <span>Sie wählen Ihr Menü auf Basis der Beschreibung</span>
-            </label>
+        <h5 class="center-align">Der Test</h5>
+        Neil Fleming entwickelte 1987 den richtungweisenden VARK-Test, um die persönliche Lernpräferenz zu ermitteln.
+        Obwohl die Validität des Tests immer wieder infrage gestellt wurde, ist er bis heute eine der populärsten Methoden zur Ermittlung des Lerntyps.
         </p>
-        <p> K
-            <label>
-                <input class="with-gap" name="group1" type="radio"/>
-                <span>Sie bestellen etwas, das Sie schon einmal probiert haben.</span>
-            </label>
-        </p>
-        <p> V
-            <label>
-                <input class="with-gap" name="group1" type="radio"/>
-                <span>Sie schauen, was andere am Nachbartisch bestellen</span>
-            </label>
-        </p>
-        <p> A
-            <label>
-                <input class="with-gap" name="group1" type="radio"/>
-                <span>Sie bitten den Kellner oder Ihre Begleitung, Ihnen bei der Entscheidung zu helfen.</span>
-            </label>
-        </p>
-    </form>
-</div>
-<br>
-<!-- FRAGE 2 -->
-<div>
-    <form action="#">
         <p>
-            Bevorzugen Sie eine Lehrperson, die gerne...
+        <h5 class="center-align">Die Auswertung</h5>
+        Man unterscheidet normalerweise zwischen vier verschiedenen Lerntypen:
+        <br>
+        <b><em>Visueller Typ:</em></b> Sie lernen durch Beobachtungen. Benutzen Sie Diagramme und Modelle, um Ihre Ideen zu visualisieren.
+        Ersetzen Sie Schlüsselwörter durch Symbole. Benutzen Sie Farbmarker.
+        <br>
+        <b><em>Auditiver Typ:</em></b> Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
+        oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.
+        <br>
+        <b><em>Lese- und Schreibe-Typ:</em></b> Sie lernen durch Texte. Sie schaffen Klarheit im Denken, indem Sie schreiben.
+        Erweitern Sie Ihre Notizen beim Abschreiben. Formulieren Sie wichtige Stellen neu.
+        <br>
+        <b><em>Kinästhetischer Typ:</em></b> Sie lernen durch Ausprobieren.
+        Benutzen Sie Beispiele, um Ihre Konzepte zu erklären.
+        Versuchen Sie, sich nicht an Fakten zu erinnern, sondern an Erlebnisse.
         </p>
-        <p> R
-            <label>
-                <input class="with-gap" name="group1" type="radio"checked/>
-                <span>Handouts und/oder ein Textbuch verwendet?</span>
-            </label>
-        </p>
-        <p> K
-            <label>
-                <input class="with-gap" name="group1" type="radio"/>
-                <span>Flussdiagramme, Grafiken, Filme verwendet?</span>
-            </label>
-        </p>
-        <p> V
-            <label>
-                <input class="with-gap" name="group1" type="radio"/>
-                <span>Feldexkursionen oder Praktika organisiert?</span>
-            </label>
-        </p>
-        <p> A
-            <label>
-                <input class="with-gap" name="group1" type="radio"/>
-                <span>Diskussionen durchführt und Gastreferenten einlädt?</span>
-            </label>
-        </p>
-    </form>
-</div>
-<br>
+    </div>
+    <div>
+        <form id="quiz" action="%BASE_URL%api/lerntyp/post" method="post">
+        </form>
+    </div>
 
-<!-- FRAGE 3 -->
-<div>
-    <form action="#">
-        <p>
-            Sie kaufen eine neue Digitalkamera.
-            <br>
-            Was, ausser dem Preis, beeinflusst Ihre Entscheidung am meisten?
-        </p>
-        <p> R
-            <label>
-                <input class="with-gap" name="group1" type="radio"checked/>
-                <span>Die Features der Kamera, über die Sie sich im Manual oder online informiert haben.</span>
-            </label>
-        </p>
-        <p> K
-            <label>
-                <input class="with-gap" name="group1" type="radio"/>
-                <span>Die Fachperson, die Ihnen die Features erklärt hat.</span>
-            </label>
-        </p>
-        <p> V
-            <label>
-                <input class="with-gap" name="group1" type="radio"/>
-                <span>Das Design der Kamera, das Sie anspricht</span>
-            </label>
-        </p>
-        <p> A
-            <label>
-                <input class="with-gap" name="group1" type="radio"/>
-                <span>Der Test, dem Sie die Kamera unterzogen haben.</span>
-            </label>
-        </p>
-    </form>
 </div>
-
-<!-- SUBMIT -->
-<div class="center-align">
-<button class="btn waves-effect waves-light" type="submit" name="submit">Submit
-    <i class="material-icons right">send</i>
-</button>
-</div>
-
-</body>
-</html>

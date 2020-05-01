@@ -7,18 +7,20 @@
     <!--import icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--import custom css-->
-    <link rel="stylesheet" type="text/css" href="/templates/static/css/login.css">
+    <link rel="stylesheet" type="text/css" href="%BASE_URL%api/loadfile?file=templates/static/css/login.css&type=css">
     <!--import materialize.css-->
-    <link rel="stylesheet" href="/templates/static/css/materialize.css">
+    <link rel="stylesheet" href="%BASE_URL%api/loadfile?file=templates/static/css/materialize.css&type=css">
     <!--import normalize.css-->
-    <link rel="stylesheet" href="/templates/static/css/normalize.css">
+    <link rel="stylesheet" href="%BASE_URL%api/loadfile?file=templates/static/css/normalize.css&type=css">
+    <!--import cookie.css-->
+    <link rel="stylesheet" href="%BASE_URL%api/loadfile?file=templates/static/css/cookie.css&type=css">
     <title>Login</title>
 </head>
 <body>
 <div class="container ">
     <!--Login Form-->
     <div id="loginForm" class="section row">
-        <form action="/api/login" method="POST" class="col offset-l3 l6 offset-s1 s10 offset-m2 m8  grey darken-2">
+        <form action="%BASE_URL%api/login" method="POST" class="col offset-l3 l6 offset-s1 s10 offset-m2 m8  grey darken-2">
             <!--Username-->
             <div class="row">
                 <div class="input-field col s12">
@@ -67,7 +69,7 @@
     <div class="modal-content">
         <h4 class="center-align">Registrieren</h4>
         <div class="col s6">
-            <form action="/api/register" method="POST">
+            <form action="%BASE_URL%api/register" method="POST">
                 <div class="row">
                     <div class="input-field col m6 s12">
                         <input name="first_name" id="firstname" type="text" class="validate" maxlength="45" required="" aria-required="true">
@@ -92,23 +94,6 @@
 
                     <!--Select Gender-->
                     <div id="genderSelection" class="input-field col s12">
-                        <p>
-                            Geschlecht
-                        </p>
-                        <p>
-                            <label>
-                                <input class="with-gap" name="male" type="radio" checked="checked"/>
-                                <span>Männlich</span>
-                            </label>
-                            <label>
-                                <input class="with-gap" name="female" type="radio"/>
-                                <span>Weiblich</span>
-                            </label>
-                            <label>
-                                <input class="with-gap" name="other" type="radio"/>
-                                <span>Andere</span>
-                            </label>
-                        </p>
                         <div class="input-field col s12">
                             <button type="submit" class="waves-effect waves-light btn">Registrieren</button>
                         </div>
@@ -128,10 +113,11 @@
     <div class="modal-content">
         <h4 class="center-align">GameID</h4>
         <div class="col s6">
-            <form class="center-align">
+            <form method="POST" action="%BASE_URL%api/idlogin" class="center-align">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="gameid" type="text" class="validate" maxlength="8" required="" aria-required="true">
+                        <input name="game_id" id="gameid" type="text" class="validate" maxlength="8" required=""
+                               aria-required="true">
                         <label for="gameid">GameID</label>
                     </div>
                     <div class="input-field col s12">
@@ -142,19 +128,24 @@
         </div>
     </div>
 
-    <!--TODO: change Link -->
     <div class="modal-footer">
         <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Abbrechen</a>
     </div>
 </div>
 
+<!--html for Cookie Notification-->
+<div class="cookieNotification js-cookieNotification">
+    Diese Webseite verwendet Cookies. Wenn Sie auf der Webseite bleiben erklären Sie sich mit unseren <a
+        href="%BASE_URL%datenschutz">Datenschutzerklärungen</a> einverstanden.
+</div>
+
 <!--import jQuery-->
-<script src="/templates/static/js/jquery.min.js"></script>
+<script src="%BASE_URL%api/loadfile?file=templates/static/js/jquery.min.js&type=js"></script>
 
 <!--import materialize.js-->
-<script src="/templates/static/js/materialize.js"></script>
+<script src="%BASE_URL%api/loadfile?file=templates/static/js/materialize.min.js&type=js"></script>
 
 <!--custom JS-->
-<script src="/templates/static/js/login.js"></script>
+<script src="%BASE_URL%api/loadfile?file=templates/static/js/login.js&type=js"></script>
 </body>
 </html>

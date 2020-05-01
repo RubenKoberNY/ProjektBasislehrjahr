@@ -2,48 +2,30 @@
   width: 100%; /* Width of the outside container */
   text-align: center;
 }
- 
+
 /* The slider itself */
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 150px; /* Full-width */
+  margin-top: 20px !important;
+  width: 130px !important; /* Full-width */
+  border: none !important;
   height: 25px; /* Specified height */
-  background: #d3d3d3; 
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
 }
 
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+p { /*minor text changes*/
+  text-align: center;
+  font-size: 14px;
+  Margin: 14px 0px 14px 0px;
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4CAF50;
-  cursor: pointer; /* Cursor on hover */
+.wrapper {
+  text-align: center;
 }
 
-.slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #4CAF50;
-  cursor: pointer; /* Cursor on hover */
+button { /*button placement*/
+  position: absolute;
+  width: auto;
 }
-
-p{/*minor text changes*/
-text-align: center;
-font-size: 14px;
-Margin: 14px 0px 14px 0px;
-}
-
-button{/*button placement*/
-  margin-left: 45%;
-  width: 10%;
+/*Global Design*/
+label {
+  color: #ffffff !important;
 }

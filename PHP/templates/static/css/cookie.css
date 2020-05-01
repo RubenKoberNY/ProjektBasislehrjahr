@@ -1,0 +1,11 @@
+/* Quelle https://stackoverflow.com/questions/55782865/create-cookie-banner/55786219 */
+.cookieNotification {
+    display: none;
+    background-color: lightblue;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}

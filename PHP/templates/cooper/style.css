@@ -2,20 +2,14 @@ label {
     color: #ffffff !important;
 }
 
-.cooper {
-    padding-bottom: 25px;
-}
-
 .custom {
     width: 100px !important;
 }
 
-/*
-=====================================
-radioButtons
-=====================================
-*/
-[type="radio"]:not(:checked) + span:before,
-[type="radio"]:not(:checked) + span:after {
-    border: 2px solid #ffffff !important;
+.distance {
+    width: 200px !important;
+}
+
+.done {
+    margin-bottom: 25px;
 }

@@ -1,78 +1,81 @@
-<div class="center white-text cooper">
+<div class="center white-text">
     <h4>Der Cooper-Test</h4>
     <hr>
-    <br>
     <h5>Wie ausdauernd bin ich?</h5>
     <h6>Der Test</h6>
     <p>Laufe 12 Minuten auf einer 400-Meter-Bahn!</p>
     <h6>Die Auswertung</h6>
     <p>Faustregel: Wer über 3000 Meter schafft, hat eine hervorragende Kondition.</p>
     <br>
-    <form action="#">
-        <p>Bitte wähle dein Geschlecht:</p>
-        <p>
-            <label>
-                <input class="with-gap" name="gender" type="radio" value="male"/>
-                <span class="custom">Männlich</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input class="with-gap" name="gender" type="radio" value="female"/>
-                <span class="custom">Weiblich</span>
-            </label>
-        </p>
+    <h6>1. Bitte wähle dein Geschlecht:</h6>
+    <div id="genders">
+        <label>
+            <input checked class="with-gap" name="gender" type="radio" value="male">
+            <span class="custom">Männlich</span>
+        </label>
         <br>
-        <p>Bitte wähle dein Alter:</p>
-        <p>
-            <label>
-                <input class="with-gap" name="age" type="radio" value="13">
-                <span class="custom">13–14</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input class="with-gap" name="age" type="radio" value="15">
-                <span class="custom">15–16</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input class="with-gap" name="age" type="radio" value="17">
-                <span class="custom">17–19</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input class="with-gap" name="age" type="radio" value="20">
-                <span class="custom">20–29</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input class="with-gap" name="age" type="radio" value="30">
-                <span class="custom">30–39</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input class="with-gap" name="age" type="radio" value="40">
-                <span class="custom">40–49</span>
-            </label>
-        </p>
-        <p>
-            <label>
-                <input class="with-gap" name="age" type="radio" value="50">
-                <span class="custom">50 +</span>
-            </label>
-        </p>
-        <p>Deine zurückgelegte Strecke nach 12 Minuten (in Meter):</p>
-        <p class="range-field">
-            <input max="3000" min="1000" type="range"/>
-        </p>
+        <label>
+            <input checked class="with-gap" name="gender" type="radio" value="female">
+            <span class="custom">Weiblich</span>
+        </label>
+    </div>
+    <br>
+    <h6>2. Bitte wähle dein Alter:</h6>
+    <div id="ages">
+        <label>
+            <input checked class="with-gap" name="age" type="radio" value="age1">
+            <span class="custom">20 – 29</span>
+        </label>
         <br>
-        <button class="btn waves-effect waves-light" name="action" type="submit">Submit
-            <i class="material-icons right">send</i>
-        </button>
-    </form>
+        <label>
+            <input class="with-gap" name="age" type="radio" value="age2">
+            <span class="custom">30 – 39</span>
+        </label>
+        <br>
+        <label>
+            <input class="with-gap" name="age" type="radio" value="age3">
+            <span class="custom">40 – 49</span>
+        </label>
+        <br>
+        <label>
+            <input class="with-gap" name="age" type="radio" value="age4">
+            <span class="custom">50 – 59</span>
+        </label>
+        <br>
+        <label>
+            <input class="with-gap" name="age" type="radio" value="age4">
+            <span class="custom">60+</span>
+        </label>
+    </div>
+    <br>
+    <h6>3. Deine zurückgelegte Strecke nach 12 Minuten (in Meter):</h6>
+    <label>
+        <input checked class="with-gap" name="length" type="radio" value="vgood">
+        <span class="distance" id="lengthLabel1"></span>
+    </label>
+    <br>
+    <label>
+        <input class="with-gap" name="length" type="radio" value="good">
+        <span class="distance" id="lengthLabel2"></span>
+    </label>
+    <br>
+    <label>
+        <input class="with-gap" name="length" type="radio" value="average">
+        <span class="distance" id="lengthLabel3"></span>
+    </label>
+    <br>
+    <label>
+        <input class="with-gap" name="length" type="radio" value="bad">
+        <span class="distance" id="lengthLabel4"></span>
+    </label>
+    <br>
+    <label>
+        <input class="with-gap" name="length" type="radio" value="vbad">
+        <span class="distance" id="lengthLabel5"></span>
+    </label>
+    <hr>
+    <br>
+    <div class="done" id="submit">
+        <button class="waves-effect waves-light btn" onclick="submit();">Absenden</button>
+    </div>
 </div>
