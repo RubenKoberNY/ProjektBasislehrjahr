@@ -38,4 +38,13 @@ class IdController
             Utils::redirect("/login");
         }
     }
+
+    function getGameId($quiz)
+    {
+        $res = $this->repository->getGameIdFromQuiz($quiz);
+        if ($res) {
+            return $res[0];
+        }
+        return false;
+    }
 }

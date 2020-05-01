@@ -89,18 +89,22 @@ $app->get("/", function (Request $request, Response $response, array $args) {
 
 //Router
 $app->get("/quiz/{quiz}", function (Request $request, Response $response, array $args) {
-    Render::render($args["quiz"] . "/quiz.html", $args["quiz"] . "/style.css", $args["quiz"] . "/script.js");
+    $idController = new IdController();
+    $quiz = array_search($args["quiz"], Utils::$map);
+    $gameIdCode = "<h6 class='white-text'>Game-ID: " . $idController->getGameId($quiz) . "</h6>";
+    error_log($gameIdCode);
+    Render::render($args["quiz"] . "/quiz.html", $args["quiz"] . "/style.css", $args["quiz"] . "/script.js", array("gameid" => $gameIdCode));
 });
 
 $app->get("/dashboard", function (Request $request, Response $response, array $args) {
     Render::render("general/index.html", null, "static/js/index.js");
 });
 
-$app->get("/datenschutz", function (Request $request, Response $response, array $args){
-   Render::render("general/datenschutz.html", null, null, array(),true);
+$app->get("/datenschutz", function (Request $request, Response $response, array $args) {
+    Render::render("general/datenschutz.html", null, null, array(), true);
 });
 // Login Frontend
-$app->get( "/login", function (Request $request, Response $response, array $args) {
+$app->get("/login", function (Request $request, Response $response, array $args) {
     if (isset($_SESSION["uid"]) && $_SESSION["uid"] != "gameid") Utils::redirect(BASE_URL);
     Render::render("general/login.html", null, null, array(), true);
 });
