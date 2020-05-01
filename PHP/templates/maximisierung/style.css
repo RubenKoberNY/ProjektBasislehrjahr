@@ -83,3 +83,8 @@ p.white-text {
     text-decoration: none;
     cursor: pointer;
 }
+/* CSS for the Radio Button margin -right (Grösserer Abstand) */
+/*Global Design*/
+label {
+    margin-right: 15px;
+}

@@ -7,13 +7,15 @@ class TheBigFiveController
     {
         $this->bigFiveRepository = new TheBigFiveRepository();
     }
-    public function getAllQuestions() {
+
+    public function getAllQuestions()
+    {
         $questionArray = $this->bigFiveRepository->getAllQuestionsFromBigFive();
         return json_encode($questionArray);
     }
-    public function save($array) {
-        $idController = new IdController();
-        $idController->addRandomId(2);
+
+    public function save($array)
+    {
         if (!isset($_SESSION["uid"])) {
             return false;
         }
