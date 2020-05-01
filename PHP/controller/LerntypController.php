@@ -80,6 +80,10 @@ class LerntypController
             {
                 $msg = "Kein bestimmter Lerntyp";
             }
+            else if ($au && $vi && $ki == 1)
+            {
+                $msg = "Kein bestimmter Lerntyp";
+            }
             $this->LerntypRepository->insertUserAnswer($this->LerntypRepository->getFrageByAntworttext($v), $_SESSION["uid"], $res_id);
             $i++;
         }
