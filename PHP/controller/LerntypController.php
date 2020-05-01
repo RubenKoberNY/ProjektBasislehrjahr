@@ -34,7 +34,7 @@ class LerntypController
                     }
                     else if ($au == 2)
                     {
-                        $msg = "Sie sind zu 66% ein auditiver Lerntyp!.
+                        $msg = "Sie sind zu 100% ein auditiver Lerntyp!.
                         Sie lernen durch Zuhören. Stellen Sie Fragen. Diskutieren Sie mit anderen die Themen, die Sie sich merken müssen,
                         oder tragen Sie Ihr Thema wie ein Mini-Referat laut vor.";
                     }
@@ -84,6 +84,10 @@ class LerntypController
                         Sie lernen durch Ausprobieren.
                         Benutzen Sie Beispiele, um Ihre Konzepte zu erklären.
                         Versuchen Sie, sich nicht an Fakten zu erinnern, sondern an Erlebnisse.";
+                    }
+                    else if ($ki == 1)
+                    {
+                        $msg = "Nani desuka";
                     }
                     break;
             }
