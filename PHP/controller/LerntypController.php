@@ -102,7 +102,7 @@ class LerntypController
             Sie lernen durch Texte. Sie schaffen Klarheit im Denken, indem Sie schreiben.
             Erweitern Sie Ihre Notizen beim Abschreiben. Formulieren Sie wichtige Stellen neu.";
         }
-        else if ($most == 1)
+        else if ($au && $le && $ki && $vi == $most)
         {
             $msg = "Sie sind 33% jedes Lerntypes!";
         }
