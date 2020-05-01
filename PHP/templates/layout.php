@@ -73,7 +73,7 @@
 </div>
 
 
-<div id="law" style="position: fixed">
+<div id="law" >
     <a href="%BASE_URL%impressum">Impressum</a>
     <span> </span>
     <a href="%BASE_URL%datenschutz">Datenschutz</a>
