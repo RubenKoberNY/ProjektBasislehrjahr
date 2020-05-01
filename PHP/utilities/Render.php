@@ -12,6 +12,7 @@ class Render
     public static function render($file, $stylesheet = null, $script = null, $args = array(), $nolayout = false)
     {
         $args["BASE_URL"] = $GLOBALS["BASE_URL"];
+        $args["gameid"] = "";
         if (file_exists(self::$tempdir . "/" . explode("/", $file)[0])) {
             $page = "";
             if ($nolayout) {

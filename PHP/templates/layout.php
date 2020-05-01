@@ -59,19 +59,21 @@
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/risiko">Risiko</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/selfleadership">Self-Leadership</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/socialmedia">Social-Media-Sucht</a>
-            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/werwirdmillionaer">Wer wird Millionär?</a>
+            <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()"
+               href="%BASE_URL%quiz/werwirdmillionaer">Wer wird Millionär?</a>
             <a class="hvr-underline-from-left menu-item" onclick="toggleSidebar()" href="%BASE_URL%quiz/worklife">Work-Life</a>
-            <img class="logoImage" src="%BASE_URL%templates/static/img/logo.gif">
+            <a href="%BASE_URL%"><img class="logoImage" src="%BASE_URL%templates/static/img/logo.gif"></a>
             <a onclick="toggleSidebar()" href="#"></a>
         </div>
     </div>
 </nav>
 <div class="container">
+    %gameid%
     %%content%%
 </div>
 
 
-<div id="law">
+<div id="law" >
     <a href="%BASE_URL%impressum">Impressum</a>
     <span> </span>
     <a href="%BASE_URL%datenschutz">Datenschutz</a>

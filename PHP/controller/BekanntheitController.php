@@ -18,8 +18,6 @@ class BekanntheitController
 
     public function save($arr)
     {
-        $idController = new IdController();
-        $idController->addRandomId(21);
         header("Content-Type: application/json");
         $res_id = null;
         if (isset($_SESSION['uid']))

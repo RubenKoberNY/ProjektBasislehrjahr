@@ -22,8 +22,6 @@ class WerWirdMillionaerController
 
     public function save($arr)
     {
-        $idController = new IdController();
-        $idController->addRandomId(23);
         if (!isset($_SESSION["uid"])) {
             return false;
         }

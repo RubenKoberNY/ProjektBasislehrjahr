@@ -46,4 +46,18 @@ class UserController
             Utils::redirect("/login");
         }
     }
+
+
+    //Author: Jan
+    public function printAllQuizzes($uid)
+    {
+        $quizzes = $this->userRepository->getQuizzesFromUserId($uid);
+
+        if ($quizzes) {
+            echo json_encode($quizzes);
+        } else {
+            echo "{}";
+        }
+    }
+
 }
