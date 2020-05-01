@@ -26,6 +26,7 @@ class LerntypController
             switch ($v[0]) {
                 case "A":
                     $au++;
+                    $most = max($au, $vi, $le, $ki);
                     if ($au == 3)
                     {
                         $msg = "Sie sind zu 100% ein auditiver Lerntyp!.
@@ -62,16 +63,17 @@ class LerntypController
                     break;
             }
 
+            if ($most == 2)
+            {
+                $msg = "Test";
+            }
+            else $msg = "Nani";
+
 
             $this->LerntypRepository->insertUserAnswer($this->LerntypRepository->getFrageByAntworttext($v), $_SESSION["uid"], $res_id);
             $i++;
         }
-        $most = max($au, $vi, $le, $ki);
-        if ($most == 2)
-        {
-            $msg = "Test";
-        }
-        else $msg = "Nani";
+
 
 
         /*
