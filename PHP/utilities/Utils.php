@@ -16,7 +16,7 @@ class Utils
         "self-leadership" => "selfleadership",
         "Work-Life" => "worklife",
         "Social Media Süchtig" => "socialmedia",
-        "Bekanntheistest" => "bekanntheitstest",
+        "Bekanntheistest" => "bekanntheit",
         "Einbürgerung" => "einbuergerung",
         "Wer wird Millionär" => "werwirdmillionaer");
 
